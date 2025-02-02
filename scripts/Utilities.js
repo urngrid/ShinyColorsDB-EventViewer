@@ -3,6 +3,15 @@ class Utilities {
      * @param {PIXIObject} pixiObj
      * @param {{type: fromTo,alpha: targetValue, time: effectLastingTime, ease: easingType}} effectValue
     **/
+
+    //参看chunkjs 496636: (e, t, n) app-e068da2c7784d39c21c6.js
+
+
+
+
+
+
+
     static fadingEffect(pixiObj, effectValue, isFastForward) {
 
         const thisEffect = this._getFromTo(effectValue.type);

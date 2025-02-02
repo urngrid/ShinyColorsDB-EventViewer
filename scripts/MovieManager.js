@@ -23,6 +23,17 @@ class MovieManager {
         let texture = PIXI.Texture.from(this._loader.resources[`movie${movie}`].data);
         let movieSprite = new PIXI.Sprite(texture);
 
+        //修改标记
+        //下移并缩放 添加代码//
+        
+        const YOffset=320 //垂直方向从640P缩小到480P 所以YOffset要增加160/2
+        const XOffset=142
+        const XZoomRate=0.75
+        const YZoomRate=0.75
+        movieSprite.position.set(movieSprite.position.x + XOffset,movieSprite.position.y + YOffset);
+        movieSprite.scale.set(XZoomRate, YZoomRate);
+        ////
+
         this._container.addChild(movieSprite);
 
         const controller = movieSprite.texture.baseTexture.resource.source;

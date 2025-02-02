@@ -3,3 +3,14 @@
 .note.txt
 
 assets/*.woff2
+
+assets/translateData_local/csv
+
+assets/translateData_local/csv_modified
+
+*.md
+
+
+
+
+

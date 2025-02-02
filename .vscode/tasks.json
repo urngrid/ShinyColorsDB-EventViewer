@@ -1,0 +1,31 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+      {
+          "label": "Start HTTP Server assets",
+          "type": "shell",
+          "command": "http-server J:/shinycolors_J/shinycolors-assets-downloader/assets/ -p 5174 --cors",
+          "group": {
+              "kind": "build",
+              "isDefault": true
+          },
+          "presentation": {
+              "reveal": "always",
+              "panel": "shared"  // 将任务运行在同一个终端面板中
+          }
+      },
+      {
+          "label": "Start HTTP Server EventViewer",
+          "type": "shell",
+          "command": "http-server J:/shinycolors_J/ShinyColorsDB-EventViewer",
+          "group": {
+              "kind": "build",
+              "isDefault": true
+          },
+          "presentation": {
+              "reveal": "always",
+              "panel": "shared"  // 将任务运行在同一个终端面板中
+          }
+      }
+  ]
+}

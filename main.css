@@ -11,17 +11,36 @@ canvas {
     transform: translate(-50%, -50%);
 }
 
+
+/*
 @font-face {
     font-family: 'theFont';
     src: url(./assets/TsunagiGothic.ttf);
-}
+}*/
 
 /* @font-face {
     font-family: 'three';
     src: url(./assets/three.ttf);
 } */
 
-@font-face {
+/* @font-face {
     font-family: 'AlimamaShuHeiTi';
     src: url(./assets/AlimamaShuHeiTi.ttf);
+} */
+
+/* 新增部分 */
+
+@font-face {
+    font-family: 'theFont';
+    src: url(./assets/HummingStd-E.otf);
+}
+
+@font-face {
+    font-family: 'maoken_xiuyayuan.ttf';
+    src: url(./assets/maoken_xiuyayuan.ttf);
+}
+
+@font-face {
+    font-family: 'MonuTitl-0.95CnBd.ttf';
+    src: url(./assets/MonuTitl-0.95CnBd.ttf);
 }
