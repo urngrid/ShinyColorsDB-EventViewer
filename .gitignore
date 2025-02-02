@@ -2,16 +2,8 @@
 
 .note.txt
 
-assets/*.woff2
-
-assets/translateData_local/csv
-
-assets/translateData_local/csv_modified
-
 *.md
 
+assets/*
 
-
-
-
-assets/
+!assets/translateData_local/commu_data/
