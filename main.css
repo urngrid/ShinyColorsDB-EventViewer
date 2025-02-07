@@ -1,4 +1,4 @@
-html, body {
+/*html, body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -9,11 +9,28 @@ canvas {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}*/
+
+html, body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000; /* 整个浏览器窗口的背景色 */
+    min-height: 100%;
+
+    overflow: hidden; /* 禁止滚动条 */
+
+    
+}
+canvas {
+    position: relative; /* 绝对定位可能导致安卓偏移，改为 relative */
 }
 
 
-/*
-@font-face {
+/*@font-face {
     font-family: 'theFont';
     src: url(./assets/TsunagiGothic.ttf);
 }*/
@@ -33,7 +50,7 @@ canvas {
 @font-face {
     font-family: 'theFont';
     src: url(./assets/HummingStd-E.otf);
-}
+} 
 
 @font-face {
     font-family: 'maoken_xiuyayuan.ttf';

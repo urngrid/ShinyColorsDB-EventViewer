@@ -93,13 +93,21 @@ async function init() {
       const result = await advPlayer.loadTrackScript(jsonPath);
       if (!result) {
         alert("No such event.");
-        window.location.href = "http://127.0.0.1:5500/main.html"; // 跳转到根 URL
+        //修改标记
+        console.log("Load result:", result); // 调试
+        // window.location.href = "http://127.0.0.1:5500/main.html"; // 跳转到根 URL
+        window.location.href = window.location.origin + window.location.pathname;
+        //
         return;
       }
     } catch (error) {
       console.error("Error loading track script:", error);
       alert("No such event.");
-      window.location.href = "http://127.0.0.1:5500/main.html"; // 跳转到根 URL
+      console.log("Load result:", result); // 调试
+      //修改标记
+      // window.location.href = "http://127.0.0.1:5500/main.html"; // 跳转到根 URL
+      window.location.href = window.location.origin + window.location.pathname;
+      //
       return;
     }
     ////
@@ -185,7 +193,18 @@ class AdvPlayer {
       width: 1136,
       //height: 640,
       height: 1280,
+      //
+      backgroundColor: 0x000000,
+      antialias: true,       // 启用抗锯齿
+      resolution: window.devicePixelRatio || 2, // 提高分辨率
+      autoDensity: true      // 让 PIXI 适应高 DPI 屏幕
+      //修改标记完
+
+
+
     });
+
+
 
     this._app.view.setAttribute("id", "ShinyColors");
 
@@ -409,7 +428,10 @@ class AdvPlayer {
 
     //修改标记
     //let ratio = Math.min(width / 1136, height / 640);
-    let ratio = Math.min(width / 1136, height / 1280);
+    //修改标记 全局缩放
+    let customzoom =1.25
+    // let ratio = Math.min(width / 1136, height / 1280);
+    let ratio = Math.min(width / 1136, height / 1280) * customzoom;
     // let resizedY = 640 * ratio;
     let resizedY = 1280 * ratio;
     ////
@@ -481,7 +503,10 @@ class AdvPlayer {
 
     //auto Btn
     autoBtn.anchor.set(0.5);
-    autoBtn.position.set(1075, 50);
+    //修改标记
+    // autoBtn.position.set(1075, 50);
+    autoBtn.position.set(950, 50);
+    //
     autoBtn.interactive = true;
     this._app.stage.addChild(autoBtn);
 
@@ -496,7 +521,12 @@ class AdvPlayer {
     //Trans
     if (this._isTranslate) {
       switchLangBtn.anchor.set(0.5);
-      switchLangBtn.position.set(1075, 130);
+
+      //修改标记  
+      // switchLangBtn.position.set(1075, 130);
+      switchLangBtn.position.set(950, 130);
+      //
+
       switchLangBtn.interactive = true;
       this._app.stage.addChild(switchLangBtn);
 
