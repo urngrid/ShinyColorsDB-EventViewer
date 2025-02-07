@@ -28,18 +28,25 @@ class EffectManager {
 
         if (!effectLabel) { return; }
 
-        //修改标记 缩放下移  闪白或闪黑时范围为全屏
+        //修改标记 缩放下移  闪白或闪黑时范围为全屏 
+        //->暂时恢复为和背景大小一致
         let YOffset,XOffset,XZoomRate,YZoomRate;
         if (effectLabel.includes("white") || effectLabel.includes("black")) {
-            YOffset=0
-            XOffset=0
-            XZoomRate=1
-            YZoomRate=3 
+            // YOffset=0
+            // XOffset=0
+            // XZoomRate=1
+            // YZoomRate=3 
+
+            YOffset=320
+            XOffset=142
+            XZoomRate=0.75
+            YZoomRate=0.75 
+
         } else {
             YOffset=320
             XOffset=142
             XZoomRate=0.75
-            YZoomRate=2 
+            YZoomRate=0.75 
               
         }
         // 修改标记完

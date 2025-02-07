@@ -233,6 +233,11 @@ class BgManager {
       const XOffset=142
       const XZoomRate = 0.75
 
+      // const YZoomRate = 1;
+      // const YOffset = 320
+      // const XOffset = 0
+      // const XZoomRate = 1
+
       this._container.position.set(XOffset,YOffset);
       this._container.scale.set(XZoomRate,YZoomRate);
       

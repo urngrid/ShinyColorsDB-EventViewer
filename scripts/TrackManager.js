@@ -167,7 +167,7 @@ class TrackManager {
                     if(this._eventData.eventSourceData){
                         this._effectManager.showEventPlate(
                             this._eventData.eventSourceData.eventTitle,
-                            this._eventData.eventSourceData.eventTitle_Trans || "待翻译",
+                            this._eventData.eventSourceData.eventTitle_Trans || "待翻译", //todo  eventTitle_Trans尚未处理
                             this._eventData.eventSourceData.eventType, 
                             this._eventData.eventSourceData.eventIcon,
                             this._eventData.eventSourceData.cardNamePic,

@@ -8080,6 +8080,56 @@
         }
     },
     {
+        "eventId": 201202101,
+        "eventSourceData": {
+            "cardName": "【片恋はあと】杜野凛世",
+            "eventTitle": "みえぬ",
+            "enzaId": "1040120130",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-02-07"
+        }
+    },
+    {
+        "eventId": 201202102,
+        "eventSourceData": {
+            "cardName": "【片恋はあと】杜野凛世",
+            "eventTitle": "うまれぬ",
+            "enzaId": "1040120130",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-02-07"
+        }
+    },
+    {
+        "eventId": 201202103,
+        "eventSourceData": {
+            "cardName": "【片恋はあと】杜野凛世",
+            "eventTitle": "また、かへる",
+            "enzaId": "1040120130",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-02-07"
+        }
+    },
+    {
+        "eventId": 201202104,
+        "eventSourceData": {
+            "cardName": "【片恋はあと】杜野凛世",
+            "eventTitle": "ひとつごころ",
+            "enzaId": "1040120130",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-02-07"
+        }
+    },
+    {
+        "eventId": 201202111,
+        "eventSourceData": {
+            "cardName": "【片恋はあと】杜野凛世",
+            "eventTitle": "きよら",
+            "enzaId": "1040120130",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-02-07"
+        }
+    },
+    {
         "eventId": 201300301,
         "eventSourceData": {
             "cardName": "【ストイックトレーニング】有栖川夏葉",
@@ -26537,6 +26587,26 @@
             "enzaId": "2040230070",
             "cardType": "S_SSR",
             "releaseDate": "2024-03-21"
+        }
+    },
+    {
+        "eventId": 302301201,
+        "eventSourceData": {
+            "cardName": "【MY：♡ur Castle】市川雛菜",
+            "eventTitle": "my:castle",
+            "enzaId": "2030230060",
+            "cardType": "S_SR",
+            "releaseDate": "2025-02-07"
+        }
+    },
+    {
+        "eventId": 302301202,
+        "eventSourceData": {
+            "cardName": "【MY：♡ur Castle】市川雛菜",
+            "eventTitle": "our:home",
+            "enzaId": "2030230060",
+            "cardType": "S_SR",
+            "releaseDate": "2025-02-07"
         }
     },
     {
