@@ -77,7 +77,7 @@ class SelectManager {
         thisSelectContainer.pivot.set(localBound.width / 2, localBound.height / 2);
 
         // thisSelectContainer.on('click', () => { 只响应鼠标点击 移动端无效
-        thisSelectContainer.on('pointerdown', () => {
+        thisSelectContainer.on('pointertap', () => {
             this._disableInteractive();
 
             //修改标记 屏幕暗转层淡出
