@@ -54,8 +54,6 @@ class SelectManager {
             this._maskSprite.beginFill(0x000000, 0.5); // 黑色，50% 透明度
             this._maskSprite.drawRect(0, 0, 1136, 1280);
             this._maskSprite.endFill();
-            
-            console.log(`screen darken`)
 
             // 添加到容器中
             this._container.addChild(this._maskSprite);
@@ -78,7 +76,8 @@ class SelectManager {
         const localBound = thisSelectContainer.getLocalBounds();
         thisSelectContainer.pivot.set(localBound.width / 2, localBound.height / 2);
 
-        thisSelectContainer.on('click', () => {
+        // thisSelectContainer.on('click', () => { 只响应鼠标点击 移动端无效
+        thisSelectContainer.on('pointerdown', () => {
             this._disableInteractive();
 
             //修改标记 屏幕暗转层淡出
@@ -299,13 +298,17 @@ class SelectManager {
             japaneseLines.push(""); // 插入空行
         }
     
-        // 合并中日文本行，交替排列
+        // 合并中日文本行，不交替排列
         let formattedText = "";
         for (let i = 0; i < maxLines; i++) {
 
             formattedText += `<japanese>${japaneseLines[i]}</japanese>\n`;
+        }
+        for (let i = 0; i < maxLines; i++) {
+
             formattedText += `<chinese>${chineseLines[i]}</chinese>\n`;
         }
+        
         
         return formattedText.trimEnd();;
     }
