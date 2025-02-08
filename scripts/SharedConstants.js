@@ -1,7 +1,7 @@
 // http-server J:/shinycolors_J/shinycolors-assets-downloader/assets/ -p 5174  --cors 
 // 修改标记
-// const assetUrl = "https://viewer.shinycolors.moe";
-const assetUrl = "http://localhost:5174";
+const assetUrl = "https://viewer.shinycolors.moe";
+//const assetUrl = "http://localhost:5174";
 
 const usedFont = "theFont";
 
