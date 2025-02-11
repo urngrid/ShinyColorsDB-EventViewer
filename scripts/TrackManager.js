@@ -58,7 +58,8 @@ class TrackManager {
 
         ///
         this._plateShowed = false;
-
+        ///播放序列
+        this._playlist = [];
         //修改标记完
 
     }
@@ -607,10 +608,23 @@ class TrackManager {
     }
 
     endOfEvent(clear = true) {
+        //修改标记
+        const jsonPath = this._JsonPath;
+        const currentIndex = this._playlist.indexOf(jsonPath);
+        let nextJson = null;
+        if (currentIndex !== -1 && currentIndex < this._playlist.length - 1) {
+            nextJson = this._playlist[currentIndex + 1];
+        }   
+        //
+
         this._bgManager.reset(clear);
         this._fgManager.reset(clear);
         this._spineManager.reset(clear);
-        this._textManager.reset(clear);
+        
+        // 修改标记
+        // this._textManager.reset(clear);
+        this._textManager.reset(clear,nextJson);
+
         this._selectManager.reset(clear);
         this._soundManager.reset();
         this._effectManager.reset(clear);
@@ -624,11 +638,6 @@ class TrackManager {
         this.resetStopTrack();
 
 
-        //修改标记 结束后双击回到json询问
-        document.addEventListener('dblclick', function() {
-            window.location.href = window.location.origin + window.location.pathname;
-        }, { once: true });
-        //修改标记完
 
     }
 
@@ -731,11 +740,45 @@ class TrackManager {
             { name: 'card', path: `${commu_info_data_path}/CommuList_card.json` },
             { name: 'idol', path: `${commu_info_data_path}/CommuList_idol.json` },
             { name: 'events', path: `${commu_info_data_path}/CommuList_events.json` }
+            
         ];
 
         // 定义一个内部异步函数来处理逻辑
         const fetchAndMatchEvent = async () => {
             try {
+
+
+                const response = await fetch(`${commu_info_data_path}/CommuList_playlist.json`);
+                const playlistData = await response.json();
+
+                let matchingArrays = [];
+
+                // 查找包含 jsonPath 的数组
+                for (let i = 0; i < playlistData.length; i++) {
+                    if (playlistData[i].includes(jsonPath)) {
+                        matchingArrays.push(playlistData[i]);
+                    }
+                }
+                if (matchingArrays.length === 0) {
+                    console.log(`未找到包含 jsonPath ${jsonPath} 的播放序列`);
+                } else if (matchingArrays.length === 1) {
+                    this._playlist = matchingArrays[0];
+                    console.log(`找到包含 jsonPath ${jsonPath} 的播放序列：`, this._playlist);
+                } else {
+                    // 匹配结果不唯一，选择成员最多的数组
+                    let maxLength = 0;
+                    let selectedArray = null;
+                    for (let i = 0; i < matchingArrays.length; i++) {
+                        if (matchingArrays[i].length > maxLength) {
+                            maxLength = matchingArrays[i].length;
+                            selectedArray = matchingArrays[i];
+                        }
+                    }
+                    this._playlist = selectedArray;
+                    console.log(`找到多个包含 jsonPath ${jsonPath} 的播放序列，选择成员最多的：`, this._playlist);
+                    console.log(`其他匹配的数组：`, matchingArrays.filter(arr => arr !== selectedArray));
+                }
+
                 // 遍历三个 JSON 文件
                 for (const { name, path } of jsonFiles) {
                     // 加载 JSON 文件
@@ -871,9 +914,15 @@ class TrackManager {
             }
         };
 
+
+
+
         // 调用内部异步函数
         return fetchAndMatchEvent();
     }
+
+
+
 
 
 }

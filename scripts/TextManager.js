@@ -37,11 +37,16 @@ class TextManager {
         return this._typingEffect;
     }
 
-    reset(clear = true) {
+    // 修改标记
+    // reset(clear = true) {
+    reset(clear = true, nextJson) {
         this._container.removeChildren(0, this._container.children.length);
         if (clear) {
             this._txtFrameMap.clear();
-            this._endNotification();
+
+            //修改标记
+            // this._endNotification();
+            this._endNotification(nextJson);
         }
     }
 
@@ -484,16 +489,23 @@ class TextManager {
 
     }
 
-    _endNotification() {
-        let owariObj = new PIXI.Text("End", {
-            fontFamily: usedFont,
-            fontSize: 40,
-            fill: 0xffffff,
-            align: "center",
-        });
-        this._container.addChildAt(owariObj, 0);
-        owariObj.anchor.set(0.5);
-        owariObj.position.set(568, 320);
+    // _endNotification() {
+    _endNotification(nextJson) {
+        // 修改标记
+        // let owariObj = new PIXI.Text("End", {
+        //     fontFamily: usedFont,
+        //     fontSize: 40,
+        //     fill: 0xffffff,
+        //     align: "center",
+        // });
+        // this._container.addChildAt(owariObj, 0);
+        // owariObj.anchor.set(0.5);
+        // owariObj.position.set(568, 320);
+        
+
+
+        this._ProcessReplayNext(nextJson);
+
     }
 
 
@@ -562,4 +574,47 @@ class TextManager {
         
         return formattedText;
     }
+
+
+    _ProcessReplayNext(nextJson) {
+        const style = new PIXI.TextStyle({
+            fontFamily: zhcnFont2,
+            fontSize: 36,
+            fill: "#ffffff",
+            fontWeight: "bold",
+        });
+
+    
+        function createButton(container,text, x, y, onClick) {
+            const button = new PIXI.Text(text, style);
+
+            button.x = x;
+            button.y = y;
+            button.interactive = true;
+            button.buttonMode = true;
+            button.on("pointertap", onClick);
+            container.addChildAt(button, 0);
+        // owariObj.anchor.set(0.5);
+        // owariObj.position.set(568, 320);
+        }
+    
+        function reloadPage() {
+            location.reload();
+        }
+    
+        function goToNextEvent() {
+            
+            if (nextJson) {
+                const eventId = nextJson.split("/")[1].split(".")[0];
+                const eventType = nextJson.split("/")[0];
+                const url = new URL(window.location.href);
+                url.searchParams.set("eventId", eventId);
+                url.searchParams.set("eventType", eventType);
+                window.location.href = url.toString();
+            }
+        }
+    
+        createButton(this._container, "重播", 380, 480, reloadPage);
+        createButton(this._container, "下一个", 700, 480, goToNextEvent);
+    }   
 }
