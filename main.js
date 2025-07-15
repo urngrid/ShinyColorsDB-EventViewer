@@ -428,16 +428,17 @@ class AdvPlayer {
 
     //修改标记
     //let ratio = Math.min(width / 1136, height / 640);
-    //修改标记 全局缩放
-    let customzoom =1.00
+
     // let ratio = Math.min(width / 1136, height / 1600);
-    // let ratio = Math.min(width / 1136, height / 1600) * customzoom;
-    let ratio = Math.min(width / 1200, height / global_ViewerHeight) * customzoom;
+
+    let ratio = Math.min(width / 1200, height / global_ViewerHeight) 
+    
+    let resizedX = 1136 * ratio;
     // let resizedY = 640 * ratio;
     let resizedY = global_ViewerHeight * ratio;
     ////
 
-    let resizedX = 1136 * ratio;
+    
     
 
     this._app.view.style.width = resizedX + "px";
