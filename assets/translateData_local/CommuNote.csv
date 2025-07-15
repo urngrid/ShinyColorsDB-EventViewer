@@ -1,5 +1,5 @@
 key,value,note
-voice,produce_events/202100711/2021007110190,（圆香）发不出悦耳的声音,
+voice,produce_events/202100711/2021007110190,（圆香）发不出悦耳的声音
 voice,produce_events/202100711/2021007110200,（圆香）不对、不对、不对……
 voice,produce_events/202100711/2021007110210,（圆香）不是这个声音
 voice,produce_events/202100711/2021007110220,（圆香）还要更加精巧、更加复杂、更加纤细
@@ -104,7 +104,7 @@ still,40010120605,
 still,40010120801,
 still,40010120802,
 still,40010130101,
-still,40010470601
+still,40010470601,
 still,40010530201,
 still,40010530202,
 still,40010530203,
@@ -211,6 +211,13 @@ speaker,TVプロデューサー,电视制作人
 speaker,TV局のディレクター,电视台的导演
 speaker,TV局職員,电视台职员
 speaker,TV番組の司会者,电视节目主持人
+speaker,VTR（智代子）,VTR（智代子）
+speaker,VTR（一同）,VTR（众人）
+speaker,VTR（ナレーション）,VTR（旁白）
+speaker,VTR（夏葉）,VTR（夏叶）
+speaker,VTR（凛世）,VTR（凛世）
+speaker,VTR（樹里）,VTR（树里）
+speaker,VTR（果穂）,VTR（果穗）
 speaker,VTRのナレーション,录像带的旁白
 speaker,WEBページ,网页
 speaker,XXX,XXX
@@ -2638,5 +2645,7 @@ speaker,ＤＪ,DJ
 speaker,ＭＣ,主持人
 speaker,Ｐ,P
 speaker,ＳＮＳの書き込み,社交网络上的评论 
+,,
+,,
 eventAlbumTitle,,
 eventTitle,,

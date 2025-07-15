@@ -26,10 +26,10 @@ class MovieManager {
         //修改标记
         //下移并缩放 添加代码//
         
-        const YOffset=320 //垂直方向从640P缩小到480P 所以YOffset要增加160/2
-        const XOffset=142
-        const XZoomRate=0.75
-        const YZoomRate=0.75
+        const YOffset = global_YOffset + global_YOffset_MainContents
+        const XOffset = global_XOffset
+        const XZoomRate = 1
+        const YZoomRate = 1
         movieSprite.position.set(movieSprite.position.x + XOffset,movieSprite.position.y + YOffset);
         movieSprite.scale.set(XZoomRate, YZoomRate);
         ////

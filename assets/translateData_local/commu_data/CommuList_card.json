@@ -700,6 +700,36 @@
         }
     },
     {
+        "eventId": 200102001,
+        "eventSourceData": {
+            "cardName": "【はるかなる】櫻木真乃",
+            "eventTitle": "こうして生まれる",
+            "enzaId": "1040010120",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-04-02"
+        }
+    },
+    {
+        "eventId": 200102002,
+        "eventSourceData": {
+            "cardName": "【はるかなる】櫻木真乃",
+            "eventTitle": "私の２８３",
+            "enzaId": "1040010120",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-04-02"
+        }
+    },
+    {
+        "eventId": 200102011,
+        "eventSourceData": {
+            "cardName": "【はるかなる】櫻木真乃",
+            "eventTitle": "心、はためく",
+            "enzaId": "1040010120",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-04-02"
+        }
+    },
+    {
         "eventId": 200200301,
         "eventSourceData": {
             "cardName": "【手作りの心遣い】風野灯織",
@@ -1397,6 +1427,56 @@
             "enzaId": "1040020120",
             "cardType": "P_SSR",
             "releaseDate": "2025-01-21"
+        }
+    },
+    {
+        "eventId": 200202001,
+        "eventSourceData": {
+            "cardName": "【キミと今旅立つ】風野灯織",
+            "eventTitle": "涙色",
+            "enzaId": "1040020130",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-03-19"
+        }
+    },
+    {
+        "eventId": 200202002,
+        "eventSourceData": {
+            "cardName": "【キミと今旅立つ】風野灯織",
+            "eventTitle": "紅碧色",
+            "enzaId": "1040020130",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-03-19"
+        }
+    },
+    {
+        "eventId": 200202003,
+        "eventSourceData": {
+            "cardName": "【キミと今旅立つ】風野灯織",
+            "eventTitle": "瞑色",
+            "enzaId": "1040020130",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-03-19"
+        }
+    },
+    {
+        "eventId": 200202004,
+        "eventSourceData": {
+            "cardName": "【キミと今旅立つ】風野灯織",
+            "eventTitle": "曙色",
+            "enzaId": "1040020130",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-03-19"
+        }
+    },
+    {
+        "eventId": 200202011,
+        "eventSourceData": {
+            "cardName": "【キミと今旅立つ】風野灯織",
+            "eventTitle": "桜色",
+            "enzaId": "1040020130",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-03-19"
         }
     },
     {
@@ -5367,6 +5447,36 @@
             "enzaId": "1040080110",
             "cardType": "P_SSR",
             "releaseDate": "2024-06-07"
+        }
+    },
+    {
+        "eventId": 200801901,
+        "eventSourceData": {
+            "cardName": "【海へと還る街】幽谷霧子",
+            "eventTitle": "あの日君の見たもの",
+            "enzaId": "1040080120",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-03-11"
+        }
+    },
+    {
+        "eventId": 200801902,
+        "eventSourceData": {
+            "cardName": "【海へと還る街】幽谷霧子",
+            "eventTitle": "雨粒と灯り",
+            "enzaId": "1040080120",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-03-11"
+        }
+    },
+    {
+        "eventId": 200801911,
+        "eventSourceData": {
+            "cardName": "【海へと還る街】幽谷霧子",
+            "eventTitle": "手を振る君へ",
+            "enzaId": "1040080120",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-03-11"
         }
     },
     {
@@ -12620,6 +12730,36 @@
         }
     },
     {
+        "eventId": 201901601,
+        "eventSourceData": {
+            "cardName": "【今、できることを全て】和泉愛依",
+            "eventTitle": "Class M",
+            "enzaId": "1040190100",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-02-18"
+        }
+    },
+    {
+        "eventId": 201901602,
+        "eventSourceData": {
+            "cardName": "【今、できることを全て】和泉愛依",
+            "eventTitle": "Relax Time",
+            "enzaId": "1040190100",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-02-18"
+        }
+    },
+    {
+        "eventId": 201901611,
+        "eventSourceData": {
+            "cardName": "【今、できることを全て】和泉愛依",
+            "eventTitle": "Stage for Rebirth",
+            "enzaId": "1040190100",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-02-18"
+        }
+    },
+    {
         "eventId": 202000301,
         "eventSourceData": {
             "cardName": "【まわるものについて】浅倉透",
@@ -13077,6 +13217,36 @@
             "enzaId": "1040200080",
             "cardType": "P_SSR",
             "releaseDate": "2024-10-09"
+        }
+    },
+    {
+        "eventId": 202001401,
+        "eventSourceData": {
+            "cardName": "【テープエンドの行き先】浅倉透",
+            "eventTitle": "　わった時間",
+            "enzaId": "1040200090",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-04-02"
+        }
+    },
+    {
+        "eventId": 202001402,
+        "eventSourceData": {
+            "cardName": "【テープエンドの行き先】浅倉透",
+            "eventTitle": "追いつい　ら",
+            "enzaId": "1040200090",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-04-02"
+        }
+    },
+    {
+        "eventId": 202001411,
+        "eventSourceData": {
+            "cardName": "【テープエンドの行き先】浅倉透",
+            "eventTitle": "そう　　こと",
+            "enzaId": "1040200090",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-04-02"
         }
     },
     {
@@ -13980,6 +14150,56 @@
         }
     },
     {
+        "eventId": 202201301,
+        "eventSourceData": {
+            "cardName": "【羽をやすめて】福丸小糸",
+            "eventTitle": "いま、むかし",
+            "enzaId": "1040220090",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-04-29"
+        }
+    },
+    {
+        "eventId": 202201302,
+        "eventSourceData": {
+            "cardName": "【羽をやすめて】福丸小糸",
+            "eventTitle": "まだ遠いさき",
+            "enzaId": "1040220090",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-04-29"
+        }
+    },
+    {
+        "eventId": 202201303,
+        "eventSourceData": {
+            "cardName": "【羽をやすめて】福丸小糸",
+            "eventTitle": "つながっていくもの",
+            "enzaId": "1040220090",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-04-29"
+        }
+    },
+    {
+        "eventId": 202201304,
+        "eventSourceData": {
+            "cardName": "【羽をやすめて】福丸小糸",
+            "eventTitle": "おかえりなさいが待つところ",
+            "enzaId": "1040220090",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-04-29"
+        }
+    },
+    {
+        "eventId": 202201311,
+        "eventSourceData": {
+            "cardName": "【羽をやすめて】福丸小糸",
+            "eventTitle": "わたしにとっての",
+            "enzaId": "1040220090",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-04-29"
+        }
+    },
+    {
         "eventId": 202300301,
         "eventSourceData": {
             "cardName": "【#SS】市川雛菜",
@@ -14387,6 +14607,56 @@
             "enzaId": "1040230080",
             "cardType": "P_SSR",
             "releaseDate": "2024-04-18"
+        }
+    },
+    {
+        "eventId": 202301301,
+        "eventSourceData": {
+            "cardName": "【d!scovery】市川雛菜",
+            "eventTitle": "【_LOOKS LIKE_】",
+            "enzaId": "1040230090",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-02-28"
+        }
+    },
+    {
+        "eventId": 202301302,
+        "eventSourceData": {
+            "cardName": "【d!scovery】市川雛菜",
+            "eventTitle": "I want 2 bE",
+            "enzaId": "1040230090",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-02-28"
+        }
+    },
+    {
+        "eventId": 202301303,
+        "eventSourceData": {
+            "cardName": "【d!scovery】市川雛菜",
+            "eventTitle": "gift g!ft gift",
+            "enzaId": "1040230090",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-02-28"
+        }
+    },
+    {
+        "eventId": 202301304,
+        "eventSourceData": {
+            "cardName": "【d!scovery】市川雛菜",
+            "eventTitle": "＋ch♡♡se＋",
+            "enzaId": "1040230090",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-02-28"
+        }
+    },
+    {
+        "eventId": 202301311,
+        "eventSourceData": {
+            "cardName": "【d!scovery】市川雛菜",
+            "eventTitle": "：correct",
+            "enzaId": "1040230090",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-02-28"
         }
     },
     {
@@ -15200,6 +15470,36 @@
         }
     },
     {
+        "eventId": 202501301,
+        "eventSourceData": {
+            "cardName": "【POLARIS】緋田美琴",
+            "eventTitle": "sun shower",
+            "enzaId": "1040250080",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-03-11"
+        }
+    },
+    {
+        "eventId": 202501302,
+        "eventSourceData": {
+            "cardName": "【POLARIS】緋田美琴",
+            "eventTitle": "blue moon",
+            "enzaId": "1040250080",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-03-11"
+        }
+    },
+    {
+        "eventId": 202501311,
+        "eventSourceData": {
+            "cardName": "【POLARIS】緋田美琴",
+            "eventTitle": "star wings",
+            "enzaId": "1040250080",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-03-11"
+        }
+    },
+    {
         "eventId": 202600401,
         "eventSourceData": {
             "cardName": "【broken shout】斑鳩ルカ",
@@ -15410,6 +15710,36 @@
         }
     },
     {
+        "eventId": 202600901,
+        "eventSourceData": {
+            "cardName": "【Could Be】斑鳩ルカ",
+            "eventTitle": "眠らずに",
+            "enzaId": "1040260050",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-02-18"
+        }
+    },
+    {
+        "eventId": 202600902,
+        "eventSourceData": {
+            "cardName": "【Could Be】斑鳩ルカ",
+            "eventTitle": "アイドルになって、",
+            "enzaId": "1040260050",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-02-18"
+        }
+    },
+    {
+        "eventId": 202600911,
+        "eventSourceData": {
+            "cardName": "【Could Be】斑鳩ルカ",
+            "eventTitle": "未だ　それとも",
+            "enzaId": "1040260050",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-02-18"
+        }
+    },
+    {
         "eventId": 202700301,
         "eventSourceData": {
             "cardName": "【優You】鈴木羽那",
@@ -15587,6 +15917,36 @@
             "enzaId": "1040270030",
             "cardType": "P_SSR",
             "releaseDate": "2024-10-18"
+        }
+    },
+    {
+        "eventId": 202700701,
+        "eventSourceData": {
+            "cardName": "【From You】鈴木羽那",
+            "eventTitle": "裏？",
+            "enzaId": "1040270040",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-02-12"
+        }
+    },
+    {
+        "eventId": 202700702,
+        "eventSourceData": {
+            "cardName": "【From You】鈴木羽那",
+            "eventTitle": "表",
+            "enzaId": "1040270040",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-02-12"
+        }
+    },
+    {
+        "eventId": 202700711,
+        "eventSourceData": {
+            "cardName": "【From You】鈴木羽那",
+            "eventTitle": "表表",
+            "enzaId": "1040270040",
+            "cardType": "P_SSR",
+            "releaseDate": "2025-02-12"
         }
     },
     {
@@ -17057,6 +17417,26 @@
             "enzaId": "2040020130",
             "cardType": "S_SSR",
             "releaseDate": "2024-10-18"
+        }
+    },
+    {
+        "eventId": 300202301,
+        "eventSourceData": {
+            "cardName": "【優雅に願いをかけて】風野灯織",
+            "eventTitle": "オマジナイをかけて",
+            "enzaId": "2030020130",
+            "cardType": "S_SR",
+            "releaseDate": "2025-02-18"
+        }
+    },
+    {
+        "eventId": 300202302,
+        "eventSourceData": {
+            "cardName": "【優雅に願いをかけて】風野灯織",
+            "eventTitle": "オネガイを叶えて",
+            "enzaId": "2030020130",
+            "cardType": "S_SR",
+            "releaseDate": "2025-02-18"
         }
     },
     {
@@ -19117,6 +19497,56 @@
             "enzaId": "2030060060",
             "cardType": "S_SR",
             "releaseDate": "2024-05-09"
+        }
+    },
+    {
+        "eventId": 300602001,
+        "eventSourceData": {
+            "cardName": "【シンメトリカルのように】白瀬咲耶",
+            "eventTitle": "シンメトリカル",
+            "enzaId": "2030060090",
+            "cardType": "S_SR",
+            "releaseDate": "2025-03-11"
+        }
+    },
+    {
+        "eventId": 300602002,
+        "eventSourceData": {
+            "cardName": "【シンメトリカルのように】白瀬咲耶",
+            "eventTitle": "アン・シンメトリカル",
+            "enzaId": "2030060090",
+            "cardType": "S_SR",
+            "releaseDate": "2025-03-11"
+        }
+    },
+    {
+        "eventId": 300602101,
+        "eventSourceData": {
+            "cardName": "【ホカンティーカ】白瀬咲耶",
+            "eventTitle": "贅沢な時間",
+            "enzaId": "2040060140",
+            "cardType": "S_SSR",
+            "releaseDate": "2025-04-29"
+        }
+    },
+    {
+        "eventId": 300602102,
+        "eventSourceData": {
+            "cardName": "【ホカンティーカ】白瀬咲耶",
+            "eventTitle": "思い思いの時間",
+            "enzaId": "2040060140",
+            "cardType": "S_SSR",
+            "releaseDate": "2025-04-29"
+        }
+    },
+    {
+        "eventId": 300602103,
+        "eventSourceData": {
+            "cardName": "【ホカンティーカ】白瀬咲耶",
+            "eventTitle": "いつもどおりの楽しい時間",
+            "enzaId": "2040060140",
+            "cardType": "S_SSR",
+            "releaseDate": "2025-04-29"
         }
     },
     {
@@ -21587,6 +22017,26 @@
             "enzaId": "2040110120",
             "cardType": "S_SSR",
             "releaseDate": "2024-09-29"
+        }
+    },
+    {
+        "eventId": 301102001,
+        "eventSourceData": {
+            "cardName": "【新緑に響く】西城樹里",
+            "eventTitle": "揺れる水音",
+            "enzaId": "2030110090",
+            "cardType": "S_SR",
+            "releaseDate": "2025-03-19"
+        }
+    },
+    {
+        "eventId": 301102002,
+        "eventSourceData": {
+            "cardName": "【新緑に響く】西城樹里",
+            "eventTitle": "薫る森の音",
+            "enzaId": "2030110090",
+            "cardType": "S_SR",
+            "releaseDate": "2025-03-19"
         }
     },
     {
@@ -24570,6 +25020,36 @@
         }
     },
     {
+        "eventId": 301701901,
+        "eventSourceData": {
+            "cardName": "【三月三十三日】芹沢あさひ",
+            "eventTitle": "入口",
+            "enzaId": "2040170130",
+            "cardType": "S_SSR",
+            "releaseDate": "2025-02-28"
+        }
+    },
+    {
+        "eventId": 301701902,
+        "eventSourceData": {
+            "cardName": "【三月三十三日】芹沢あさひ",
+            "eventTitle": "探検家の春",
+            "enzaId": "2040170130",
+            "cardType": "S_SSR",
+            "releaseDate": "2025-02-28"
+        }
+    },
+    {
+        "eventId": 301701903,
+        "eventSourceData": {
+            "cardName": "【三月三十三日】芹沢あさひ",
+            "eventTitle": "入口／出口",
+            "enzaId": "2040170130",
+            "cardType": "S_SSR",
+            "releaseDate": "2025-02-28"
+        }
+    },
+    {
         "eventId": 301800201,
         "eventSourceData": {
             "cardName": "【２８３プロのヒナ】黛冬優子",
@@ -25650,6 +26130,26 @@
         }
     },
     {
+        "eventId": 302001701,
+        "eventSourceData": {
+            "cardName": "【caaaaaaall】浅倉透",
+            "eventTitle": "、春春",
+            "enzaId": "2040200120",
+            "cardType": "S_SSR",
+            "releaseDate": "2025-02-28"
+        }
+    },
+    {
+        "eventId": 302001702,
+        "eventSourceData": {
+            "cardName": "【caaaaaaall】浅倉透",
+            "eventTitle": "線　線線",
+            "enzaId": "2040200120",
+            "cardType": "S_SSR",
+            "releaseDate": "2025-02-28"
+        }
+    },
+    {
         "eventId": 302100201,
         "eventSourceData": {
             "cardName": "【２８３プロのヒナ】樋口円香",
@@ -26610,6 +27110,26 @@
         }
     },
     {
+        "eventId": 302301301,
+        "eventSourceData": {
+            "cardName": "【sa!l】市川雛菜",
+            "eventTitle": "w.r.e.c.K",
+            "enzaId": "2040230090",
+            "cardType": "S_SSR",
+            "releaseDate": "2025-04-02"
+        }
+    },
+    {
+        "eventId": 302301302,
+        "eventSourceData": {
+            "cardName": "【sa!l】市川雛菜",
+            "eventTitle": "Re:n",
+            "enzaId": "2040230090",
+            "cardType": "S_SSR",
+            "releaseDate": "2025-04-02"
+        }
+    },
+    {
         "eventId": 302400201,
         "eventSourceData": {
             "cardName": "【２８３プロのヒナ】七草にちか",
@@ -26877,6 +27397,26 @@
             "enzaId": "2040240070",
             "cardType": "S_SSR",
             "releaseDate": "2024-09-18"
+        }
+    },
+    {
+        "eventId": 302401401,
+        "eventSourceData": {
+            "cardName": "【その先、】七草にちか",
+            "eventTitle": "視線、その先",
+            "enzaId": "2040240080",
+            "cardType": "S_SSR",
+            "releaseDate": "2025-04-29"
+        }
+    },
+    {
+        "eventId": 302401402,
+        "eventSourceData": {
+            "cardName": "【その先、】七草にちか",
+            "eventTitle": "するしか、ないこと",
+            "enzaId": "2040240080",
+            "cardType": "S_SSR",
+            "releaseDate": "2025-04-29"
         }
     },
     {

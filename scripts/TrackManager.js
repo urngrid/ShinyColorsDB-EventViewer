@@ -16,7 +16,7 @@ class TrackManager {
 
         this._fgManager = new FgManager();
         //
-        
+
         this._textManager = new TextManager();
         this._selectManager = new SelectManager();
         this._soundManager = new SoundManager();
@@ -35,12 +35,12 @@ class TrackManager {
         this._translateJson = null;
         //修改标记
         this._translateLang = 0; // 0:jp 1:zh 2:jp+zh
-        
+
         this._selecting = false;
 
         this._fastForwardMode = false;
 
-        //修改标记 
+        //修改标记
         //
         this._JsonPath = null;
         //储存来源信息
@@ -57,11 +57,13 @@ class TrackManager {
         this._charaSpineCount_Stable = 0;
 
         ///
-        this._plateShowed = false;
+        this._titlePopupShowed = false;
         ///播放序列
         this._playlist = [];
-        //修改标记完
 
+        //用来储存charLabel对应的charScale值和position值，因为需要在没有新操作的脚本内获知之前的状态 现阶段effect.scale的可能值只出现过1.1放大(表现角色靠近动作)和1还原
+        this._charBaseTransformMap = new Map();
+        //修改标记完
     }
 
     set setTrack(tracks) {
@@ -155,34 +157,42 @@ class TrackManager {
             this._selectManager.frameReset();
             // this._loader.add("managerSound", './assets/002.m4a')
             this._loader.load(() => {
-                
-                //修改标记 
+                //修改标记
                 // loadAssetsByTrack遍历全部track加载完成
                 this._getEventJsonDataLoadResource()
-                //将_renderTrack包裹在.then内部
-                // 等待eventdata加载完成后 显示剧情牌 进行第一次renderTrack
-                .then((a) => {
-                    console.log(`eventData`,a);
-                    this._eventData = a;
-                    
-                    if(this._eventData.eventSourceData){
-                        this._effectManager.showEventPlate(
-                            this._eventData.eventSourceData.eventTitle,
-                            this._eventData.eventSourceData.eventTitle_Trans || "待翻译", //todo  eventTitle_Trans尚未处理
-                            this._eventData.eventSourceData.eventType, 
-                            this._eventData.eventSourceData.eventIcon,
-                            this._eventData.eventSourceData.cardNamePic,
-                            this._eventData.eventSourceData.eventIndexName
-                        );
-                    }
-                    this._renderTrack();
-                })
-                .catch((error) => {
-                    console.error("Error loading event JSON title:", error);
-                    this._renderTrack();
-                });
+                    //将_renderTrack包裹在.then内部
+                    // 等待eventdata加载完成后 显示剧情牌 进行第一次renderTrack
+                    .then((a) => {
+                        console.log(`eventData`, a);
+                        this._eventData = a;
+
+                        if (this._eventData?.eventSourceData) {
+                            this._effectManager.showEventTitlePopup(
+                                this._eventData.eventSourceData.eventTitle,
+                                this._eventData.eventSourceData.eventTitle_Trans || "", //|| "待翻译", //todo  eventTitle_Trans尚未处理
+                                this._eventData.eventSourceData.eventType,
+                                this._eventData.eventSourceData.eventIcon,
+                                this._eventData.eventSourceData.cardNamePic,
+                                this._eventData.eventSourceData.eventIndexName,
+                                this._eventData.eventSourceData.eventAlbumName
+                            );
+                        } else {
+                            this._effectManager.showEventTitlePopup("clear");
+                        }
+
+                        this._renderTrack();
+                    })
+                    .catch((error) => {
+                        console.error("Error loading event JSON title:", error);
+
+                        this._renderTrack();
+                    });
                 ////
                 // this._renderTrack();
+
+                //
+
+                //
             });
             ////////
             return;
@@ -212,38 +222,29 @@ class TrackManager {
             //
         } = this.currentTrack;
 
-
-
-
         //修改标记 获取标题牌图片
-        if(!this._loader.resources[`pop_white`]){
+        if (!this._loader.resources[`pop_white`]) {
             this._loader.add("pop_white", "./assets/pop_white.png");
         }
-        if(!this._loader.resources[`black_dots`]){
+        if (!this._loader.resources[`black_dots`]) {
             this._loader.add("black_dots", "./assets/black_dots.png");
-        }   
-
-        //
+        }
 
         // if (speaker && text && this._translateJson) {
         // 原代码过剩过滤 存在无speaker字段的text和翻译比如 game_event_communications/400100906.json
         if (text && this._translateJson) {
-           
             // this.currentTrack.translated_text = this._translateJson.table.find((data) => data.name == speaker && data.text == text)["trans"];
             try {
-                this.currentTrack.translated_text = this._translateJson.table.find((data) => data.text.replace(/\\n/g, '\r\n') == text)["trans"];
+                this.currentTrack.translated_text = this._translateJson.table.find((data) => data.text.replace(/\\n/g, "\r\n") == text)["trans"];
             } catch (error) {
                 console.error(`Error occurred while translating text: ${text}`, error);
-                console.log( this._translateJson,text);
+                console.log(this._translateJson, text);
             }
             //修改标记
-            if(this._speakerTranslateJson){
-        
+            if (this._speakerTranslateJson) {
                 // 检索 speaker 的翻译
-                const speakerTranslationEntry = this._speakerTranslateJson.find(
-                    (data) => data.value === speaker
-                );
-            
+                const speakerTranslationEntry = this._speakerTranslateJson.find((data) => data.value === speaker);
+
                 if (speakerTranslationEntry) {
                     this.currentTrack.speaker_trans = speakerTranslationEntry["note"];
                 }
@@ -251,12 +252,15 @@ class TrackManager {
             ////
         }
 
-        
         if (textFrame && textFrame != "off" && !this._loader.resources[`textFrame${textFrame}`]) {
             this._loader.add(`textFrame${textFrame}`, `${assetUrl}/images/event/text_frame/${textFrame}.png`);
         }
         if (bg && !this._loader.resources[`bg${bg}`] && bg != "fade_out") {
             this._loader.add(`bg${bg}`, `${assetUrl}/images/event/bg/${bg}.jpg`);
+
+            //修改标记
+
+            //
         }
         if (fg && !this._loader.resources[`fg${fg}`] && fg != "off" && fg != "fade_out") {
             this._loader.add(`fg${fg}`, `${assetUrl}/images/event/fg/${fg}.png`);
@@ -280,7 +284,9 @@ class TrackManager {
             }
             //修改标记完
         }
-        if (bgm && !this._loader.resources[`bgm${bgm}`] && bgm != "fade_out" && bgm != "off") {
+        // if (bgm && !this._loader.resources[`bgm${bgm}`] && bgm != "fade_out" && bgm != "off") {
+        if (bgm && !this._loader.resources[`bgm${bgm}`] && bgm != "fade_out" && bgm != "off" && bgm != "pause" && bgm != "resume") {
+            //修改标记 补充
             this._loader.add(`bgm${bgm}`, `${assetUrl}/sounds/bgm/${bgm}.m4a`);
         }
         if (movie && !this._loader.resources[`movie${movie}`]) {
@@ -288,6 +294,7 @@ class TrackManager {
         }
         if (charLabel && charId) {
             const thisCharCategory = charCategory ? this._spineManager.spineAlias[charCategory] : "stand";
+
             if (!this._loader.resources[`${charLabel}_${charId}_${thisCharCategory}`]) {
                 this._loader.add(`${charLabel}_${charId}_${thisCharCategory}`, `${assetUrl}/spine/${charType}/${thisCharCategory}/${charId}/data.json`);
             }
@@ -390,13 +397,64 @@ class TrackManager {
             middleFg,
             middleFgEffect,
             middleFgEffectTime,
+            //新增bgmFadeTime传入
+            bgmFadeTime,
             //修改标记完
         } = this.currentTrack;
 
+        //////////////////////////////
+        // 修改标记 需要添加charLabel到charScale和charPosition的原始值的映射储存 charScale并不直接存在于脚本内而是在charEffect.scale中(但为了实现渐变动画正常运作需要用charEffect.pixi.scaleX/Y来应用值
+        // 并且必须删除原传入charEffect的.scale) 需要在缩放生效后在后续没有scale值的脚本track内维持有效的缩放系数
+        /////////////////////////////
 
+        let charBaseTransform = {}; //用于给adjustspine传递脚本原始scale和position的变量
+
+        if (charLabel) {
+            let base = this._charBaseTransformMap.get(charLabel); //.get返回的结果是个映射修改结果即更新map map.set会覆盖整个结构而不是只添加属性对象
+
+            if (!base) {
+                base = {};
+                this._charBaseTransformMap.set(charLabel, base);
+            }
+
+            if (charPosition) {
+                base.position = { x: charPosition.x, y: charPosition.y };
+            }
+
+            // 如果存在 position，才进行偏移
+            if (base.position) {
+                if (typeof charEffect?.x === "number") {
+                    base.position.x += charEffect.x;
+                }
+                if (typeof charEffect?.y === "number") {
+                    base.position.y += charEffect.y;
+                }
+            }
+
+            // 如果 position 存在，赋值到 charBaseTransform
+            if (base.position) {
+                charBaseTransform.position = base.position;
+            }
+
+            // 处理 scale，未定义就默认设为 1.0
+            if (typeof charEffect?.scale === "number") {
+                base.scale = charEffect.scale;
+            } else if (typeof base.scale !== "number") {
+                base.scale = 1.0;
+            }
+
+            charBaseTransform.scale = base.scale;
+
+            this._charBaseTransformMap.set(charLabel, base);
+        }
+
+        // this._charBaseTransformMap储存有脚本设定的纯净的scale和position adjustspine基于这个值而不是spine当前值来判断处理
+        ///////////////
+        ///////////////
+        ///////////////
 
         this._bgManager.processBgByInput(bg, bgEffect, bgEffectTime, this._fastForwardMode);
-    
+
         //修改标记 middleFg对应
         this._middleFgManager.processFgByInput(middleFg, middleFgEffect, middleFgEffectTime, this._fastForwardMode);
         //
@@ -407,32 +465,29 @@ class TrackManager {
         // 似乎只显示链接后的文本 ban掉前一行的单独显示比较简洁
         //修改标记 增加textctrl=r即锁定文本框不换页的处理 _prevTextCtrl用来跳过重复的文本显示(因为合并在前一行了)
 
-        if (textCtrl !== `r` && this._prevTextCtrl != "r" ) {
-
+        if (textCtrl !== `r` && this._prevTextCtrl != "r") {
             // this._textManager.processTextFrameByInput(textFrame, speaker, text, translated_text, this._fastForwardMode, textCtrl);
             // 修改标记speaker翻译传入
             this._textManager.processTextFrameByInput(textFrame, speaker, text, translated_text, speaker_trans, this._fastForwardMode, textCtrl);
             //
-
         } else {
-
-            if( this._prevTextCtrl == "r"){
-              this._prevTextCtrl = "";
-              //清除标记 跳过后续文本显示
+            if (this._prevTextCtrl == "r") {
+                this._prevTextCtrl = "";
+                //清除标记 跳过后续文本显示
             } else {
-            // this._textManager.processTextFrameByInput(textFrame, speaker, text, translated_text, this._fastForwardMode, textCtrl);
-            const text_next = this.nextTrack.text;
-            const translated_text_next = this.nextTrack.translated_text;
-            this._textManager.processTextFrameByInput(
-                textFrame,
-                speaker,
-                (text ?? "") + "{rightafter_r}" + (text_next ?? ""),
-                (translated_text ?? "") + "{rightafter_r}" + (translated_text_next ?? ""),
-                speaker_trans, 
-                this._fastForwardMode,
-                "rightafter_r"
-            );//将前后两行文本连接传入 由textmanager进行分割处理
-            this._prevTextCtrl = "r" ;
+                // this._textManager.processTextFrameByInput(textFrame, speaker, text, translated_text, this._fastForwardMode, textCtrl);
+                const text_next = this.nextTrack.text;
+                const translated_text_next = this.nextTrack.translated_text;
+                this._textManager.processTextFrameByInput(
+                    textFrame,
+                    speaker,
+                    (text ?? "") + "{rightafter_r}" + (text_next ?? ""),
+                    (translated_text ?? "") + "{rightafter_r}" + (translated_text_next ?? ""),
+                    speaker_trans,
+                    this._fastForwardMode,
+                    "rightafter_r"
+                ); //将前后两行文本连接传入 由textmanager进行分割处理
+                this._prevTextCtrl = "r";
             }
         }
 
@@ -449,17 +504,47 @@ class TrackManager {
         //修改标记 添加翻译文本的传入
         // this._stillManager.processStillByInput(still, stillType, stillId, stillCtrl, this._fastForwardMode);
         this._stillManager.processStillByInput(still, stillType, stillId, stillCtrl, this._fastForwardMode, still_trans);
-        //修改标记 添加翻译文本的传入
+        //修改标记 添加翻译文本的传入 添加waitTime传入
         // this._soundManager.processSoundByInput(bgm, se, voice, charLabel, this._spineManager.stopLipAnimation.bind(this._spineManager), this._fastForwardMode);
-        this._soundManager.processSoundByInput(bgm, se, voice, charLabel, this._spineManager.stopLipAnimation.bind(this._spineManager), this._fastForwardMode, voice_trans);
+        this._soundManager.processSoundByInput(
+            bgm,
+            se,
+            voice,
+            charLabel,
+            this._spineManager.stopLipAnimation.bind(this._spineManager),
+            this._fastForwardMode,
+            voice_trans,
+            waitTime,
+            bgmFadeTime
+        );
 
+        //修改标记 spmanager调用前处理
+        ///////
+
+        // 角色的位移缩放tween动画处理
+        ///////
+        //现阶段需要在调用fadingEffect之前处理的就是缩放 需要访问spmanager返回当前的spine的scale
+        let charEffectParams = null;
+        if ((charEffect?.x || charEffect?.y || charEffect?.scale) && charEffect.time && charLabel) {
+            console.log(`transform tween:`, charLabel, charEffect, ` this._charaSpineCount_Stable`, this._charaSpineCount_Stable);
+            charEffectParams = {
+                scale: true,
+                charaCount: this._charaSpineCount_Stable,
+                fgCoveringSpine: this._fgManager.fgCoveringSpine,
+                charBaseTransformMap: this._charBaseTransformMap,
+            }; // charEffect.scale需要修改
+        }
+
+        /////
+        /////
+        //
 
         this._spineManager.processSpineByInput(
             charLabel,
             charId,
             charCategory,
             charPosition,
-            charScale,
+            // charScale, 此参数在脚本内不存在
             charAnim1,
             charAnim2,
             charAnim3,
@@ -473,39 +558,46 @@ class TrackManager {
             charLipAnim,
             lipAnimDuration,
             charEffect,
-            this._fastForwardMode
+            this._fastForwardMode,
+            //修改标记 传入修改后的charEffectParams 告知函数应当调整charEffect的对应值
+            charEffectParams
+            //
         );
 
         //排除非稳定态的track 更新显示人数标记 只在角色人数稳定时进行角色坐标和缩放的调整
-        if(charAnim1){
-            if( textFrame !== "off" || waitTime  !== undefined ){
+
+        if (charAnim1) {
+            if ((textFrame === "off" && waitTime !== undefined) || textFrame !== "off" || waitTime !== undefined) {
                 this._charaSpineCount_Stable = this._spineManager._charaSpineCount;
-                this._spineManager.adjustSpine(this._charaSpineCount_Stable, charScale);
+                this._spineManager.adjustSpine(
+                    this._charaSpineCount_Stable,
+                    this._charBaseTransformMap,
+                    this._fgManager.fgCoveringSpine,
+                    charEffect,
+                    charLabel
+                );
             }
         } else {
             this._charaSpineCount_Stable = this._spineManager._charaSpineCount;
-            this._spineManager.adjustSpine(this._charaSpineCount_Stable, charScale);
+            this._spineManager.adjustSpine(this._charaSpineCount_Stable, this._charBaseTransformMap, this._fgManager.fgCoveringSpine, charEffect, charLabel);
         }
         // console.log(`当前显示人数:`, this._charaSpineCount_Stable);
 
-        
         ////修改标记 增加spine和fg的联动
-        if(fg){
-            if( fg === "fade_out" || fg === "off"){
+        if (fg) {
+            if (fg === "fade_out" || fg === "off") {
                 this._spineManager.resetColorOverlayFilter();
             } else {
-                const { overlayColor: fgOverlayColor = null, bounds: fgRect = null} = this._fgManager.getFgOverlayData(fg) || {};
+                const { overlayColor: fgOverlayColor = null, bounds: fgRect = null } = this._fgManager.getFgOverlayData(fg) || {};
 
-                if(fgOverlayColor != null && fgRect != null){
-                    this._spineManager.applyColorOverlayFilter(fgOverlayColor, fgRect) //对fg矩形范围外的spine应用颜色叠加滤镜
+                if (fgOverlayColor != null && fgRect != null) {
+                    this._spineManager.applyColorOverlayFilter(fgOverlayColor, fgRect); //对fg矩形范围外的spine应用颜色叠加滤镜
                 }
             }
         }
         ///////
 
-
         this._effectManager.processEffectByInput(effectLabel, effectTarget, effectValue, this._fastForwardMode);
-
 
         if (nextLabel == "end") {
             // will be handled at forward();
@@ -583,11 +675,15 @@ class TrackManager {
             if (this._fastForwardMode) {
                 this._renderTrack();
             } else {
-                this._timeoutToClear = setTimeout(() => {
-                    clearTimeout(this._timeoutToClear);
-                    this._timeoutToClear = null;
-                    this._renderTrack();
-                }, waitTime);
+                this._timeoutToClear = setTimeout(
+                    () => {
+                        clearTimeout(this._timeoutToClear);
+                        this._timeoutToClear = null;
+                        this._renderTrack();
+                        // }, waitTime);
+                    },
+                    bgEffectTime || fgEffectTime || middleFgEffectTime || se ? waitTime : waitTime * 0.666
+                ); //修改标记 速读用
             }
         } else if (waitType == "effect") {
             if (this._fastForwardMode) {
@@ -600,7 +696,7 @@ class TrackManager {
 
                     //修改标记 防止undefined报错
                     //  }, effectValue.time);
-                }, effectValue?.time || 0);
+                }, effectValue?.time || 1000);
             }
         } else {
             this._renderTrack();
@@ -614,16 +710,16 @@ class TrackManager {
         let nextJson = null;
         if (currentIndex !== -1 && currentIndex < this._playlist.length - 1) {
             nextJson = this._playlist[currentIndex + 1];
-        }   
+        }
         //
 
         this._bgManager.reset(clear);
         this._fgManager.reset(clear);
         this._spineManager.reset(clear);
-        
+
         // 修改标记
         // this._textManager.reset(clear);
-        this._textManager.reset(clear,nextJson);
+        this._textManager.reset(clear, nextJson);
 
         this._selectManager.reset(clear);
         this._soundManager.reset();
@@ -636,9 +732,6 @@ class TrackManager {
         this._app.stage.interactive = true;
         this._selecting = false;
         this.resetStopTrack();
-
-
-
     }
 
     toggleAutoplay() {
@@ -726,10 +819,8 @@ class TrackManager {
         this._JsonPath = jsonpath;
     }
 
-
-
     ////
-    
+
     _getEventJsonDataLoadResource() {
         const jsonPath = this._JsonPath;
         const eventId = jsonPath.split("/")[1].split(".")[0];
@@ -737,17 +828,14 @@ class TrackManager {
 
         // 定义三个 JSON 文件的路径
         const jsonFiles = [
-            { name: 'card', path: `${commu_info_data_path}/CommuList_card.json` },
-            { name: 'idol', path: `${commu_info_data_path}/CommuList_idol.json` },
-            { name: 'events', path: `${commu_info_data_path}/CommuList_events.json` }
-            
+            { name: "card", path: `${commu_info_data_path}/CommuList_card.json` },
+            { name: "idol", path: `${commu_info_data_path}/CommuList_idol.json` },
+            { name: "events", path: `${commu_info_data_path}/CommuList_events.json` },
         ];
 
         // 定义一个内部异步函数来处理逻辑
         const fetchAndMatchEvent = async () => {
             try {
-
-
                 const response = await fetch(`${commu_info_data_path}/CommuList_playlist.json`);
                 const playlistData = await response.json();
 
@@ -776,7 +864,10 @@ class TrackManager {
                     }
                     this._playlist = selectedArray;
                     console.log(`找到多个包含 jsonPath ${jsonPath} 的播放序列，选择成员最多的：`, this._playlist);
-                    console.log(`其他匹配的数组：`, matchingArrays.filter(arr => arr !== selectedArray));
+                    console.log(
+                        `其他匹配的数组：`,
+                        matchingArrays.filter((arr) => arr !== selectedArray)
+                    );
                 }
 
                 // 遍历三个 JSON 文件
@@ -791,13 +882,13 @@ class TrackManager {
                     const data = await response.json();
 
                     // 查找匹配的 eventId
-                    const eventData = data.find(item => item.eventId === parseInt(eventId, 10));
+                    const eventData = data.find((item) => item.eventId === parseInt(eventId, 10));
                     if (eventData) {
                         // 向 eventSourceData 中注入 "from" 字段
                         eventData.eventSourceData.from = name;
                         eventData.eventSourceData.eventPath = eventPath;
-                        
-                        if (name == "card"){
+
+                        if (name == "card") {
                             const iconId = eventData.eventSourceData.enzaId;
                             let idolType;
                             if (iconId.startsWith("10")) {
@@ -811,118 +902,135 @@ class TrackManager {
                             //     eventData.eventSourceData.eventTitle = eventData.eventSourceData.eventName;
                             // }
 
-                            if (iconId && !this._loader.resources[`icon${iconId}`]){
+                            if (iconId && !this._loader.resources[`icon${iconId}`]) {
                                 this._loader.add(`icon${iconId}`, `${assetUrl}/images/content/${idolType}/icon/${iconId}.png`);
                                 eventData.eventSourceData.eventIcon = `icon${iconId}`;
                             }
                             // 添加卡牌名字图片
-                            if (iconId && !this._loader.resources[`cardnamepic${iconId}`]){
+                            if (iconId && !this._loader.resources[`cardnamepic${iconId}`]) {
                                 this._loader.add(`cardnamepic${iconId}`, `${assetUrl}/images/content/${idolType}/name/${iconId}.png`);
                                 eventData.eventSourceData.cardNamePic = `cardnamepic${iconId}`;
                             }
-                            const IDtoIndexMap ={
+                            const IDtoIndexMap = {
                                 "01": idolType == "idols" ? "Idol Event ✦1" : idolType == "support_idols" ? "Support Event ✦1" : "Undefined Event 1",
                                 "02": idolType == "idols" ? "Idol Event ✦2" : idolType == "support_idols" ? "Support Event ✦2" : "Undefined Event 2",
                                 "03": idolType == "idols" ? "Idol Event ✦3" : idolType == "support_idols" ? "Support Event ✦3" : "Undefined Event 3",
                                 "04": idolType == "idols" ? "Idol Event ✦4" : idolType == "support_idols" ? "Support Event ✦4" : "Undefined Event 4",
-                                "11": "✦True End✦"};
+                                11: "✦True End✦",
+                            };
                             eventData.eventSourceData.eventIndexName = IDtoIndexMap[eventId.toString().slice(-2)] || "";
-
-
-                        } else if(name == "events") {
-                            if(eventData.eventSourceData.eventType == "produce_marathon" && eventData.eventSourceData.albumId){
-                                const iconId = String(eventData.eventSourceData.albumId).padStart(5, '0');
-                                if (iconId && !this._loader.resources[`icon${iconId}`]){
+                        } else if (name == "events") {
+                            if (eventData.eventSourceData.eventType == "produce_marathon" && eventData.eventSourceData.albumId) {
+                                const iconId = String(eventData.eventSourceData.albumId).padStart(5, "0");
+                                if (iconId && !this._loader.resources[`icon${iconId}`]) {
                                     this._loader.add(`icon${iconId}`, `${assetUrl}/images/content/produce_marathons/logo/${iconId}.png`);
                                     eventData.eventSourceData.eventIcon = `icon${iconId}`;
                                 }
-                                eventData.eventSourceData.eventIndexName = eventData.eventSourceData.eventIndexName === "オープニング" ? "✦Opening✦" : eventData.eventSourceData.eventIndexName === "エンディング" ? "✦Ending✦" : eventData.eventSourceData.eventIndexName;
+                                eventData.eventSourceData.eventIndexName =
+                                    eventData.eventSourceData.eventIndexName === "オープニング"
+                                        ? "✦Opening✦"
+                                        : eventData.eventSourceData.eventIndexName === "エンディング"
+                                        ? "✦Ending✦"
+                                        : eventData.eventSourceData.eventIndexName;
                             }
-                        } else if(name == "idol"){
+                        } else if (name == "idol") {
                             const charaId = eventId.toString().slice(1, 4);
                             let iconId;
                             if (charaId === "801" || charaId === "802" || charaId === "803") {
                                 //B小町三人的wing剧本对应头像是ssr因为没有r卡
-                                iconId = `104${charaId}0010`;                                
+                                iconId = `104${charaId}0010`;
                             } else {
                                 iconId = `102${charaId}0010`;
                             }
-                            if (iconId && !this._loader.resources[`icon${iconId}`]){
+                            if (iconId && !this._loader.resources[`icon${iconId}`]) {
                                 this._loader.add(`icon${iconId}`, `${assetUrl}/images/content/idols/icon/${iconId}.png`);
                                 eventData.eventSourceData.eventIcon = `icon${iconId}`;
                             }
                             //育成剧本图片
-                            if (eventData.eventSourceData.eventType && !this._loader.resources[`cardnamepic${iconId}`]){
-
+                            if (eventData.eventSourceData.eventType && !this._loader.resources[`cardnamepic${iconId}`]) {
                                 const eventTypeToAreaPicMap = {
-                                    "produce_marathon":null,
-                                    "wing": "wing",
-                                    "fan_meeting": "fan_meeting",
+                                    produce_marathon: null,
+                                    wing: "wing",
+                                    fan_meeting: "fan_meeting",
                                     "3rd_produce_area": "grad",
                                     "4th_produce_area": "landing_point",
-                                    "5th_produce_area":"step",
-                                    // "6th_produce_area":"say_halo" 
+                                    "5th_produce_area": "step",
+                                    // "6th_produce_area":"say_halo"
                                 };
                                 const areaName = eventTypeToAreaPicMap[eventData.eventSourceData.eventType] || null;
-                                if (areaName){
+                                if (areaName) {
                                     this._loader.add(`cardnamepic${iconId}`, `./assets/p_desk_${areaName}_button.png`);
                                     eventData.eventSourceData.cardNamePic = `cardnamepic${iconId}`;
                                 }
-
                             }
                             //育成章节名
                             const validEventTypes = ["wing", "fan_meeting", "3rd_produce_area", "4th_produce_area", "5th_produce_area"];
                             if (validEventTypes.includes(eventData.eventSourceData.eventType)) {
-                                 if( eventData.eventSourceData.eventType == "wing"){
-                                     if (eventId.toString().charAt(0) == "6"){
-                                        eventData.eventSourceData.eventIndexName = eventId.toString().slice(-2) == "07" ?
-                                         "Normal End" :
-                                          eventId.toString().slice(-2) == "09" ?
-                                            "Good End" : "Unknown";
-                                     } else {
-                                        if (eventId.toString().charAt(0) == "1" ){
-                                            eventData.eventSourceData.eventIndexName =  eventId.toString().slice(-2) == "01" ? "Produce Event ✦Opening✦" : "Produce Event ✦"+(parseInt(eventId.toString().slice(-1), 10) - 1).toString();
-                                        }  
-                                     }
-                                } else if (eventData.eventSourceData.eventType == "fan_meeting"){
-                                    if (eventId.toString().charAt(0) == "1" ){
-                                        eventData.eventSourceData.eventIndexName = eventId.toString().slice(-2) == "01" ? "Produce Event ✦Idol Opening✦" : eventId.toString().slice(-2) == "02" ? "Produce Event ✦Idol Ending✦" : "Unknown";
-                                    } else if (eventId.toString().charAt(0) == "5" ) {
-                                        eventData.eventSourceData.eventIndexName = eventId.toString().slice(-2) == "01" ? "Produce Event ✦Unit Opening✦" : eventId.toString().slice(-2) == "09" ? "Produce Event ✦Unit Ending✦" : "Produce Event ✦" + (parseInt(eventId.toString().slice(-1), 10) - 1).toString();                                      
+                                if (eventData.eventSourceData.eventType == "wing") {
+                                    if (eventId.toString().charAt(0) == "6") {
+                                        eventData.eventSourceData.eventIndexName =
+                                            eventId.toString().slice(-2) == "07" ? "Normal End" : eventId.toString().slice(-2) == "09" ? "Good End" : "Unknown";
+                                    } else {
+                                        if (eventId.toString().charAt(0) == "1") {
+                                            eventData.eventSourceData.eventIndexName =
+                                                eventId.toString().slice(-2) == "01"
+                                                    ? "Produce Event ✦Opening✦"
+                                                    : "Produce Event ✦" + (parseInt(eventId.toString().slice(-1), 10) - 1).toString();
+                                        }
                                     }
-                                } else if (eventData.eventSourceData.eventType == "3rd_produce_area"){
-                                    eventData.eventSourceData.eventIndexName =  eventId.toString().slice(-2) == "01" ? "Produce Event ✦Opening✦" : eventId.toString().slice(-2) == "09" ? "Produce Event ✦Ending✦" : "Produce Event ✦"+ (parseInt(eventId.toString().slice(-1), 10) - 1).toString();
-                                } else if (eventData.eventSourceData.eventType == "4th_produce_area" || eventData.eventSourceData.eventType == "5th_produce_area" ){
-                                    eventData.eventSourceData.eventIndexName =  eventId.toString().slice(-2) == "01" ? "Produce Event ✦Opening✦" : eventId.toString().slice(-2) == "06" ? "Produce Event ✦Ending✦" : "Produce Event ✦"+ (parseInt(eventId.toString().slice(-1), 10) - 1).toString();
-                                } 
-                                
+                                } else if (eventData.eventSourceData.eventType == "fan_meeting") {
+                                    if (eventId.toString().charAt(0) == "1") {
+                                        eventData.eventSourceData.eventIndexName =
+                                            eventId.toString().slice(-2) == "01"
+                                                ? "Produce Event ✦Idol Opening✦"
+                                                : eventId.toString().slice(-2) == "02"
+                                                ? "Produce Event ✦Idol Ending✦"
+                                                : "Unknown";
+                                    } else if (eventId.toString().charAt(0) == "5") {
+                                        eventData.eventSourceData.eventIndexName =
+                                            eventId.toString().slice(-2) == "01"
+                                                ? "Produce Event ✦Unit Opening✦"
+                                                : eventId.toString().slice(-2) == "09"
+                                                ? "Produce Event ✦Unit Ending✦"
+                                                : "Produce Event ✦" + (parseInt(eventId.toString().slice(-1), 10) - 1).toString();
+                                    }
+                                } else if (eventData.eventSourceData.eventType == "3rd_produce_area") {
+                                    eventData.eventSourceData.eventIndexName =
+                                        eventId.toString().slice(-2) == "01"
+                                            ? "Produce Event ✦Opening✦"
+                                            : eventId.toString().slice(-2) == "09"
+                                            ? "Produce Event ✦Ending✦"
+                                            : "Produce Event ✦" + (parseInt(eventId.toString().slice(-1), 10) - 1).toString();
+                                } else if (
+                                    eventData.eventSourceData.eventType == "4th_produce_area" ||
+                                    eventData.eventSourceData.eventType == "5th_produce_area"
+                                ) {
+                                    eventData.eventSourceData.eventIndexName =
+                                        eventId.toString().slice(-2) == "01"
+                                            ? "Produce Event ✦Opening✦"
+                                            : eventId.toString().slice(-2) == "06"
+                                            ? "Produce Event ✦Ending✦"
+                                            : "Produce Event ✦" + (parseInt(eventId.toString().slice(-1), 10) - 1).toString();
+                                }
                             }
                         }
-                         
+
                         return new Promise((resolve) => {
                             this._loader.load(() => {
                                 resolve(eventData); // 确保所有资源加载完成后返回
                             });
-                        }); 
+                        });
                     }
                 }
 
                 // 如果遍历完所有文件仍未找到匹配项
-                console.error(`Event with ID ${eventId} not found in any JSON file.`);
+                console.log(`Event with ID ${eventId} not found in any JSON file.`);
             } catch (error) {
-                console.error('Error loading or parsing JSON:', error);
+                console.error("Error loading or parsing JSON:", error);
             }
         };
-
-
-
 
         // 调用内部异步函数
         return fetchAndMatchEvent();
     }
-
-
-
-
-
 }

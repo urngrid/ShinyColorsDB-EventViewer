@@ -1,5 +1,3 @@
-
-
 class TextManager {
     constructor() {
         this._container = new PIXI.Container();
@@ -18,6 +16,10 @@ class TextManager {
         this.textZhJpObj = null; //this._languageType == 2
         this.speakerZhJpObj = null;
         this._typingEffect_ZhJp = null;
+        this._fontSizeJp = 36;
+        this._fontSizeZh = 39;
+        this._fontSizeJp_Speaker = 28;
+        this._fontSizeZh_Speaker = 35;
         //
     }
 
@@ -52,12 +54,18 @@ class TextManager {
 
     processTextFrameByInput(textFrame, speaker, text, translated_text, speaker_trans, isFastForward, textCtrl) {
         //修改标记 移动量定义
-        const YOffset = -420;
-        const XOffset = -75;
+        const YOffset = global_YOffset - 840;
+        const XOffset = global_XOffset - 220;
+
+        const YOffset_Speaker = 450 + YOffset;
+
+        text = text == null ? "" : text;
+
+        //修改标记 控制用值保护
+        speaker = speaker == "off" ? "" : speaker;
+
         //译文缺失时用原文替代
         translated_text = translated_text == "" ? text : translated_text;
-
-
 
         this._thisWaitTime = 0;
         // let managerSound = this._loader.resources['managerSound'].sound;
@@ -77,7 +85,8 @@ class TextManager {
 
         //修改标记 无语音台词停顿偏长
         // this._thisWaitTime = isFastForward ? 50 : text ? text.length * 300 + 500 : 50;
-        this._thisWaitTime = isFastForward ? 50 : text ? text.length * 150 + 1200 : 50;
+        // this._thisWaitTime = isFastForward ? 50 : text ? text.length * 150 + 1200 : 50; //常态
+        this._thisWaitTime = (isFastForward ? 50 : text ? text.length * 150 + 1200 : 50) * 0.666; //速读用
 
         if (!this._txtFrameMap.has(textFrame)) {
             this._txtFrameMap.set(textFrame, new PIXI.Sprite(this._loader.resources[`textFrame${textFrame}`].texture));
@@ -94,9 +103,8 @@ class TextManager {
         //speaker处理
         let noSpeaker = true;
         if (speaker !== "off") {
-
-            speaker = speaker  || ""
-            speaker_trans = speaker_trans || ""
+            speaker = speaker || "";
+            speaker_trans = speaker === "" ? "" : speaker_trans || speaker + "(缺翻译)";
 
             //修改标记
             this._currentSpeaker.jp = speaker; // 存储日文名
@@ -113,17 +121,16 @@ class TextManager {
             }
             this.speakerObj = new PIXI.Text(speakerText, {
                 fontFamily: fontFamily,
-                fontSize: this._languageType === 0 ? 24 : 30,
+                fontSize: this._languageType === 0 ? this._fontSizeJp_Speaker : this._fontSizeZh_Speaker,
                 fill: 0xf0f0f0,
                 align: "center",
                 padding: 3,
                 letterSpacing: this._languageType === 0 ? 0 : 1,
             });
-        
-            this._container.addChildAt(this.speakerObj, 1);
-            this.speakerObj.position.set(260 + XOffset, 462 + YOffset);
-            this.speakerObj.visible = this._languageType != 2 ? true : false;
 
+            this._container.addChildAt(this.speakerObj, 1);
+            this.speakerObj.position.set(260 + XOffset, YOffset_Speaker);
+            this.speakerObj.visible = this._languageType != 2 ? true : false;
 
             //无论显示模式 先将双语obj建立起来再隐藏
             if (this.speakerZhJpObj) {
@@ -133,47 +140,43 @@ class TextManager {
 
             const speakerZhJp_styles = {
                 default: {
-                    align: 'left',
+                    align: "left",
                     fontFamily: usedFont,
                     fontSize: 24,
                     fill: 0xf0f0f0,
-                    fontWeight: 'normal',
+                    fontWeight: "normal",
                     letterSpacing: 3,
                 },
                 chinese: {
-                    align: 'left',
+                    align: "left",
                     fontFamily: zhcnFont,
-                    fontSize: 30,
+                    fontSize: this._fontSizeZh_Speaker - 2,
                     fill: 0xf0f0f0,
-                    fontWeight: 'normal',
+                    fontWeight: "normal",
                     letterSpacing: 1,
-                   
                 },
                 japanese: {
-                    align: 'left',
+                    align: "left",
                     // fontStyle: 'italic',
                     fontFamily: usedFont,
-                    fontSize: 18,
+                    fontSize: this._fontSizeJp_Speaker - 6,
                     fill: 0xcccccc,
-                    fontWeight: 'normal',
+                    fontWeight: "normal",
                     letterSpacing: 0,
-                   
                 },
             };
-            let speakerZhJp
-            if(speaker_trans){
-                 speakerZhJp = `<chinese>${speaker_trans}</chinese><japanese>／${speaker}</japanese>`;
+            let speakerZhJp;
+            if (speaker_trans) {
+                speakerZhJp = `<chinese>${speaker_trans}</chinese>⧸<japanese>${speaker}</japanese>`;
             } else {
                 speakerZhJp = `<chinese></chinese><japanese>${speaker}</japanese>`;
             }
 
             this.speakerZhJpObj = new TaggedText(speakerZhJp, speakerZhJp_styles);
-            this.speakerZhJpObj.position.set(260 + XOffset , 462 + YOffset);
+            this.speakerZhJpObj.position.set(260 + XOffset, YOffset_Speaker);
             this.speakerZhJpObj.visible = this._languageType == 2 ? true : false;
             this._container.addChildAt(this.speakerObj, 2);
             //
-
-
 
             // if(this._languageType = 0){
 
@@ -213,8 +216,6 @@ class TextManager {
             //         speakerObj.position.set(260 + XOffset, 462 + YOffset);
             //     }
             // }
-
-
         }
 
         //修改标记 新增textctrl=r处理 上一次的文本后续追加
@@ -222,7 +223,6 @@ class TextManager {
         // let text_AlreadyDisplayed = "";
 
         if (textCtrl == "rightafter_r") {
-
             //自定义标记代表本行为textCtrl=r的后一行
             // 分割 text
             let [textPart1, textPart2] = (text || "").split("{rightafter_r}");
@@ -254,7 +254,7 @@ class TextManager {
             //     padding: 3,
             // });
             const textStyle = this._fontProcess();
-            
+
             if (this.textObj) {
                 this._container.removeChild(this.textObj); // 正确地从容器中移除对象。
                 this.textObj.destroy(); // 销毁引用。
@@ -262,8 +262,6 @@ class TextManager {
 
             // this.textObj = new PIXI.Text(text_AlreadyDisplayed, textStyle);
             this.textObj = new PIXI.Text("", textStyle);
-
-
         } else {
             if (translated_text) {
                 this._currentText.jp = text;
@@ -302,11 +300,10 @@ class TextManager {
         // this.textObj.position.set(240, 510);
         this.textObj.position.set(300 + XOffset, 510 + YOffset - 10);
         //可见性
-        this.textObj.visible =this._languageType != 2 ? true : false;
-
-
+        this.textObj.visible = this._languageType != 2 ? true : false;
 
         let word_index = 0;
+        // let word_index = text?.length || ""; //速读用ban打字机效果
         //修改标记 index在处理textCtrl=r时应当从第二部分开始
         // let word_index = textCtrl == "rightafter_r" ? text_AlreadyDisplayed.length : 0;
 
@@ -329,11 +326,15 @@ class TextManager {
                 // if(!noSpeaker && speaker == 'プロデューサー'){
                 //     managerSound.play()
                 // }
-                this.textObj.text += text.charAt(word_index);
-                word_index += 1;
-            }, 65);
-        }
+                // 修改标记
+                // this.textObj.text += text.charAt(word_index);
+                //
+                this.textObj.text = text.substring(0, word_index + 1);
 
+                word_index += 1;
+            // }, 65);
+            }, 12); //速读用但保留打字机效果(单语)
+        }
 
         //独立的双语显示obj
         if (this.textZhJpObj) {
@@ -346,7 +347,7 @@ class TextManager {
                 fontFamily: usedFont,
                 fontSize: 24,
                 fill: 0xf0f0f0,
-                fontWeight: 'normal',
+                fontWeight: "normal",
                 letterSpacing: 1,
                 breakLines: false,
                 lineHeight: 1,
@@ -354,21 +355,20 @@ class TextManager {
             chinese: {
                 wordWrap: false,
                 fontFamily: zhcnFont2,
-                fontSize: 30,
+                fontSize: this._fontSizeZh - 2,
                 fill: 0xf0f0f0,
-                fontWeight: 'normal',
+                fontWeight: "normal",
                 letterSpacing: 2,
                 fontScaleWidth: 1,
                 lineHeight: 1,
-
             },
             japanese: {
                 wordWrap: false,
                 fontFamily: usedFont,
                 // fontStyle: 'italic',
-                fontSize: 18,
+                fontSize: this._fontSizeJp - 12,
                 fill: 0xcccccc,
-                fontWeight: 'normal',
+                fontWeight: "normal",
                 letterSpacing: 0,
                 lineHeight: 1,
             },
@@ -376,8 +376,7 @@ class TextManager {
 
         this.textZhJpObj = new TaggedText("", textZhJp_styles);
         this.textZhJpObj.position.set(300 + XOffset, 510 + YOffset);
-        this.textZhJpObj.visible =this._languageType == 2 ? true : false;
-        
+        this.textZhJpObj.visible = this._languageType == 2 ? true : false;
 
         let text_ZhJp = this._formatBilingualText(this._currentText.zh, this._currentText.jp);
 
@@ -387,9 +386,9 @@ class TextManager {
         this._container.addChildAt(this.textZhJpObj, this._container.children.length);
         this._container.addChildAt(this.speakerZhJpObj, this._container.children.length);
 
-
         //打字效果部分完全copy
         let word_index_ZhJp = 0;
+        // let word_index_ZhJp = Math.max(this._currentText.jp.length, this._currentText.zh.length); //速度用ban打字机效果
 
         if (this._typingEffect_ZhJp != null) {
             clearInterval(this._typingEffect_ZhJp);
@@ -409,7 +408,7 @@ class TextManager {
                     let sliced = text.slice(0, position);
                     let remaining = text.slice(position);
                     let newLineCount = (remaining.match(/\r\n/g) || []).length;
-                    return sliced + '\r\n'.repeat(newLineCount);
+                    return sliced + "\r\n".repeat(newLineCount);
                 }
 
                 // 获取当前索引的部分文本 并保留行数不变 避免多语言平行打字机效果时行数出现不同步
@@ -424,19 +423,15 @@ class TextManager {
 
                 // 增加索引
                 word_index_ZhJp += 1;
-            }, 65);
+            // }, 65);
+            }, 12); // 速度但保留打字机效果(双语)
         }
 
-
         ////
-
-
-
     }
 
     toggleLanguage(type) {
         this.languageType = type;
-
 
         //修改各object可见性 短路逻辑避免抛出错误
         this.textObj && (this.textObj.visible = this._languageType != 2 ? true : false);
@@ -470,15 +465,13 @@ class TextManager {
                 // this.textObj.style.fontFamily = zhcnFont;
             }
             this.textObj.text = text ?? "";
-
         }
-
 
         //修改标记 speaker切换
         if (this.speakerObj) {
             const speakerText = this._languageType === 0 ? this._currentSpeaker.jp : this._currentSpeaker.zh;
             const fontFamily = this._languageType === 0 ? usedFont : zhcnFont;
-            const fontSize = this._languageType === 0 ? 24 : 30;
+            const fontSize = this._languageType === 0 ? this._fontSizeJp_Speaker : this._fontSizeZh_Speaker;
             const letterSpacing = this._languageType === 0 ? 0 : 1;
             this.speakerObj.text = speakerText;
             this.speakerObj.style.fontFamily = fontFamily;
@@ -486,7 +479,6 @@ class TextManager {
             this.speakerObj.style.letterSpacing = letterSpacing;
         }
         ////
-
     }
 
     // _endNotification() {
@@ -501,13 +493,9 @@ class TextManager {
         // this._container.addChildAt(owariObj, 0);
         // owariObj.anchor.set(0.5);
         // owariObj.position.set(568, 320);
-        
-
 
         this._ProcessReplayNext(nextJson);
-
     }
-
 
     ///修改标记
     _fontProcess() {
@@ -515,7 +503,7 @@ class TextManager {
             ? new PIXI.TextStyle({
                   align: "left",
                   fontFamily: usedFont,
-                  fontSize: 26,
+                  fontSize: this._fontSizeJp,
                   fill: 0xf0f0f0,
                   fontWeight: "normal",
                   letterSpacing: 0,
@@ -523,7 +511,7 @@ class TextManager {
             : new PIXI.TextStyle({
                   align: "left",
                   fontFamily: zhcnFont,
-                  fontSize: 30,
+                  fontSize: this._fontSizeZh,
                   fill: 0xf0f0f0,
                   fontWeight: "bold",
                   letterSpacing: 2,
@@ -537,24 +525,23 @@ class TextManager {
         chineseText == "" ? "　" : chineseText;
         const chineseLines = chineseText.split("\r\n");
         const japaneseLines = japaneseText.split("\r\n");
-        
+
         //给空行添加一个空格 因为没有字符的空行行高会小一丢丢 如果第3行为空第4行非空 等第3行有字符后第4行的高度会小位移
         for (let i = 0; i < chineseLines.length; i++) {
             if (chineseLines[i] === "") {
                 chineseLines[i] = "　";
             }
         }
-        
+
         for (let i = 0; i < japaneseLines.length; i++) {
             if (japaneseLines[i] === "") {
                 japaneseLines[i] = "　";
             }
         }
 
-
         // 获取最大行数
         const maxLines = Math.max(chineseLines.length, japaneseLines.length);
-    
+
         // 填充空行使两种语言的行数相等
         while (chineseLines.length < maxLines) {
             chineseLines.push(""); // 插入空行
@@ -562,30 +549,26 @@ class TextManager {
         while (japaneseLines.length < maxLines) {
             japaneseLines.push(""); // 插入空行
         }
-    
+
         // 合并中日文本行，交替排列
         let formattedText = "";
         for (let i = 0; i < maxLines; i++) {
-
             formattedText += `<japanese>${japaneseLines[i]}</japanese>\r\n`;
             formattedText += `<chinese>${chineseLines[i]}</chinese>\r\n`;
-
         }
-        
+
         return formattedText;
     }
-
 
     _ProcessReplayNext(nextJson) {
         const style = new PIXI.TextStyle({
             fontFamily: zhcnFont2,
-            fontSize: 36,
+            fontSize: this._fontSizeZh,
             fill: "#ffffff",
             fontWeight: "bold",
         });
 
-    
-        function createButton(container,text, x, y, onClick) {
+        function createButton(container, text, x, y, onClick) {
             const button = new PIXI.Text(text, style);
 
             button.x = x;
@@ -594,16 +577,15 @@ class TextManager {
             button.buttonMode = true;
             button.on("pointertap", onClick);
             container.addChildAt(button, 0);
-        // owariObj.anchor.set(0.5);
-        // owariObj.position.set(568, 320);
+            // owariObj.anchor.set(0.5);
+            // owariObj.position.set(568, 320);
         }
-    
+
         function reloadPage() {
             location.reload();
         }
-    
+
         function goToNextEvent() {
-            
             if (nextJson) {
                 const eventId = nextJson.split("/")[1].split(".")[0];
                 const eventType = nextJson.split("/")[0];
@@ -613,8 +595,8 @@ class TextManager {
                 window.location.href = url.toString();
             }
         }
-    
+
         createButton(this._container, "重播", 380, 480, reloadPage);
         createButton(this._container, "下一个", 700, 480, goToNextEvent);
-    }   
+    }
 }

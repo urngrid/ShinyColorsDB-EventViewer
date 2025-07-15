@@ -7711,6 +7711,72 @@
         }
     },
     {
+        "eventId": 102600401,
+        "eventSourceData": {
+            "eventTitle": "望まれ＿",
+            "communicationCategory": "character_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
+        "eventId": 102600402,
+        "eventSourceData": {
+            "eventTitle": "見られている",
+            "communicationCategory": "character_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
+        "eventId": 102600403,
+        "eventSourceData": {
+            "eventTitle": "波打つ",
+            "communicationCategory": "character_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
+        "eventId": 102600404,
+        "eventSourceData": {
+            "eventTitle": "向かい合う",
+            "communicationCategory": "character_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
+        "eventId": 102600405,
+        "eventSourceData": {
+            "eventTitle": "斑鳩ルカ",
+            "communicationCategory": "character_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
+        "eventId": 102600406,
+        "eventSourceData": {
+            "eventTitle": "ナポリタン",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
         "eventId": 102700101,
         "eventSourceData": {
             "eventTitle": "スカウト！",
@@ -7865,6 +7931,72 @@
         }
     },
     {
+        "eventId": 102700401,
+        "eventSourceData": {
+            "eventTitle": "ちゃんとした日々",
+            "communicationCategory": "character_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
+        "eventId": 102700402,
+        "eventSourceData": {
+            "eventTitle": "ちゃんとした日々２",
+            "communicationCategory": "character_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
+        "eventId": 102700403,
+        "eventSourceData": {
+            "eventTitle": "隔たり",
+            "communicationCategory": "character_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
+        "eventId": 102700404,
+        "eventSourceData": {
+            "eventTitle": "あたしのこと",
+            "communicationCategory": "character_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
+        "eventId": 102700405,
+        "eventSourceData": {
+            "eventTitle": "Eyes On You",
+            "communicationCategory": "character_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
+        "eventId": 102700406,
+        "eventSourceData": {
+            "eventTitle": "You",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
         "eventId": 102800101,
         "eventSourceData": {
             "eventTitle": "見つめる先にあるもの",
@@ -8013,6 +8145,72 @@
             "eventTitle": "わたしだけの場所",
             "communicationCategory": "concert_event",
             "eventType": "3rd_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 102800401,
+        "eventSourceData": {
+            "eventTitle": "ここは、どこでもない場所",
+            "communicationCategory": "character_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 102800402,
+        "eventSourceData": {
+            "eventTitle": "とどまらないもの",
+            "communicationCategory": "character_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 102800403,
+        "eventSourceData": {
+            "eventTitle": "衝動の行く先",
+            "communicationCategory": "character_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 102800404,
+        "eventSourceData": {
+            "eventTitle": "JAM JAM JAM",
+            "communicationCategory": "character_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 102800405,
+        "eventSourceData": {
+            "eventTitle": "いたいんだ",
+            "communicationCategory": "character_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 102800406,
+        "eventSourceData": {
+            "eventTitle": "まだ見ぬ君へ",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
             "eventName": null,
             "idolId": 28,
             "name": "はるき"
@@ -21802,6 +22000,622 @@
         }
     },
     {
+        "eventId": 490180001,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】真乃・ホットチョコレートボム",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 1,
+            "name": "真乃"
+        }
+    },
+    {
+        "eventId": 490180002,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】櫻木真乃とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 1,
+            "name": "真乃"
+        }
+    },
+    {
+        "eventId": 490180003,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】灯織・ボンボンショコラ",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 2,
+            "name": "灯織"
+        }
+    },
+    {
+        "eventId": 490180004,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】風野灯織とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 2,
+            "name": "灯織"
+        }
+    },
+    {
+        "eventId": 490180005,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】めぐる・チョコがけポップコーン",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 3,
+            "name": "めぐる"
+        }
+    },
+    {
+        "eventId": 490180006,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】八宮めぐるとのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 3,
+            "name": "めぐる"
+        }
+    },
+    {
+        "eventId": 490180007,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】恋鐘・チョコがけいちご",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 4,
+            "name": "恋鐘"
+        }
+    },
+    {
+        "eventId": 490180008,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】月岡恋鐘とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 4,
+            "name": "恋鐘"
+        }
+    },
+    {
+        "eventId": 490180009,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】摩美々・味のないガム",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 5,
+            "name": "摩美々"
+        }
+    },
+    {
+        "eventId": 490180010,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】田中摩美々とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 5,
+            "name": "摩美々"
+        }
+    },
+    {
+        "eventId": 490180011,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】咲耶・生キャラメル",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 6,
+            "name": "咲耶"
+        }
+    },
+    {
+        "eventId": 490180012,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】白瀬咲耶とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 6,
+            "name": "咲耶"
+        }
+    },
+    {
+        "eventId": 490180013,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】結華・コーヒービーンズチョコ",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 7,
+            "name": "結華"
+        }
+    },
+    {
+        "eventId": 490180014,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】三峰結華とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 7,
+            "name": "結華"
+        }
+    },
+    {
+        "eventId": 490180015,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】霧子・スイーツビュッフェ券",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 8,
+            "name": "霧子"
+        }
+    },
+    {
+        "eventId": 490180016,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】幽谷霧子とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 8,
+            "name": "霧子"
+        }
+    },
+    {
+        "eventId": 490180017,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】果穂・しょっぱいだがしセット",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 9,
+            "name": "果穂"
+        }
+    },
+    {
+        "eventId": 490180018,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】小宮果穂とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 9,
+            "name": "果穂"
+        }
+    },
+    {
+        "eventId": 490180019,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】智代子・お揃いのチョコレート",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 10,
+            "name": "智代子"
+        }
+    },
+    {
+        "eventId": 490180020,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】園田智代子とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 10,
+            "name": "智代子"
+        }
+    },
+    {
+        "eventId": 490180021,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】樹里・カフェの優待券",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 11,
+            "name": "樹里"
+        }
+    },
+    {
+        "eventId": 490180022,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】西城樹里とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 11,
+            "name": "樹里"
+        }
+    },
+    {
+        "eventId": 490180023,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】凛世・ハート型のマカロン",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 12,
+            "name": "凛世"
+        }
+    },
+    {
+        "eventId": 490180024,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】杜野凛世とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 12,
+            "name": "凛世"
+        }
+    },
+    {
+        "eventId": 490180025,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】夏葉・思いのこもったチョコ",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 13,
+            "name": "夏葉"
+        }
+    },
+    {
+        "eventId": 490180026,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】有栖川夏葉とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 13,
+            "name": "夏葉"
+        }
+    },
+    {
+        "eventId": 490180027,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】甘奈・チョコレートパフェ",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 14,
+            "name": "甘奈"
+        }
+    },
+    {
+        "eventId": 490180028,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】大崎甘奈とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 14,
+            "name": "甘奈"
+        }
+    },
+    {
+        "eventId": 490180029,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】甜花・デビ太郎だったクッキー",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 15,
+            "name": "甜花"
+        }
+    },
+    {
+        "eventId": 490180030,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】大崎甜花とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 15,
+            "name": "甜花"
+        }
+    },
+    {
+        "eventId": 490180031,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】千雪・お酒に合うチョコ",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 16,
+            "name": "千雪"
+        }
+    },
+    {
+        "eventId": 490180032,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】桑山千雪とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 16,
+            "name": "千雪"
+        }
+    },
+    {
+        "eventId": 490180033,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】あさひ・チョコチップスコーン",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 17,
+            "name": "あさひ"
+        }
+    },
+    {
+        "eventId": 490180034,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】芹沢あさひとのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 17,
+            "name": "あさひ"
+        }
+    },
+    {
+        "eventId": 490180035,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】冬優子・なかなか溶けないアメ",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 18,
+            "name": "冬優子"
+        }
+    },
+    {
+        "eventId": 490180036,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】黛 冬優子とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 18,
+            "name": "冬優子"
+        }
+    },
+    {
+        "eventId": 490180037,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】愛依・くじ引き箱",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 19,
+            "name": "愛依"
+        }
+    },
+    {
+        "eventId": 490180038,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】和泉愛依とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 19,
+            "name": "愛依"
+        }
+    },
+    {
+        "eventId": 490180039,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】透・チョコレート",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 20,
+            "name": "透"
+        }
+    },
+    {
+        "eventId": 490180040,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】浅倉 透とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 20,
+            "name": "透"
+        }
+    },
+    {
+        "eventId": 490180041,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】円香・チョコレート",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 21,
+            "name": "円香"
+        }
+    },
+    {
+        "eventId": 490180042,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】樋口円香とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 21,
+            "name": "円香"
+        }
+    },
+    {
+        "eventId": 490180043,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】小糸・アニマルトリュフ",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 22,
+            "name": "小糸"
+        }
+    },
+    {
+        "eventId": 490180044,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】福丸小糸とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 22,
+            "name": "小糸"
+        }
+    },
+    {
+        "eventId": 490180045,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】雛菜・宝石チョコ",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 23,
+            "name": "雛菜"
+        }
+    },
+    {
+        "eventId": 490180046,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】市川雛菜とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 23,
+            "name": "雛菜"
+        }
+    },
+    {
+        "eventId": 490180047,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】にちか・徳用チョコ",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 24,
+            "name": "にちか"
+        }
+    },
+    {
+        "eventId": 490180048,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】七草にちかとのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 24,
+            "name": "にちか"
+        }
+    },
+    {
+        "eventId": 490180049,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】美琴・クッキー",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 25,
+            "name": "美琴"
+        }
+    },
+    {
+        "eventId": 490180050,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】緋田美琴とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 25,
+            "name": "美琴"
+        }
+    },
+    {
+        "eventId": 490180051,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】ルカ・最中",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
+        "eventId": 490180052,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】斑鳩ルカとのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
+        "eventId": 490180053,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】羽那・ちゃんとしたチョコ",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
+        "eventId": 490180054,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】鈴木羽那とのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
+        "eventId": 490180055,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】はるき・ミニフォンデュ鍋セット",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 490180056,
+        "eventSourceData": {
+            "eventTitle": "【'25VD】郁田はるきとのひととき",
+            "communicationCategory": "present_event",
+            "eventType": "present_event_50047",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
         "eventId": 490200101,
         "eventSourceData": {
             "eventTitle": "【櫻木 真乃】 誕生日ミニコミュ①",
@@ -23237,6 +24051,61 @@
             "eventTitle": "変わる景色",
             "communicationCategory": "concert_event",
             "eventType": "fan_meeting",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 500800401,
+        "eventSourceData": {
+            "eventTitle": "1曲目前コミュ《ユニット限定》",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 500800402,
+        "eventSourceData": {
+            "eventTitle": "1曲目前コミュ《ユニット》",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 500800403,
+        "eventSourceData": {
+            "eventTitle": "2曲目前コミュ《ユニット限定》",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 500800404,
+        "eventSourceData": {
+            "eventTitle": "3曲目前コミュ《ユニット限定》",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 500800405,
+        "eventSourceData": {
+            "eventTitle": "ライブ後コミュ《ユニット》",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
             "eventName": null,
             "idolId": 28,
             "name": "はるき"
@@ -30338,6 +31207,61 @@
         }
     },
     {
+        "eventId": 602600401,
+        "eventSourceData": {
+            "eventTitle": "ライブ1曲目前コミュ《個人》",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
+        "eventId": 602600402,
+        "eventSourceData": {
+            "eventTitle": "ライブ2曲目前コミュ《個人》",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
+        "eventId": 602600403,
+        "eventSourceData": {
+            "eventTitle": "ライブ3曲目前コミュ《個人》",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
+        "eventId": 602600404,
+        "eventSourceData": {
+            "eventTitle": "ライブ後コミュ《個人》　大成功",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
+        "eventId": 602600414,
+        "eventSourceData": {
+            "eventTitle": "ライブ後コミュ《個人》　成功",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
         "eventId": 602700101,
         "eventSourceData": {
             "eventTitle": "準決勝前コミュ",
@@ -30558,6 +31482,61 @@
         }
     },
     {
+        "eventId": 602700401,
+        "eventSourceData": {
+            "eventTitle": "ライブ1曲目前コミュ《個人》",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
+        "eventId": 602700402,
+        "eventSourceData": {
+            "eventTitle": "ライブ2曲目前コミュ《個人》",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
+        "eventId": 602700403,
+        "eventSourceData": {
+            "eventTitle": "ライブ3曲目前コミュ《個人》",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
+        "eventId": 602700404,
+        "eventSourceData": {
+            "eventTitle": "ライブ後コミュ《個人》　大成功",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
+        "eventId": 602700414,
+        "eventSourceData": {
+            "eventTitle": "ライブ後コミュ《個人》　成功",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
         "eventId": 602800101,
         "eventSourceData": {
             "eventTitle": "準決勝前コミュ",
@@ -30772,6 +31751,61 @@
             "eventTitle": "決勝後コミュ　敗北②",
             "communicationCategory": "concert_event",
             "eventType": "3rd_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 602800401,
+        "eventSourceData": {
+            "eventTitle": "ライブ1曲目前コミュ《個人》",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 602800402,
+        "eventSourceData": {
+            "eventTitle": "ライブ2曲目前コミュ《個人》",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 602800403,
+        "eventSourceData": {
+            "eventTitle": "ライブ3曲目前コミュ《個人》",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 602800404,
+        "eventSourceData": {
+            "eventTitle": "ライブ後コミュ《個人》　大成功",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 602800414,
+        "eventSourceData": {
+            "eventTitle": "ライブ後コミュ《個人》　成功",
+            "communicationCategory": "concert_event",
+            "eventType": "4th_produce_area",
             "eventName": null,
             "idolId": 28,
             "name": "はるき"
@@ -35420,6 +36454,28 @@
         }
     },
     {
+        "eventId": 4902005091,
+        "eventSourceData": {
+            "eventTitle": "【七草 はづき】 誕生日ミニコミュ①",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 91,
+            "name": "はづき"
+        }
+    },
+    {
+        "eventId": 4902006007,
+        "eventSourceData": {
+            "eventTitle": "【三峰 結華】 誕生日ミニコミュ⑥",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 7,
+            "name": "結華"
+        }
+    },
+    {
         "eventId": 4902006008,
         "eventSourceData": {
             "eventTitle": "【幽谷 霧子】 誕生日ミニコミュ⑥",
@@ -35486,6 +36542,17 @@
         }
     },
     {
+        "eventId": 4902006017,
+        "eventSourceData": {
+            "eventTitle": "【芹沢 あさひ】 誕生日ミニコミュ⑥",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 17,
+            "name": "あさひ"
+        }
+    },
+    {
         "eventId": 4902006018,
         "eventSourceData": {
             "eventTitle": "【黛 冬優子】 誕生日ミニコミュ⑥",
@@ -35538,6 +36605,17 @@
             "eventName": null,
             "idolId": 25,
             "name": "美琴"
+        }
+    },
+    {
+        "eventId": 4902006026,
+        "eventSourceData": {
+            "eventTitle": "【斑鳩 ルカ】 誕生日ミニコミュ②",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
         }
     },
     {

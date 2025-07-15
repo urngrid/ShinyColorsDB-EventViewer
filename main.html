@@ -1,75 +1,68 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8" />
 
-<head>
+        <!--using pixi.js v6.5.9-->
+        <script src="./lib/pixi.js"></script>
+        <!--using pixi-sound.js v4.3.1-->
+        <script src="./lib/pixi-sound.js"></script>
+        <!--using pixi-spine.js pixi5-spine3.7-->
+        <script src="./lib/pixi-spine.umd.js"></script>
+        <!--using TweenMax v3.11.4-->
+        <script src="./lib/gsap.min.js"></script>
 
-    <meta charset="utf-8">
-    
-    <!--using pixi.js v6.5.9-->
-    <script src="./lib/pixi.js"></script>
-    <!--using pixi-sound.js v4.3.1-->
-    <script src="./lib/pixi-sound.js"></script>
-    <!--using pixi-spine.js pixi5-spine3.7-->
-    <script src="./lib/pixi-spine.umd.js"></script>
-    <!--using TweenMax v3.11.4-->
-    <script src="./lib/gsap.min.js"></script>
-    <script src="./lib/PixiPlugin.min.js"></script>
-    <!--using fontfaceobserver v2.3.0-->
-    <script src="./lib/fontfaceobserver.js"></script>
-    <!--  -->
-    <script src="./lib/pixi-tagged-text.umd.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script> -->
 
-
-    <script src="./scripts/SharedConstants.js"></script>
-    <script src="./scripts/Utilities.js"></script>
-
-    <script src="./scripts/TrackManager.js"></script>
-    <script src="./scripts/FgManager.js"></script>
-    <script src="./scripts/BgManager.js"></script>
-    <script src="./scripts/SpineManager.js"></script>
-    <script src="./scripts/TextManager.js"></script>
-    <script src="./scripts/SelectManager.js"></script>
-    <script src="./scripts/SoundManager.js"></script>
-    <script src="./scripts/EffectManager.js"></script>
-    <script src="./scripts/MovieManager.js"></script>
-    <script src="./scripts/StillManager.js"></script>
+        <script src="./lib/PixiPlugin.min.js"></script>
+        <!--using fontfaceobserver v2.3.0-->
+        <script src="./lib/fontfaceobserver.js"></script>
+        <!--  -->
+        <script src="./lib/pixi-tagged-text.umd.js"></script>
+        <script src="./lib/pixi-filters.js"></script>
 
 
+        <script src="./scripts/SharedConstants.js"></script>
+        <script src="./scripts/Utilities.js"></script>
 
-    <script src="./main.js" charset="utf-8"></script>
+        <script src="./scripts/TrackManager.js"></script>
+        <script src="./scripts/FgManager.js"></script>
+        <script src="./scripts/BgManager.js"></script>
+        <script src="./scripts/SpineManager.js"></script>
+        <script src="./scripts/TextManager.js"></script>
+        <script src="./scripts/SelectManager.js"></script>
+        <script src="./scripts/SoundManager.js"></script>
+        <script src="./scripts/EffectManager.js"></script>
+        <script src="./scripts/MovieManager.js"></script>
+        <script src="./scripts/StillManager.js"></script>
 
+        <script src="./main.js" charset="utf-8"></script>
 
+        <link rel="stylesheet" href="main.css" />
 
+        <!--no track-->
+        <meta name="robots" content="noindex, nofollow" />
 
-    <link rel="stylesheet" href="main.css">
+        <title>ShinyColorsDB-EventViewer</title>
+        <meta name="og:type" content="website" />
+        <meta name="og:title" content="ShinyColorsDB-EventViewer" />
+        <meta name="og:description" content="ShinyColorsDB-EventViewer" />
+        <meta name="og:image" content="https://event.shinycolors.moe/assets/demo.png" />
 
-    <!--no track-->
-    <meta name="robots" content="noindex, nofollow" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:type" content="website" />
+        <meta name="twitter:title" content="ShinyColorsDB-EventViewer" />
+        <meta name="twitter:description" content="ShinyColorsDB-EventViewer" />
+        <meta name="twitter:image" content="https://event.shinycolors.moe/assets/demo.png" />
 
-    <title>ShinyColorsDB-EventViewer</title>
-    <meta name="og:type" content="website">
-    <meta name="og:title" content="ShinyColorsDB-EventViewer">
-    <meta name="og:description" content="ShinyColorsDB-EventViewer">
-    <meta name="og:image" content="https://event.shinycolors.moe/assets/demo.png">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:type" content="website">
-    <meta name="twitter:title" content="ShinyColorsDB-EventViewer">
-    <meta name="twitter:description" content="ShinyColorsDB-EventViewer">
-    <meta name="twitter:image" content="https://event.shinycolors.moe/assets/demo.png">
-
-
-    <!-- 修改标记 窗口尺寸 -->
-     <!--   <meta name="viewport" content="width = 1136, height = 1280">
+        <!-- 修改标记 窗口尺寸 -->
+        <!--   <meta name="viewport" content="width = 1136, height = 640">
   -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <meta name="theme-color" content="#000000">
-  <link rel="manifest" href="/manifest.webmanifest"><script defer src="/registerSW.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#000000" />
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <script defer src="/registerSW.js"></script>
+    </head>
 
-</head>
-
-<body onload="init();">
-
-</body>
-
+    <body onload="init();"></body>
 </html>

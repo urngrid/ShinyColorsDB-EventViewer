@@ -72,7 +72,7 @@ async function init() {
     } else {
       //修改标记
       //jsonPath = prompt("input json path: ", "produce_events/202100711.json");
-      jsonPath = prompt("input json path: ", "produce_events/202100711.json"); //sandbox
+      jsonPath = prompt("input json path: ", "produce_events/102300304.json"); //sandbox
 
       // eventId = jsonPath.split("/")[1].split(".")[0];
       // eventType = jsonPath.split("/")[0];
@@ -192,19 +192,19 @@ class AdvPlayer {
       //修改标记
       width: 1136,
       //height: 640,
-      height: 1280,
+      height: global_ViewerHeight,
       //
-      backgroundColor: 0x000000,
-      antialias: true,       // 启用抗锯齿
+      // backgroundColor: 0x0000ff, // 调试用改色bb
+      // backgroundColor: 0x000000,
+      backgroundColor: parseInt(global_theme_color, 16),
+      //
+      // antialias: true,       // 启用抗锯齿
+      antialias: false,       // 修改标记 取消抗锯齿 避免背景切换时的黑线
       resolution: window.devicePixelRatio || 2, // 提高分辨率
       autoDensity: true      // 让 PIXI 适应高 DPI 屏幕
       //修改标记完
 
-
-
     });
-
-
 
     this._app.view.setAttribute("id", "ShinyColors");
 
@@ -429,14 +429,16 @@ class AdvPlayer {
     //修改标记
     //let ratio = Math.min(width / 1136, height / 640);
     //修改标记 全局缩放
-    let customzoom =1.25
-    // let ratio = Math.min(width / 1136, height / 1280);
-    let ratio = Math.min(width / 1136, height / 1280) * customzoom;
+    let customzoom =1.00
+    // let ratio = Math.min(width / 1136, height / 1600);
+    // let ratio = Math.min(width / 1136, height / 1600) * customzoom;
+    let ratio = Math.min(width / 1200, height / global_ViewerHeight) * customzoom;
     // let resizedY = 640 * ratio;
-    let resizedY = 1280 * ratio;
+    let resizedY = global_ViewerHeight * ratio;
     ////
 
     let resizedX = 1136 * ratio;
+    
 
     this._app.view.style.width = resizedX + "px";
     this._app.view.style.height = resizedY + "px";
@@ -461,14 +463,15 @@ class AdvPlayer {
     this._autoBtn_texture.autoOn = resources.autoOn.texture;
     this._autoBtn_texture.autoOff = resources.autoOff.texture;
 
-    if (this._isTranslate) {
+    // 修改标记
+    // if (this._isTranslate) {
       this._Menu.switchLangBtn = new PIXI.Sprite(resources.jpON.texture);
       this._switchLangBtn_texture = [
         resources.jpON.texture,
         resources.zhOn.texture,
         resources.zhJPOn.texture,
       ];
-    }
+    // }
 
     // this._app.stage.interactive = true;
     let touchToStart = this._Menu.touchToStart;
@@ -503,10 +506,8 @@ class AdvPlayer {
 
     //auto Btn
     autoBtn.anchor.set(0.5);
-    //修改标记
-    // autoBtn.position.set(1075, 50);
-    autoBtn.position.set(950, 50);
-    //
+    autoBtn.position.set(1075, 50);
+ 
     autoBtn.interactive = true;
     this._app.stage.addChild(autoBtn);
 
@@ -519,13 +520,11 @@ class AdvPlayer {
     });
 
     //Trans
-    if (this._isTranslate) {
+    //修改标记 无论是否存在翻译档都显示语言切换钮 因为默认语言变成中日双语了
+    // if (this._isTranslate) {
       switchLangBtn.anchor.set(0.5);
 
-      //修改标记  
-      // switchLangBtn.position.set(1075, 130);
-      switchLangBtn.position.set(950, 130);
-      //
+      switchLangBtn.position.set(1075, 130);
 
       switchLangBtn.interactive = true;
       this._app.stage.addChild(switchLangBtn);
@@ -537,13 +536,14 @@ class AdvPlayer {
           this._toggleLangDisplay();
         });
       });
-    }
+    // }
 
     //修改标记 修改自动播放状态和语言
     // console.log(`autoplay`,this._tm.autoplay);
     // console.log(`lang`,this._tm._translateLang);
-    // this._tm.toggleAutoplay();
-    // this._toggleAutoplay();
+    this._tm.toggleAutoplay();
+    this._toggleAutoplay();
+    
     if(this._isTranslate){
       this._tm.toggleLangDisplay();
       this._toggleLangDisplay();
@@ -552,6 +552,9 @@ class AdvPlayer {
     }
 
     // 
+
+    //修改标记 初始化透明化按钮 长按背景临时显示
+    this._addButtonVisibilityControl();
   };
 
   _toggleAutoplay() {
@@ -616,7 +619,7 @@ class AdvPlayer {
 
   //修改标记 以下为新增代码
   //用于新的整合注释文件的加载和解析  
-  parseCSVToJSON = (text) => {
+  _parseCSVToJSON = (text) => {
       if (!text) {
           return {};
       }
@@ -668,7 +671,7 @@ class AdvPlayer {
         .add('commuNoteData', commuNote_CSV_path) // 加载整合后的 CSV 文件
         .load((_, resources) => {
           const csvData = resources.commuNoteData.data;
-          const commuNoteData = this.parseCSVToJSON(csvData); // 解析 CSV 数据
+          const commuNoteData = this._parseCSVToJSON(csvData); // 解析 CSV 数据
 
           if (commuNoteData) {
             // 将解析后的数据分类传递给 this._tm
@@ -691,4 +694,63 @@ class AdvPlayer {
     });
   }
 
+  ///////////////
+  //修改标记 按钮透明化
+
+    // 在AdvPlayer类中添加以下方法
+  _addButtonVisibilityControl() {
+      // 1. 初始设置 - 按钮全透明但可交互
+      this._Menu.autoBtn.alpha = 0;
+      this._Menu.autoBtn.visible = true; // 保持visible为true确保可交互
+      if (this._Menu.switchLangBtn) {
+          this._Menu.switchLangBtn.alpha = 0;
+          this._Menu.switchLangBtn.visible = true;
+      }
+
+      // 2. 长按黑色背景区域显示按钮
+      let longPressTimer;
+      const handlePointerDown = (e) => {
+          // 检查是否点击在黑色背景区域（非按钮、非舞台内容）
+          if (e.target === this._app.view) {
+              longPressTimer = setTimeout(() => {
+                  this._setButtonsAlpha(1); // 完全不透明
+              }, 800);
+          }
+      };
+
+      const handlePointerUp = () => clearTimeout(longPressTimer);
+
+      // 3. 点击按钮区域外隐藏按钮
+      const handleBackgroundClick = (e) => {
+          if (e.target === this._app.view) {
+              this._setButtonsAlpha(0); // 完全透明
+          }
+      };
+
+      // 添加事件监听
+      this._app.view.addEventListener('pointerdown', handlePointerDown);
+      this._app.view.addEventListener('pointerup', handlePointerUp);
+      this._app.view.addEventListener('pointerleave', handlePointerUp);
+      this._app.view.addEventListener('click', handleBackgroundClick);
+
+      // 清理方法
+      this._cleanButtonVisibilityControl = () => {
+          this._app.view.removeEventListener('pointerdown', handlePointerDown);
+          this._app.view.removeEventListener('pointerup', handlePointerUp);
+          this._app.view.removeEventListener('pointerleave', handlePointerUp);
+          this._app.view.removeEventListener('click', handleBackgroundClick);
+      };
+  }
+
+  // 设置按钮透明度（保持visible为true）
+  _setButtonsAlpha(alpha) {
+      this._Menu.autoBtn.alpha = alpha;
+      if (this._Menu.switchLangBtn) {
+          this._Menu.switchLangBtn.alpha = alpha;
+      }
+  }
+  ////////////////////
+
 }
+// todo 连续播放 和易用剧情选择ui
+

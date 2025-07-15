@@ -115,10 +115,11 @@ class StillManager {
 
     _resizeAndMoveStill(){
 
-        const YZoomRate = 0.75;
-        const YOffset=320
-        const XOffset=142
-        const XZoomRate=0.75
+        const XOffset = global_XOffset;
+        const YOffset = global_YOffset + global_YOffset_MainContents;
+
+        const XZoomRate = 1;
+        const YZoomRate = 1;
 
         this._container.position.set(XOffset,YOffset);
         this._container.scale.set(XZoomRate,YZoomRate);
@@ -129,7 +130,7 @@ class StillManager {
     _processStillTranslate(stillId, still_trans) {
 
         //1136的中点
-        const TEXT_X_OFFSET = 568 , TEXT_Y_OFFSET = 700;
+        const TEXT_X_OFFSET = 568 , TEXT_Y_OFFSET = global_YOffset  + global_YOffset_MainContents + 380;
     
         // 创建文本样式
         const textStyle = new PIXI.TextStyle({

@@ -6550,6 +6550,246 @@
         }
     },
     {
+        "eventId": 400108301,
+        "eventSourceData": {
+            "eventTitle": "鳴ってる",
+            "eventIndexName": "オープニング",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "とまりかぜの春たちは",
+            "albumId": "146"
+        }
+    },
+    {
+        "eventId": 400108302,
+        "eventSourceData": {
+            "eventTitle": "知らない街、人",
+            "eventIndexName": "第1話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "とまりかぜの春たちは",
+            "albumId": "146"
+        }
+    },
+    {
+        "eventId": 400108303,
+        "eventSourceData": {
+            "eventTitle": "予感、、",
+            "eventIndexName": "第2話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "とまりかぜの春たちは",
+            "albumId": "146"
+        }
+    },
+    {
+        "eventId": 400108304,
+        "eventSourceData": {
+            "eventTitle": "思い出、心、、",
+            "eventIndexName": "第3話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "とまりかぜの春たちは",
+            "albumId": "146"
+        }
+    },
+    {
+        "eventId": 400108305,
+        "eventSourceData": {
+            "eventTitle": "意味、、、、",
+            "eventIndexName": "第4話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "とまりかぜの春たちは",
+            "albumId": "146"
+        }
+    },
+    {
+        "eventId": 400108306,
+        "eventSourceData": {
+            "eventTitle": "目的、、、、、",
+            "eventIndexName": "第5話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "とまりかぜの春たちは",
+            "albumId": "146"
+        }
+    },
+    {
+        "eventId": 400108307,
+        "eventSourceData": {
+            "eventTitle": "風の返事、、、、、、",
+            "eventIndexName": "第6話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "とまりかぜの春たちは",
+            "albumId": "146"
+        }
+    },
+    {
+        "eventId": 400108308,
+        "eventSourceData": {
+            "eventTitle": "鳴らすよ、、、、、、、",
+            "eventIndexName": "エンディング",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "とまりかぜの春たちは",
+            "albumId": "146"
+        }
+    },
+    {
+        "eventId": 400108401,
+        "eventSourceData": {
+            "eventTitle": "発信)))",
+            "eventIndexName": "オープニング",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "コースティクス・ノクチルカ",
+            "albumId": "148"
+        }
+    },
+    {
+        "eventId": 400108402,
+        "eventSourceData": {
+            "eventTitle": "赤と水色",
+            "eventIndexName": "第1話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "コースティクス・ノクチルカ",
+            "albumId": "148"
+        }
+    },
+    {
+        "eventId": 400108403,
+        "eventSourceData": {
+            "eventTitle": "紫と黄色",
+            "eventIndexName": "第2話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "コースティクス・ノクチルカ",
+            "albumId": "148"
+        }
+    },
+    {
+        "eventId": 400108404,
+        "eventSourceData": {
+            "eventTitle": "ぼくらは海のまんなかで",
+            "eventIndexName": "第3話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "コースティクス・ノクチルカ",
+            "albumId": "148"
+        }
+    },
+    {
+        "eventId": 400108405,
+        "eventSourceData": {
+            "eventTitle": "水面に立つ",
+            "eventIndexName": "第4話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "コースティクス・ノクチルカ",
+            "albumId": "148"
+        }
+    },
+    {
+        "eventId": 400108406,
+        "eventSourceData": {
+            "eventTitle": "みえないけど、ある",
+            "eventIndexName": "第5話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "コースティクス・ノクチルカ",
+            "albumId": "148"
+        }
+    },
+    {
+        "eventId": 400108407,
+        "eventSourceData": {
+            "eventTitle": "鏡像",
+            "eventIndexName": "第6話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "コースティクス・ノクチルカ",
+            "albumId": "148"
+        }
+    },
+    {
+        "eventId": 400108408,
+        "eventSourceData": {
+            "eventTitle": "(((受信",
+            "eventIndexName": "エンディング",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "コースティクス・ノクチルカ",
+            "albumId": "148"
+        }
+    },
+    {
+        "eventId": 400108501,
+        "eventSourceData": {
+            "eventTitle": "瞳、その中",
+            "eventIndexName": "オープニング",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "Eyes to SHHis",
+            "albumId": "150"
+        }
+    },
+    {
+        "eventId": 400108502,
+        "eventSourceData": {
+            "eventTitle": "見えない理由",
+            "eventIndexName": "第1話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "Eyes to SHHis",
+            "albumId": "150"
+        }
+    },
+    {
+        "eventId": 400108503,
+        "eventSourceData": {
+            "eventTitle": "ほころぶもの",
+            "eventIndexName": "第2話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "Eyes to SHHis",
+            "albumId": "150"
+        }
+    },
+    {
+        "eventId": 400108504,
+        "eventSourceData": {
+            "eventTitle": "対話",
+            "eventIndexName": "第3話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "Eyes to SHHis",
+            "albumId": "150"
+        }
+    },
+    {
+        "eventId": 400108505,
+        "eventSourceData": {
+            "eventTitle": "ひとつずつ",
+            "eventIndexName": "第4話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "Eyes to SHHis",
+            "albumId": "150"
+        }
+    },
+    {
+        "eventId": 400108506,
+        "eventSourceData": {
+            "eventTitle": "枠、その中",
+            "eventIndexName": "第5話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "Eyes to SHHis",
+            "albumId": "150"
+        }
+    },
+    {
+        "eventId": 400108507,
+        "eventSourceData": {
+            "eventTitle": "かわすこと",
+            "eventIndexName": "第6話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "Eyes to SHHis",
+            "albumId": "150"
+        }
+    },
+    {
+        "eventId": 400108508,
+        "eventSourceData": {
+            "eventTitle": "映して",
+            "eventIndexName": "エンディング",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "Eyes to SHHis",
+            "albumId": "150"
+        }
+    },
+    {
         "eventId": 490100101,
         "eventSourceData": {
             "eventTitle": "恋鐘と甘奈",
@@ -10167,6 +10407,96 @@
             "eventType": "specialEvents",
             "eventAlbumName": "6th Anniversary 当日スペシャルコミュ",
             "albumId": "31"
+        }
+    },
+    {
+        "eventId": 490200001,
+        "eventSourceData": {
+            "eventTitle": "シャイニーの日 2025 特別コミュ",
+            "eventIndexName": "2025年4月12日",
+            "eventType": "specialEvents",
+            "eventAlbumName": "シャイニーの日 2025 特別コミュ",
+            "albumId": "32"
+        }
+    },
+    {
+        "eventId": 490210001,
+        "eventSourceData": {
+            "eventTitle": "イルミネーションスターズ",
+            "eventIndexName": "7th Anniversary",
+            "eventType": "specialEvents",
+            "eventAlbumName": "7th Anniversary 当日スペシャルコミュ",
+            "albumId": "33"
+        }
+    },
+    {
+        "eventId": 490210002,
+        "eventSourceData": {
+            "eventTitle": "アンティーカ",
+            "eventIndexName": "7th Anniversary",
+            "eventType": "specialEvents",
+            "eventAlbumName": "7th Anniversary 当日スペシャルコミュ",
+            "albumId": "33"
+        }
+    },
+    {
+        "eventId": 490210003,
+        "eventSourceData": {
+            "eventTitle": "放課後クライマックスガールズ",
+            "eventIndexName": "7th Anniversary",
+            "eventType": "specialEvents",
+            "eventAlbumName": "7th Anniversary 当日スペシャルコミュ",
+            "albumId": "33"
+        }
+    },
+    {
+        "eventId": 490210004,
+        "eventSourceData": {
+            "eventTitle": "アルストロメリア",
+            "eventIndexName": "7th Anniversary",
+            "eventType": "specialEvents",
+            "eventAlbumName": "7th Anniversary 当日スペシャルコミュ",
+            "albumId": "33"
+        }
+    },
+    {
+        "eventId": 490210005,
+        "eventSourceData": {
+            "eventTitle": "ストレイライト",
+            "eventIndexName": "7th Anniversary",
+            "eventType": "specialEvents",
+            "eventAlbumName": "7th Anniversary 当日スペシャルコミュ",
+            "albumId": "33"
+        }
+    },
+    {
+        "eventId": 490210006,
+        "eventSourceData": {
+            "eventTitle": "ノクチル",
+            "eventIndexName": "7th Anniversary",
+            "eventType": "specialEvents",
+            "eventAlbumName": "7th Anniversary 当日スペシャルコミュ",
+            "albumId": "33"
+        }
+    },
+    {
+        "eventId": 490210007,
+        "eventSourceData": {
+            "eventTitle": "シーズ",
+            "eventIndexName": "7th Anniversary",
+            "eventType": "specialEvents",
+            "eventAlbumName": "7th Anniversary 当日スペシャルコミュ",
+            "albumId": "33"
+        }
+    },
+    {
+        "eventId": 490210008,
+        "eventSourceData": {
+            "eventTitle": "コメティック",
+            "eventIndexName": "7th Anniversary",
+            "eventType": "specialEvents",
+            "eventAlbumName": "7th Anniversary 当日スペシャルコミュ",
+            "albumId": "33"
         }
     }
 ]

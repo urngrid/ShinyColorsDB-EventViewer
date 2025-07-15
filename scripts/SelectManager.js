@@ -9,10 +9,10 @@ class SelectManager {
 
         //修改标记
         //下移并缩放 添加代码//
-        const YOffset=320
-        const XOffset=142
-        const XZoomRate=0.75
-        const YZoomRate=0.75
+        const YOffset = global_YOffset  + global_YOffset_MainContents;
+        const XOffset = global_XOffset;
+        const XZoomRate = 1;
+        const YZoomRate = 1;
         this._container.position.set(XOffset,YOffset);
         this._container.scale.set(XZoomRate,YZoomRate);
 
@@ -52,7 +52,7 @@ class SelectManager {
         
             // 用半透明的黑色填充尺寸相同的矩形
             this._maskSprite.beginFill(0x000000, 0.5); // 黑色，50% 透明度
-            this._maskSprite.drawRect(0, 0, 1136, 1280);
+            this._maskSprite.drawRect(0, -150, 1136, global_ViewerHeight + 150); // 150是需要遮挡spine超出背景容器部分
             this._maskSprite.endFill();
 
             // 添加到容器中
@@ -114,6 +114,9 @@ class SelectManager {
             currentText.jp = selectDesc;
             currentText.zh = translated_text;
             selectDesc = this._languageType === 1 ? translated_text : selectDesc;
+        } else {
+            currentText.jp = selectDesc;
+            currentText.zh = selectDesc;
         }
 
         let family = translated_text && this._languageType === 1 ? zhcnFont : usedFont;
@@ -149,7 +152,7 @@ class SelectManager {
                 fontWeight: "normal",
                 letterSpacing: 1,
                 breakLines: false,
-                lineHeight: 1.2,
+                paragraphSpacing : isSingleLine ? 12 : 2,
             },
             chinese: {
                 
@@ -158,7 +161,6 @@ class SelectManager {
                 fill: 0x555555,
                 fontWeight: "normal",
                 letterSpacing: isSingleLine ? 2 : 1,
-
             },
             japanese: {
                 fontFamily: usedFont,
@@ -180,7 +182,7 @@ class SelectManager {
         // taggedtext举动不甚正常 不能将wordWrap设为false wordWrapWidth:1会影响宽度 坐标位置不能统一 只能看着调
         textObjZhJp.anchor.set(0.5);
 
-        textObjZhJp.position.set(159, isSingleLine ? 40 : 4);//根据单行还是两行确定y坐标
+        textObjZhJp.position.set(159, isSingleLine ? 40 : 16);//根据单行还是两行确定y坐标
         textObjZhJp.visible = this._languageType == 2 ? true : false;
         thisSelectContainer.addChild(textObjZhJp);
     
@@ -292,24 +294,32 @@ class SelectManager {
     
         // 填充空行使两种语言的行数相等
         while (chineseLines.length < maxLines) {
-            chineseLines.push(""); // 插入空行
+            chineseLines.push("　"); // 插入空行
         }
         while (japaneseLines.length < maxLines) {
-            japaneseLines.push(""); // 插入空行
+            japaneseLines.push("　"); // 插入空行
         }
     
         // 合并中日文本行，不交替排列
         let formattedText = "";
+        // for (let i = 0; i < maxLines; i++) {
+
+        //     formattedText += `<japanese>${japaneseLines[i]}</japanese>\n`;
+        // }
+
+        formattedText += `<japanese>`
         for (let i = 0; i < maxLines; i++) {
 
-            formattedText += `<japanese>${japaneseLines[i]}</japanese>\n`;
+            formattedText += `${japaneseLines[i]}\n`;
         }
+        formattedText += `</japanese>`
+        formattedText += `<chinese>`
         for (let i = 0; i < maxLines; i++) {
 
-            formattedText += `<chinese>${chineseLines[i]}</chinese>\n`;
+            formattedText += `${chineseLines[i]}\n`;
         }
-        
-        
-        return formattedText.trimEnd();;
+        formattedText += `</chinese>`
+
+        return formattedText.trimEnd();
     }
 }
