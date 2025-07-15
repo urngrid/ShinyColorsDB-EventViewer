@@ -72,7 +72,7 @@ async function init() {
     } else {
       //修改标记
       //jsonPath = prompt("input json path: ", "produce_events/202100711.json");
-      jsonPath = prompt("input json path: ", "produce_events/102300304.json"); //sandbox
+      jsonPath = prompt("input json path: ", "special_communications/490210001.json"); //sandbox
 
       // eventId = jsonPath.split("/")[1].split(".")[0];
       // eventType = jsonPath.split("/")[0];
@@ -93,21 +93,19 @@ async function init() {
       const result = await advPlayer.loadTrackScript(jsonPath);
       if (!result) {
         alert("No such event.");
-        //修改标记
-        console.log("Load result:", result); // 调试
-        // window.location.href = "http://127.0.0.1:5500/main.html"; // 跳转到根 URL
+
+
         window.location.href = window.location.origin + window.location.pathname;
-        //
+        
         return;
       }
     } catch (error) {
       console.error("Error loading track script:", error);
       alert("No such event.");
-      console.log("Load result:", result); // 调试
-      //修改标记
-      // window.location.href = "http://127.0.0.1:5500/main.html"; // 跳转到根 URL
+
+
       window.location.href = window.location.origin + window.location.pathname;
-      //
+      
       return;
     }
     ////
@@ -432,7 +430,7 @@ class AdvPlayer {
     // let ratio = Math.min(width / 1136, height / 1600);
 
     let ratio = Math.min(width / 1200, height / global_ViewerHeight) 
-    
+
     let resizedX = 1136 * ratio;
     // let resizedY = 640 * ratio;
     let resizedY = global_ViewerHeight * ratio;
