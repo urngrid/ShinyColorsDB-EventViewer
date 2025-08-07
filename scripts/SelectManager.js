@@ -52,7 +52,7 @@ class SelectManager {
         
             // 用半透明的黑色填充尺寸相同的矩形
             this._maskSprite.beginFill(0x000000, 0.5); // 黑色，50% 透明度
-            this._maskSprite.drawRect(0, -150, 1136, global_ViewerHeight + 150); // 150是需要遮挡spine超出背景容器部分
+            this._maskSprite.drawRect(0, -150, global_ViewerWidth, global_ViewerHeight + 150); // 150是需要遮挡spine超出背景容器部分
             this._maskSprite.endFill();
 
             // 添加到容器中

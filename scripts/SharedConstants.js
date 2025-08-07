@@ -2,6 +2,7 @@
 // 修改标记
 // const assetUrl = "https://viewer.shinycolors.moe";
 const assetUrl = "http://localhost:5174";
+//const assetUrl = "./enza_assets";
 
 const usedFont = "theFont";
 
@@ -30,8 +31,8 @@ const commu_info_data_path = './assets/translateData_local/commu_data';
 const global_XOffset = 0; //prev 142
 const global_YOffset = 400; //prev 320
 const global_YOffset_MainContents = -40; //统一作用于背景(及其他锁定于背景的元素)和人物的第二全局偏移 
-const global_ViewerHeight = 1760;
-
+const global_ViewerHeight = 1920;
+const global_ViewerWidth = 1136;
 
 //
 const global_theme_color = "000000";

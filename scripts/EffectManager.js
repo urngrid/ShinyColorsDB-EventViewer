@@ -39,22 +39,12 @@ class EffectManager {
         //修改标记 缩放下移  闪白或闪黑时范围为全屏
         //->暂时恢复为和背景大小一致
         let YOffset, XOffset, XZoomRate, YZoomRate;
-        if (effectLabel.includes("white") || effectLabel.includes("black")) {
-            // YOffset=0
-            // XOffset=0
-            // XZoomRate=1
-            // YZoomRate=3
 
-            YOffset = global_YOffset + global_YOffset_MainContents - 60; // 前景的人物spine有时会略微超出背景顶端(呆毛等) 需要略微向上扩展
-            XOffset = global_XOffset;
-            XZoomRate = 1;
-            YZoomRate = 3;
-        } else {
-            YOffset = global_YOffset + global_YOffset_MainContents;
-            XOffset = global_XOffset; //142
-            XZoomRate = 1; //0.75
-            YZoomRate = 1; //0.75
-        }
+        YOffset = global_YOffset + global_YOffset_MainContents; //
+        XOffset = global_XOffset;
+        XZoomRate = 1;
+        YZoomRate = 1; // YZoomRate = 3; 改变逻辑 不再用缩放的方式来遮挡角色超出背景区域的部分而是绘制矩形时扩大范围
+
         // 修改标记完
 
         if (!this._effectMap.has(effectLabel)) {
@@ -63,6 +53,20 @@ class EffectManager {
             switch (effectTarget.type) {
                 case "rect":
                     thisEffect = new PIXI.Graphics();
+
+                    //修改标记 当特效为黑屏或白屏时 额外绘制更大的黑色矩形底用来确保角色spine被遮挡，再绘制正常大小的effect矩形
+                    if (effectLabel.includes("white") || effectLabel.includes("black")) {
+                        thisEffect.beginFill(`0x000000`);
+
+                        thisEffect.drawRect(0, -60, effectTarget.width, global_ViewerHeight - YOffset); // -60代表 前景的人物spine有时会略微超出背景顶端(呆毛等) 需要略微向上扩展 的范围
+
+                        thisEffect.endFill();
+                    }
+                    //
+
+                    if (effectLabel.includes("black") && effectValue.x !== undefined) {
+                        break; //黑屏的侧方卷入淡入特效只需要上面的一个矩形黑色底即可满足，不再需要绘制第二个矩形(因为透明度渐变 重叠在一起会暴露是两个矩形)，这类特效包含effectvalue.x的值存在
+                    }
                     thisEffect.beginFill(`0x${effectTarget.color}`);
 
                     thisEffect.drawRect(0, 0, effectTarget.width, effectTarget.height);

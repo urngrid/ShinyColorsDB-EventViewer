@@ -44,13 +44,13 @@ class SpineManager {
 
             mano: { scale: 0.91, translate: { x: 0, y: 0 } },
             hiori: { scale: 0.92, translate: { x: 0, y: 0 } },
-            meguru: { scale: 0.9, translate: { x: 0, y: 0 } },
+            meguru: { scale: 0.91, translate: { x: 0, y: 0 } },
 
-            kogane: { scale: 0.86, translate: { x: 0, y: 0 } },
-            mamimi: { scale: 0.88, translate: { x: 0, y: 0 } },
+            kogane: { scale: 0.89, translate: { x: 0, y: 0 } },
+            mamimi: { scale: 0.91, translate: { x: 0, y: 0 } },
             sakuya: { scale: 0.89, translate: { x: 0, y: 0 } },
-            yuika: { scale: 0.87, translate: { x: 0, y: 0 } },
-            kiriko: { scale: 0.89, translate: { x: 0, y: 0 } },
+            yuika: { scale: 0.89, translate: { x: 0, y: 0 } },
+            kiriko: { scale: 0.91, translate: { x: 0, y: 0 } },
 
             kaho: { scale: 0.91, translate: { x: 0, y: 0 } },
             chiyoko: { scale: 0.89, translate: { x: 0, y: 0 } },
@@ -60,7 +60,7 @@ class SpineManager {
 
             amana: { scale: 0.88, translate: { x: 0, y: 0 } },
             tenka: { scale: 0.88, translate: { x: 0, y: 0 } },
-            chiyuki: { scale: 0.9, translate: { x: 0, y: 0 } },
+            chiyuki: { scale: 0.88, translate: { x: 0, y: 0 } },
 
             asahi: { scale: 0.89, translate: { x: 0, y: 0 } },
             fuyuko: { scale: 0.9, translate: { x: 0, y: 0 } },
@@ -74,22 +74,23 @@ class SpineManager {
             nichika: { scale: 0.92, translate: { x: 0, y: 0 } },
             mikoto: { scale: 0.91, translate: { x: 0, y: 0 } },
 
-            luca: { scale: 0.9, translate: { x: 0, y: 0 } },
-            hana: { scale: 0.91, translate: { x: 0, y: 0 } },
+            luca: { scale: 0.92, translate: { x: 0, y: 0 } },
+            hana: { scale: 0.93, translate: { x: 0, y: 0 } },
             haruki: { scale: 0.91, translate: { x: 0, y: 0 } },
 
             hazuki: { scale: 0.89, translate: { x: 0, y: 0 } },
 
-            ruby: { scale: 0.92, translate: { x: 0, y: 0 } },
+            ruby: { scale: 0.93 , translate: { x: 0, y: 0 } },
             kana: { scale: 0.91, translate: { x: 0, y: 0 } },
             mem: { scale: 0.92, translate: { x: 0, y: 0 } },
 
-            akane: { scale: 0.9, translate: { x: 0, y: 0 } },
+            akane: { scale: 0.91, translate: { x: 0, y: 0 } },
         };
 
         this._positionMapArray = [
-            [0, 568, 568, 1.4, 100], //捕捉角色隐藏后进行操作的脚本 很可能引入问题 需要观察具体脚本处理
+            //[0, 568, 568, 1.4, 100], //捕捉角色隐藏后进行操作的脚本 很可能引入问题 需要观察具体脚本处理
             //  不同人数位置下 如果出现复数角色演出中先隐藏角色再位移缩放的话会很难捕捉正确的人数坐标，此项只是对于单人演出的最简单情况进行特例处理
+            //角色淡出时会触发这个比例导致缩放闪烁，先注释掉
 
             [1, 568, 568, 1.4, 100], //[人数, 原始x, 修正x, 缩放比例, y修正(负值向上 正值向下)]
 
@@ -265,7 +266,12 @@ class SpineManager {
 
                     console.log(`position, scale `, position, scale);
 
-                    charEffectCopy.scale = scale;
+                    //  _computeAdjustedTransform返回scale=-1代表不应当更改scale
+                    if (scale === -1) {
+                        charEffectCopy.scale = thisSpine.scale;
+                    } else {
+                        charEffectCopy.scale = scale;
+                    }
                 }
             }
             //////////////
@@ -545,17 +551,23 @@ class SpineManager {
 
             const { position, scale } = this._computeAdjustedTransform(charaCount, charLabel, charBaseTransformMap, spine.position, fgCoveringSpine);
 
-            spine.position.set(position.x, position.y);
+            if (currentTrackCharEffect?.type !== "to" || currentTrackCharEffect?.alpha !== 0) {
+                //淡出时不执行
 
-            if (!tweenFlag || charLabel !== currentTrackcharLabel) {
-                spine.scale.set(scale, scale);
-            } else {
-                //如果当前spine正在tweenscale动画中 延时设置缩放
-                setTimeout(() => {
-                    spine.scale.set(scale, scale);
-                }, currentTrackCharEffect?.time || 0);
+                spine.position.set(position.x, position.y);
+
+                if (scale !== -1) {
+                    //  _computeAdjustedTransform返回scale=-1代表不应当更改scale
+                    if (!tweenFlag || charLabel !== currentTrackcharLabel) {
+                        spine.scale.set(scale, scale);
+                    } else {
+                        //如果当前spine正在tweenscale动画中 延时设置缩放
+                        setTimeout(() => {
+                            spine.scale.set(scale, scale);
+                        }, currentTrackCharEffect?.time || 0);
+                    }
+                }
             }
-
             // console.log("adjustspine:", charLabel, position, scale);
 
             ///位移缩放处理完成
@@ -565,7 +577,11 @@ class SpineManager {
                 hasVisibleSpine = true; // 至少有一个角色可见
                 // 获取角色的全局边界
                 const bounds = spine.getBounds();
-                const bottomY = bounds.y + bounds.height; // 获取最下方坐标
+                const bottomGlobal = new PIXI.Point(bounds.x, bounds.y + bounds.height);
+                //将getbounds结果从舞台坐标转换为container内坐标(适配缩放)
+                const bottomLocal = this._container.parent.toLocal(bottomGlobal);
+
+                const bottomY = bottomLocal.y; // 获取最下方坐标
 
                 // 更新最高的底部坐标（即最小的 bottomY）
                 if (bottomY < highestBottomY) {
@@ -623,8 +639,8 @@ class SpineManager {
                 
                 float xMin = fgRect.x;
                 float xMax = fgRect.x + fgRect.z; // x + width
-                float yMin = 1761.0 - (fgRect.y + fgRect.w); //弥补fg的下方裁去的黑边1像素 所以是1281 -> 1601 如果没有裁边会有1像素重叠 暂时搁置没有处理
-                float yMax = 1760.0 - fgRect.y ; // y + height 
+                float yMin = 1921.0 - (fgRect.y + fgRect.w); //弥补fg的下方裁去的黑边1像素 所以是1281 -> 1601 如果没有裁边会有1像素重叠 暂时搁置没有处理
+                float yMax = 1920.0 - fgRect.y ; // y + height 
                 bool inRect = (gl_FragCoord.x >= xMin && gl_FragCoord.x <= xMax &&
                                 gl_FragCoord.y >= yMin && gl_FragCoord.y <= yMax); 
                 
@@ -731,6 +747,12 @@ class SpineManager {
                         y: global_YOffset + global_YOffset_MainContents + (baseTransform?.position?.y ?? 0),
                     };
                 }
+            } else {
+                position = {
+                    x: spinePosition.x,
+                    y: spinePosition.y,
+                };
+                scale = -1; //用特殊值代表scale应当保持当前值
             }
         }
 
