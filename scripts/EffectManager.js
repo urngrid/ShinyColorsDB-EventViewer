@@ -139,7 +139,7 @@ class EffectManager {
             20 // 下边距
         );
 
-        const validScenarioEventTypes = ["wing", "fan_meeting", "3rd_produce_area", "4th_produce_area", "5th_produce_area"];
+        const validScenarioEventTypes = ["wing", "fan_meeting", "3rd_produce_area", "4th_produce_area", "5th_produce_area", "6th_produce_area"];
 
         let titlePopupLayoutType;
         if (eventType === "produce_marathon") {
@@ -194,8 +194,16 @@ class EffectManager {
         // 添加图标
         // const icon = new PIXI.Sprite(this._loader.resources[eventIcon].texture);
         const icon = new PIXI.Sprite(this._loader.resources[eventIcon]?.texture);
-        icon.width = eventType == "produce_marathon" ? 201 : 96; // 图标的宽度
-        icon.height = eventType == "produce_marathon" ? 108 : 96; // 图标的高度
+
+        //当eventicon字符串包含unit时说明图标为组合logo
+
+        if (eventIcon?.includes("unit")) {
+            icon.width = 96; // 图标的宽度
+            icon.height = 96;
+        } else {
+            icon.width = eventType == "produce_marathon" ? 201 : 96; // 图标的宽度
+            icon.height = eventType == "produce_marathon" ? 108 : 96; // 图标的高度
+        }
         icon.position.set(12, 12); // 图标在背景上的位置
 
         // 添加卡名图

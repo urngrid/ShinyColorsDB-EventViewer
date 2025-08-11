@@ -12,9 +12,14 @@ class TrackManager {
         // 添加middleFg对应
         this._middleFgManager = new FgManager();
         //
-        this._spineManager = new SpineManager();
 
-        this._fgManager = new FgManager();
+        //添加app传入
+        // this._spineManager = new SpineManager();
+        this._spineManager = new SpineManager(app);
+        //
+
+        // this._fgManager = new FgManager();
+        this._fgManager = new FgManager(app);
         //
 
         this._textManager = new TextManager();
@@ -222,6 +227,10 @@ class TrackManager {
             //
         } = this.currentTrack;
 
+        //修改标记 载入sclogo动画
+        if (!this._loader.resources[`sc_logo`]) {
+            this._loader.add("sc_logo", "./assets/title.png");
+        }
         //修改标记 获取标题牌图片
         if (!this._loader.resources[`pop_white`]) {
             this._loader.add("pop_white", "./assets/pop_white.png");
@@ -588,10 +597,15 @@ class TrackManager {
             if (fg === "fade_out" || fg === "off") {
                 this._spineManager.resetColorOverlayFilter();
             } else {
-                const { overlayColor: fgOverlayColor = null, bounds: fgRect = null } = this._fgManager.getFgOverlayData(fg) || {};
+                const { overlayColor: fgOverlayColor = null, sprite: fgSprite = null } = this._fgManager.getFgOverlayData(fg) || {};
 
-                if (fgOverlayColor != null && fgRect != null) {
-                    this._spineManager.applyColorOverlayFilter(fgOverlayColor, fgRect); //对fg矩形范围外的spine应用颜色叠加滤镜
+                if (fgOverlayColor != null && fgSprite != null) {
+                    //需要传入实时的分辨率 使用窗口缩放
+                    const resolution = {
+                        width: this._app.renderer.width,
+                        height: this._app.renderer.height,
+                    };
+                    this._spineManager.applyColorOverlayFilter(fgOverlayColor, fgSprite); //对fg矩形范围外的spine应用颜色叠加滤镜
                 }
             }
         }
@@ -720,7 +734,7 @@ class TrackManager {
         // 修改标记
         // this._textManager.reset(clear);
         this._textManager.reset(clear, nextJson);
-
+        //
         this._selectManager.reset(clear);
         this._soundManager.reset();
         this._effectManager.reset(clear);
@@ -934,18 +948,27 @@ class TrackManager {
                                         : eventData.eventSourceData.eventIndexName;
                             }
                         } else if (name == "idol") {
-                            const charaId = eventId.toString().slice(1, 4);
+                            const charaId = eventId.toString().slice(1, 4); //slice 1,4是 第2到第4的三位
                             let iconId;
-                            if (charaId === "801" || charaId === "802" || charaId === "803") {
-                                //B小町三人的wing剧本对应头像是ssr因为没有r卡
-                                iconId = `104${charaId}0010`;
+                            if (eventId.toString().slice(0, 1) === "5") {
+                                iconId = `unit_${charaId}`; //5开头的基于组合单位的主线剧本剧情(感谢祭/sayhalo)
+                                if (iconId && !this._loader.resources[`icon${iconId}`]) {
+                                    this._loader.add(`icon${iconId}`, `${assetUrl}/images/content/unit/scenario_icon/${charaId}.png`);
+                                    eventData.eventSourceData.eventIcon = `icon${iconId}`;
+                                }
                             } else {
-                                iconId = `102${charaId}0010`;
+                                if (charaId === "801" || charaId === "802" || charaId === "803") {
+                                    //B小町三人的wing剧本对应头像是ssr因为没有r卡
+                                    iconId = `104${charaId}0010`;
+                                } else {
+                                    iconId = `102${charaId}0010`;
+                                }
+                                if (iconId && !this._loader.resources[`icon${iconId}`]) {
+                                    this._loader.add(`icon${iconId}`, `${assetUrl}/images/content/idols/icon/${iconId}.png`);
+                                    eventData.eventSourceData.eventIcon = `icon${iconId}`;
+                                }
                             }
-                            if (iconId && !this._loader.resources[`icon${iconId}`]) {
-                                this._loader.add(`icon${iconId}`, `${assetUrl}/images/content/idols/icon/${iconId}.png`);
-                                eventData.eventSourceData.eventIcon = `icon${iconId}`;
-                            }
+
                             //育成剧本图片
                             if (eventData.eventSourceData.eventType && !this._loader.resources[`cardnamepic${iconId}`]) {
                                 const eventTypeToAreaPicMap = {
@@ -955,7 +978,7 @@ class TrackManager {
                                     "3rd_produce_area": "grad",
                                     "4th_produce_area": "landing_point",
                                     "5th_produce_area": "step",
-                                    // "6th_produce_area":"say_halo"
+                                    "6th_produce_area": "halo",
                                 };
                                 const areaName = eventTypeToAreaPicMap[eventData.eventSourceData.eventType] || null;
                                 if (areaName) {

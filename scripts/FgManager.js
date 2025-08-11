@@ -1,5 +1,9 @@
 class FgManager {
-    constructor() {
+    // constructor() {
+    constructor(app) {
+        //修改标记 添加app传入
+        this._app = app;
+
         this._container = new PIXI.Container();
         this._fgMap = new Map();
         this._loader = PIXI.Loader.shared;
@@ -29,7 +33,7 @@ class FgManager {
             "000481": 1.33, // 中巴椅背
             "002681": 0.833, // 电视直播
             "002921": 1, // 老电影
-            "003861": 0.95, // Zoom聊天
+            "003861": 1.025, // Zoom聊天
             "007631": 1, // 花边边框
             "004731": 1, // VTR扫描纹 测试 game_event_communications/400108105.json
         };
@@ -41,7 +45,7 @@ class FgManager {
             "002341": 0,
             "000481": 0,
             "002681": 2,
-            "003861": -69,
+            "003861": -16,
             "004731": 0,
         };
 
@@ -61,15 +65,26 @@ class FgManager {
         ];
         // 需要绘制下方遮挡块的组
 
+        // 🔹 预设 FG 颜色遮罩信息 (RGB + Alpha)
+        this._fgColorMap = {
+            "001921": { r: 178, g: 132, b: 96, a: 0.83 }, // 土色回忆(渐变)
+            "001922": { r: 156, g: 89, b: 40, a: 0.45 }, // 土色回忆
+            "001923": { r: 138, g: 138, b: 138, a: 0.72 }, // 灰色回忆
+            "004521": { r: 248, g: 248, b: 248, a: 0.74 }, // 白色回忆
+            "002921": { r: 100, g: 80, b: 90, a: 0.6 }, // 老电影
+            "007611": { r: 0, g: 0, b: 0, a: 0.84 }, // 黑晕边框
+        };
+
+        //一些fg最下方会有黑边 需要裁掉一像素和覆盖spine超出fg部分的滤镜效果连接 避免黑线穿过角色
         this._fgNameToBeCut = [
             "001921",
             "001922", //
             "001923",
             "004521",
-        ]; //一些fg最下方会有黑边 需要裁掉一像素和覆盖spine超出fg部分的滤镜效果连接 避免黑线穿过角色
+        ];
 
         this._fgNameToBeFiltered = [
-            { fgname: "002341", filter: "GlowFilter", options: { distance: 80, innerStrength: 10, outerStrength: 0, color: 0x191919, quality: 0.01 ,} }, //向内涂抹glow颜色实现覆盖
+            { fgname: "002341", filter: "GlowFilter", options: { distance: 80, innerStrength: 10, outerStrength: 0, color: 0x191919, quality: 0.01 } }, //向内涂抹glow颜色实现覆盖 电影风黑条遮罩 增加涂抹颜色和背景的黑色加以区分
             // { fgname: "002341", filter: "DropShadowFilter", options: { } },
             // { fgname: "002341", filter: "AdjustmentFilter", options: { alpha: 0.5, } },
         ]; //为特定fg添加滤镜
@@ -224,25 +239,30 @@ class FgManager {
     //
 
     _adjustFg(fgName) {
+        const XOffset_Container = global_XOffset;
+        const YOffset_Container = global_YOffset + global_YOffset_MainContents;
+
+        this._container.position.set(XOffset_Container, YOffset_Container);
+
         const XZoomRate = this._fgNameToXZoomRateMap[fgName] || 1;
         const YZoomRate = this._fgNameToYZoomRateMap[fgName] || 1;
 
-        const XOffset = this._fgNameToYOffsetMap[fgName] ? this._fgNameToYOffsetMap[fgName] + global_XOffset : global_XOffset;
-        const YOffset = this._fgNameToYOffsetMap[fgName]
-            ? this._fgNameToYOffsetMap[fgName] + global_YOffset + global_YOffset_MainContents
-            : global_YOffset + global_YOffset_MainContents;
+        const XOffset = this._fgNameToXOffsetMap[fgName] ? this._fgNameToXOffsetMap[fgName] : 0;
+        const YOffset = this._fgNameToYOffsetMap[fgName] ? this._fgNameToYOffsetMap[fgName] : 0;
 
         const currentX = this._fgMap.get(fgName).position.x;
         const currentY = this._fgMap.get(fgName).position.y;
         const fgSprite = this._fgMap.get(fgName);
 
-        fgSprite.position.set(currentX + XOffset, currentY + YOffset);
-        // 获取原始宽度和高度
+        // // 获取原始宽度和高度
         const bounds = fgSprite.getBounds();
+
         const originalWidth = bounds.width;
         const originalHeight = bounds.height;
         const rectHeight = (global_ViewerHeight - YOffset) / YZoomRate - originalHeight;
-        // 设置位置和缩放比例
+
+        // // 设置位置和缩放比例
+        fgSprite.position.set(currentX + XOffset, currentY + YOffset);
         fgSprite.scale.set(XZoomRate, YZoomRate);
 
         // 执行spine遮罩
@@ -258,12 +278,12 @@ class FgManager {
         if (this._fgNameToBeCut.includes(fgName)) {
             const mask = new PIXI.Graphics();
             mask.beginFill(0x000000); // 填充颜色是黑色的（遮罩本身不会显示）
-            mask.drawRect(fgSprite.position.x, fgSprite.position.y, fgSprite.width, fgSprite.height - 1); // 高度减去 1 像素
+            mask.drawRect(0, 0, fgSprite.width, fgSprite.height - 1); // 高度减去 1 像素
             mask.endFill();
 
             // 将遮罩应用到 sprite 上
             fgSprite.mask = mask;
-            this._container.addChild(mask);
+            fgSprite.addChild(mask);
         }
 
         // 用于为电影遮罩类fg添加glowfilter
@@ -296,17 +316,8 @@ class FgManager {
     ////
 
     getFgOverlayData(fgName) {
-        // 🔹 预设 FG 颜色遮罩信息 (RGB + Alpha)
-        const fgColorMap = {
-            "001921": { r: 178, g: 132, b: 96, a: 0.83 }, // 土色回忆(渐变)
-            "001922": { r: 156, g: 89, b: 40, a: 0.45 }, // 土色回忆
-            "001923": { r: 138, g: 138, b: 138, a: 0.72 }, // 灰色回忆
-            "004521": { r: 248, g: 248, b: 248, a: 0.74 }, // 白色回忆
-            "002921": { r: 100, g: 80, b: 90, a: 0.6 }, // 老电影
-        };
-
         // 🔹 仅处理 `fgColorMap` 里存在的 FG
-        if (!(fgName in fgColorMap)) {
+        if (!(fgName in this._fgColorMap)) {
             return null;
         }
 
@@ -317,17 +328,20 @@ class FgManager {
         }
 
         // 🔹 获取 FG 在屏幕上的绝对坐标
-        const bounds = fgSprite.getBounds();
+        // const bounds = fgSprite.getBounds(); // global
 
         // 🔹 返回 FG 颜色 & 绝对坐标范围
+
+        //改为直接返回fgSprite的引用
         return {
-            overlayColor: fgColorMap[fgName], // 直接取字典数据
-            bounds: {
-                x: bounds.x,
-                y: bounds.y,
-                width: bounds.width,
-                height: bounds.height,
-            },
+            overlayColor: this._fgColorMap[fgName], // 直接取字典数据
+            // bounds: {
+            //     x: bounds.x,
+            //     y: bounds.y,
+            //     width: bounds.width,
+            //     height: bounds.height,
+            // },
+            sprite: fgSprite,
         };
     }
 }

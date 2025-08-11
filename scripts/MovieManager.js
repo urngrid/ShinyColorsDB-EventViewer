@@ -13,24 +13,35 @@ class MovieManager {
     }
 
     processMovieByInput(movie, onMovieEnded, isFastForwardMode) {
-        if (!movie || isFastForwardMode) { return; }
+        if (!movie || isFastForwardMode) {
+            return;
+        }
 
         this._onMovieEnded = onMovieEnded;
         this._playMovie(movie);
     }
 
     _playMovie(movie) {
-        let texture = PIXI.Texture.from(this._loader.resources[`movie${movie}`].data);
+        //修改标记 如果movie为sc_log
+        let texture;
+        if (movie === "sc_logo") {
+            texture = PIXI.Texture.from(this._loader.resources[`sc_logo`].data);
+        } else {
+            texture = PIXI.Texture.from(this._loader.resources[`movie${movie}`].data);
+        }
+        //
+
+        // let texture = PIXI.Texture.from(this._loader.resources[`movie${movie}`].data);
         let movieSprite = new PIXI.Sprite(texture);
 
         //修改标记
         //下移并缩放 添加代码//
-        
-        const YOffset = global_YOffset + global_YOffset_MainContents
-        const XOffset = global_XOffset
-        const XZoomRate = 1
-        const YZoomRate = 1
-        movieSprite.position.set(movieSprite.position.x + XOffset,movieSprite.position.y + YOffset);
+
+        const YOffset = global_YOffset + global_YOffset_MainContents;
+        const XOffset = global_XOffset;
+        const XZoomRate = 1;
+        const YZoomRate = 1;
+        movieSprite.position.set(movieSprite.position.x + XOffset, movieSprite.position.y + YOffset);
         movieSprite.scale.set(XZoomRate, YZoomRate);
         ////
 
@@ -40,7 +51,10 @@ class MovieManager {
         controller.addEventListener("ended", () => {
             setTimeout(() => {
                 Utilities.fadingEffect(movieSprite, {
-                    type: "to", alpha: 0, time: 1000, ease: "easeOutQuart"
+                    type: "to",
+                    alpha: 0,
+                    time: 1000,
+                    ease: "easeOutQuart",
                 });
             }, 1500);
 

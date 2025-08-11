@@ -48,7 +48,29 @@ class TextManager {
 
             //修改标记
             // this._endNotification();
-            this._endNotification(nextJson);
+
+            //增加剧情结尾的sclogo
+
+            const sc_logo = new PIXI.Sprite(this._loader.resources["sc_logo"].texture);
+            this._container.addChildAt(sc_logo, 0);
+            sc_logo.anchor.set(1, 1);
+            sc_logo.scale.set(1, 1);
+            sc_logo.position.set(global_XOffset + global_ViewerWidth - 40 , global_YOffset + global_YOffset_MainContents + 600);
+            sc_logo.alpha = 0;
+            const timeline = new TimelineMax();
+
+            timeline.to(sc_logo, 0.4, {
+                alpha: 1,
+                ease: Quad.easeOut,
+            });
+            timeline.to(sc_logo, 0.8, {
+                alpha: 0,
+                ease: Quad.easeOut,
+                delay: 1,
+                onComplete: () => {
+                    this._endNotification(nextJson);
+                },
+            });
         }
     }
 
@@ -332,7 +354,7 @@ class TextManager {
                 this.textObj.text = text.substring(0, word_index + 1);
 
                 word_index += 1;
-            // }, 65);
+                // }, 65);
             }, 12); //速读用但保留打字机效果(单语)
         }
 
@@ -423,7 +445,7 @@ class TextManager {
 
                 // 增加索引
                 word_index_ZhJp += 1;
-            // }, 65);
+                // }, 65);
             }, 12); // 速度但保留打字机效果(双语)
         }
 

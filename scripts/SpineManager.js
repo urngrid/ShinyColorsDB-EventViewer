@@ -1,5 +1,9 @@
 class SpineManager {
-    constructor() {
+    // constructor() {
+    constructor(app) {
+        //修改标记 添加app传入
+        this._app = app;
+        //
         this._container = new PIXI.Container();
         this._loader = PIXI.Loader.shared;
         this._spineMap = new Map();
@@ -34,6 +38,9 @@ class SpineManager {
         this._coverblock = null;
         //fg滤镜
         this._pendingFilters = new Map(); // 存储fg的颜色遮罩 处理spine超出fg边界的部分
+        //用来实时更新fg滤镜作用范围的ticker
+        this._fgFilterTicker = null;
+
         //头身修正标记位
         this._needsHeadBodyRatioModify = true;
         // 补偿角色头部缩小后以原始比例显示时显小的 补偿全身放大系数
@@ -53,7 +60,7 @@ class SpineManager {
             kiriko: { scale: 0.91, translate: { x: 0, y: 0 } },
 
             kaho: { scale: 0.91, translate: { x: 0, y: 0 } },
-            chiyoko: { scale: 0.89, translate: { x: 0, y: 0 } },
+            chiyoko: { scale: 0.90, translate: { x: 0, y: 0 } },
             juri: { scale: 0.91, translate: { x: 0, y: 0 } },
             rinze: { scale: 0.92, translate: { x: 0, y: 0 } },
             natsuha: { scale: 0.89, translate: { x: 0, y: 0 } },
@@ -80,11 +87,11 @@ class SpineManager {
 
             hazuki: { scale: 0.89, translate: { x: 0, y: 0 } },
 
-            ruby: { scale: 0.93 , translate: { x: 0, y: 0 } },
+            ruby: { scale: 0.93, translate: { x: 0, y: 0 } },
             kana: { scale: 0.91, translate: { x: 0, y: 0 } },
             mem: { scale: 0.92, translate: { x: 0, y: 0 } },
 
-            akane: { scale: 0.91, translate: { x: 0, y: 0 } },
+            akane: { scale: 0.9, translate: { x: 0, y: 0 } },
         };
 
         this._positionMapArray = [
@@ -621,8 +628,9 @@ class SpineManager {
     }
     ////修改标记 //
 
-    applyColorOverlayFilter(overlayColor, fgRect) {
+    applyColorOverlayFilter(overlayColor, fgSprite) {
         // console.log(overlayColor, fgRect)
+        // fgRect的坐标基于全局舞台坐标系 -> 改为直接传入fgsprite
 
         // 用来基于fg为spine添加颜色遮罩
         // getBounds().y 是 从上往下 计算的，而 gl_FragCoord.y 是 从下往上 计算的
@@ -633,14 +641,15 @@ class SpineManager {
             uniform sampler2D uSampler;
             uniform vec4 overlayColor;
             uniform vec4 fgRect;  // 矩形区域 (x, y, width, height)
+            uniform vec2 uResolution;
         
             void main(void) {
                 vec4 original = texture2D(uSampler, vTextureCoord);
                 
                 float xMin = fgRect.x;
-                float xMax = fgRect.x + fgRect.z; // x + width
-                float yMin = 1921.0 - (fgRect.y + fgRect.w); //弥补fg的下方裁去的黑边1像素 所以是1281 -> 1601 如果没有裁边会有1像素重叠 暂时搁置没有处理
-                float yMax = 1920.0 - fgRect.y ; // y + height 
+                float xMax = fgRect.x + fgRect.z;
+                float yMin = uResolution.y + 1.0 - (fgRect.y + fgRect.w); //弥补fg的下方裁去的黑边1像素 所以是xxx1 如果没有裁边会有1像素重叠 暂时搁置没有处理
+                float yMax = uResolution.y - fgRect.y;  
                 bool inRect = (gl_FragCoord.x >= xMin && gl_FragCoord.x <= xMax &&
                                 gl_FragCoord.y >= yMin && gl_FragCoord.y <= yMax); 
                 
@@ -655,8 +664,25 @@ class SpineManager {
 
         const filter = new PIXI.Filter(null, colorOverlayFragment, {
             overlayColor: new Float32Array([overlayColor.r / 255, overlayColor.g / 255, overlayColor.b / 255, overlayColor.a]),
-            fgRect: new Float32Array([fgRect.x, fgRect.y, fgRect.width, fgRect.height]),
+            // fgRect: new Float32Array([localFgRect.x, localFgRect.y, localFgRect.width, localFgRect.height]),
+            fgRect: new Float32Array([0, 0, 0, 0]),
+            uResolution: new Float32Array([this._app.renderer.width, this._app.renderer.height]),
         });
+
+        // 每帧更新 fgRect 和分辨率
+        this._fgFilterTicker = () => {
+            if (!fgSprite || !fgSprite.getBounds) return;
+
+            const bounds = fgSprite.getBounds();
+            filter.uniforms.fgRect[0] = bounds.x;
+            filter.uniforms.fgRect[1] = bounds.y;
+            filter.uniforms.fgRect[2] = bounds.width;
+            filter.uniforms.fgRect[3] = bounds.height;
+
+            filter.uniforms.uResolution[0] = this._app.renderer.width;
+            filter.uniforms.uResolution[1] = this._app.renderer.height;
+        };
+        this._app.ticker.add(this._fgFilterTicker);
 
         this._spineMap.forEach((spine) => {
             spine.filters = [filter];
@@ -671,6 +697,11 @@ class SpineManager {
             spine.filters = null;
         });
         this._pendingFilters.clear();
+        // 移除 ticker 回调
+        if (this._fgFilterTicker) {
+            this._app.ticker.remove(this._fgFilterTicker);
+            this._fgFilterTicker = null;
+        }
         console.log("滤镜已重置");
     }
 
