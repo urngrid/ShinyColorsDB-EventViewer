@@ -7777,6 +7777,72 @@
         }
     },
     {
+        "eventId": 102600501,
+        "eventSourceData": {
+            "eventTitle": "ひろがる波",
+            "communicationCategory": "character_event",
+            "eventType": "5th_produce_area",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
+        "eventId": 102600502,
+        "eventSourceData": {
+            "eventTitle": "消えたお姫様と綺麗なお城",
+            "communicationCategory": "character_event",
+            "eventType": "5th_produce_area",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
+        "eventId": 102600503,
+        "eventSourceData": {
+            "eventTitle": "懐かしくて大切で幸せな",
+            "communicationCategory": "character_event",
+            "eventType": "5th_produce_area",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
+        "eventId": 102600504,
+        "eventSourceData": {
+            "eventTitle": "誘蛾灯",
+            "communicationCategory": "character_event",
+            "eventType": "5th_produce_area",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
+        "eventId": 102600505,
+        "eventSourceData": {
+            "eventTitle": "転、転、転",
+            "communicationCategory": "character_event",
+            "eventType": "5th_produce_area",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
+        "eventId": 102600506,
+        "eventSourceData": {
+            "eventTitle": "彼女の城はからっぽだった",
+            "communicationCategory": "character_event",
+            "eventType": "5th_produce_area",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
         "eventId": 102700101,
         "eventSourceData": {
             "eventTitle": "スカウト！",
@@ -7826,6 +7892,17 @@
             "eventTitle": "彼女のステージ",
             "communicationCategory": "character_event",
             "eventType": "wing",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
+        "eventId": 102700201,
+        "eventSourceData": {
+            "eventTitle": "寮のご飯の話",
+            "communicationCategory": "character_event",
+            "eventType": "fan_meeting",
             "eventName": null,
             "idolId": 27,
             "name": "羽那"
@@ -7997,6 +8074,72 @@
         }
     },
     {
+        "eventId": 102700501,
+        "eventSourceData": {
+            "eventTitle": "ある新女子高生の朝",
+            "communicationCategory": "character_event",
+            "eventType": "5th_produce_area",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
+        "eventId": 102700502,
+        "eventSourceData": {
+            "eventTitle": "この子のせい",
+            "communicationCategory": "character_event",
+            "eventType": "5th_produce_area",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
+        "eventId": 102700503,
+        "eventSourceData": {
+            "eventTitle": "スカウトが来ました",
+            "communicationCategory": "character_event",
+            "eventType": "5th_produce_area",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
+        "eventId": 102700504,
+        "eventSourceData": {
+            "eventTitle": "もっと特別になってほしい",
+            "communicationCategory": "character_event",
+            "eventType": "5th_produce_area",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
+        "eventId": 102700505,
+        "eventSourceData": {
+            "eventTitle": "鈴木家",
+            "communicationCategory": "character_event",
+            "eventType": "5th_produce_area",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
+        "eventId": 102700506,
+        "eventSourceData": {
+            "eventTitle": "同じっぽい",
+            "communicationCategory": "character_event",
+            "eventType": "5th_produce_area",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
         "eventId": 102800101,
         "eventSourceData": {
             "eventTitle": "見つめる先にあるもの",
@@ -8046,6 +8189,17 @@
             "eventTitle": "色づいていく",
             "communicationCategory": "character_event",
             "eventType": "wing",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 102800201,
+        "eventSourceData": {
+            "eventTitle": "長い旅路の途中",
+            "communicationCategory": "character_event",
+            "eventType": "fan_meeting",
             "eventName": null,
             "idolId": 28,
             "name": "はるき"
@@ -8211,6 +8365,72 @@
             "eventTitle": "まだ見ぬ君へ",
             "communicationCategory": "concert_event",
             "eventType": "4th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 102800501,
+        "eventSourceData": {
+            "eventTitle": "名づけようのない空の色",
+            "communicationCategory": "character_event",
+            "eventType": "5th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 102800502,
+        "eventSourceData": {
+            "eventTitle": "青春、なんて",
+            "communicationCategory": "character_event",
+            "eventType": "5th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 102800503,
+        "eventSourceData": {
+            "eventTitle": "足りないもの、なにか",
+            "communicationCategory": "character_event",
+            "eventType": "5th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 102800504,
+        "eventSourceData": {
+            "eventTitle": "閃光星",
+            "communicationCategory": "character_event",
+            "eventType": "5th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 102800505,
+        "eventSourceData": {
+            "eventTitle": "ほんのひとときの空を",
+            "communicationCategory": "character_event",
+            "eventType": "5th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 102800506,
+        "eventSourceData": {
+            "eventTitle": "あったんだ",
+            "communicationCategory": "character_event",
+            "eventType": "5th_produce_area",
             "eventName": null,
             "idolId": 28,
             "name": "はるき"
@@ -22616,6 +22836,622 @@
         }
     },
     {
+        "eventId": 490190001,
+        "eventSourceData": {
+            "eventTitle": "真乃へのプレゼント・ピーちゃんのラテアート",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 1,
+            "name": "真乃"
+        }
+    },
+    {
+        "eventId": 490190002,
+        "eventSourceData": {
+            "eventTitle": "真乃へのプレゼント・ピーちゃんのラテアート＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 1,
+            "name": "真乃"
+        }
+    },
+    {
+        "eventId": 490190003,
+        "eventSourceData": {
+            "eventTitle": "灯織へのプレゼント・紅茶のクッキー",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 2,
+            "name": "灯織"
+        }
+    },
+    {
+        "eventId": 490190004,
+        "eventSourceData": {
+            "eventTitle": "灯織へのプレゼント・紅茶のクッキー＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 2,
+            "name": "灯織"
+        }
+    },
+    {
+        "eventId": 490190005,
+        "eventSourceData": {
+            "eventTitle": "めぐるへのプレゼント・ネイルオイル",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 3,
+            "name": "めぐる"
+        }
+    },
+    {
+        "eventId": 490190006,
+        "eventSourceData": {
+            "eventTitle": "めぐるへのプレゼント・ネイルオイル＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 3,
+            "name": "めぐる"
+        }
+    },
+    {
+        "eventId": 490190007,
+        "eventSourceData": {
+            "eventTitle": "恋鐘へのプレゼント・マカロン",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 4,
+            "name": "恋鐘"
+        }
+    },
+    {
+        "eventId": 490190008,
+        "eventSourceData": {
+            "eventTitle": "恋鐘へのプレゼント・マカロン＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 4,
+            "name": "恋鐘"
+        }
+    },
+    {
+        "eventId": 490190009,
+        "eventSourceData": {
+            "eventTitle": "摩美々へのプレゼント・ホットアイマスク",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 5,
+            "name": "摩美々"
+        }
+    },
+    {
+        "eventId": 490190010,
+        "eventSourceData": {
+            "eventTitle": "摩美々へのプレゼント・ホットアイマスク＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 5,
+            "name": "摩美々"
+        }
+    },
+    {
+        "eventId": 490190011,
+        "eventSourceData": {
+            "eventTitle": "咲耶へのプレゼント・アロマワックスサシェ",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 6,
+            "name": "咲耶"
+        }
+    },
+    {
+        "eventId": 490190012,
+        "eventSourceData": {
+            "eventTitle": "咲耶へのプレゼント・アロマワックスサシェ＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 6,
+            "name": "咲耶"
+        }
+    },
+    {
+        "eventId": 490190013,
+        "eventSourceData": {
+            "eventTitle": "結華へのプレゼント・カヌレ",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 7,
+            "name": "結華"
+        }
+    },
+    {
+        "eventId": 490190014,
+        "eventSourceData": {
+            "eventTitle": "結華へのプレゼント・カヌレ＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 7,
+            "name": "結華"
+        }
+    },
+    {
+        "eventId": 490190015,
+        "eventSourceData": {
+            "eventTitle": "霧子へのプレゼント・ギフトアソートチョコ",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 8,
+            "name": "霧子"
+        }
+    },
+    {
+        "eventId": 490190016,
+        "eventSourceData": {
+            "eventTitle": "霧子へのプレゼント・ギフトアソートチョコ＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 8,
+            "name": "霧子"
+        }
+    },
+    {
+        "eventId": 490190017,
+        "eventSourceData": {
+            "eventTitle": "果穂へのプレゼント・甘・辛お菓子詰め合わせ",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 9,
+            "name": "果穂"
+        }
+    },
+    {
+        "eventId": 490190018,
+        "eventSourceData": {
+            "eventTitle": "果穂へのプレゼント・甘・辛お菓子詰め合わせ＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 9,
+            "name": "果穂"
+        }
+    },
+    {
+        "eventId": 490190019,
+        "eventSourceData": {
+            "eventTitle": "智代子へのプレゼント・チョコレート",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 10,
+            "name": "智代子"
+        }
+    },
+    {
+        "eventId": 490190020,
+        "eventSourceData": {
+            "eventTitle": "智代子へのプレゼント・チョコレート＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 10,
+            "name": "智代子"
+        }
+    },
+    {
+        "eventId": 490190021,
+        "eventSourceData": {
+            "eventTitle": "樹里へのプレゼント・野菜ジュース",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 11,
+            "name": "樹里"
+        }
+    },
+    {
+        "eventId": 490190022,
+        "eventSourceData": {
+            "eventTitle": "樹里へのプレゼント・野菜ジュース＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 11,
+            "name": "樹里"
+        }
+    },
+    {
+        "eventId": 490190023,
+        "eventSourceData": {
+            "eventTitle": "凛世へのプレゼント・丸いクッキー",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 12,
+            "name": "凛世"
+        }
+    },
+    {
+        "eventId": 490190024,
+        "eventSourceData": {
+            "eventTitle": "凛世へのプレゼント・丸いクッキー＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 12,
+            "name": "凛世"
+        }
+    },
+    {
+        "eventId": 490190025,
+        "eventSourceData": {
+            "eventTitle": "夏葉へのプレゼント・シュークリーム",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 13,
+            "name": "夏葉"
+        }
+    },
+    {
+        "eventId": 490190026,
+        "eventSourceData": {
+            "eventTitle": "夏葉へのプレゼント・シュークリーム＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 13,
+            "name": "夏葉"
+        }
+    },
+    {
+        "eventId": 490190027,
+        "eventSourceData": {
+            "eventTitle": "甘奈へのプレゼント・装飾入りの手作りクッキー",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 14,
+            "name": "甘奈"
+        }
+    },
+    {
+        "eventId": 490190028,
+        "eventSourceData": {
+            "eventTitle": "甘奈へのプレゼント・装飾入りの手作りクッキー＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 14,
+            "name": "甘奈"
+        }
+    },
+    {
+        "eventId": 490190029,
+        "eventSourceData": {
+            "eventTitle": "甜花へのプレゼント・デビ太郎？ぬいぐるみ",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 15,
+            "name": "甜花"
+        }
+    },
+    {
+        "eventId": 490190030,
+        "eventSourceData": {
+            "eventTitle": "甜花へのプレゼント・デビ太郎？ぬいぐるみ＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 15,
+            "name": "甜花"
+        }
+    },
+    {
+        "eventId": 490190031,
+        "eventSourceData": {
+            "eventTitle": "千雪へのプレゼント・大人気店のケーキ？",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 16,
+            "name": "千雪"
+        }
+    },
+    {
+        "eventId": 490190032,
+        "eventSourceData": {
+            "eventTitle": "千雪へのプレゼント・大人気店のケーキ？＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 16,
+            "name": "千雪"
+        }
+    },
+    {
+        "eventId": 490190033,
+        "eventSourceData": {
+            "eventTitle": "あさひへのプレゼント・お菓子のつまったポーチ",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 17,
+            "name": "あさひ"
+        }
+    },
+    {
+        "eventId": 490190034,
+        "eventSourceData": {
+            "eventTitle": "あさひへのプレゼント・お菓子のつまったポーチ＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 17,
+            "name": "あさひ"
+        }
+    },
+    {
+        "eventId": 490190035,
+        "eventSourceData": {
+            "eventTitle": "冬優子へのプレゼント・アイスケーキ",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 18,
+            "name": "冬優子"
+        }
+    },
+    {
+        "eventId": 490190036,
+        "eventSourceData": {
+            "eventTitle": "冬優子へのプレゼント・アイスケーキ＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 18,
+            "name": "冬優子"
+        }
+    },
+    {
+        "eventId": 490190037,
+        "eventSourceData": {
+            "eventTitle": "愛依へのプレゼント・耳栓",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 19,
+            "name": "愛依"
+        }
+    },
+    {
+        "eventId": 490190038,
+        "eventSourceData": {
+            "eventTitle": "愛依へのプレゼント・耳栓＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 19,
+            "name": "愛依"
+        }
+    },
+    {
+        "eventId": 490190039,
+        "eventSourceData": {
+            "eventTitle": "透へのプレゼント・クッキー",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 20,
+            "name": "透"
+        }
+    },
+    {
+        "eventId": 490190040,
+        "eventSourceData": {
+            "eventTitle": "透へのプレゼント・クッキー＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 20,
+            "name": "透"
+        }
+    },
+    {
+        "eventId": 490190041,
+        "eventSourceData": {
+            "eventTitle": "円香へのプレゼント・ローズジュレのパフェ",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 21,
+            "name": "円香"
+        }
+    },
+    {
+        "eventId": 490190042,
+        "eventSourceData": {
+            "eventTitle": "円香へのプレゼント・ローズジュレのパフェ＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 21,
+            "name": "円香"
+        }
+    },
+    {
+        "eventId": 490190043,
+        "eventSourceData": {
+            "eventTitle": "小糸へのプレゼント・琥珀糖",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 22,
+            "name": "小糸"
+        }
+    },
+    {
+        "eventId": 490190044,
+        "eventSourceData": {
+            "eventTitle": "小糸へのプレゼント・琥珀糖＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 22,
+            "name": "小糸"
+        }
+    },
+    {
+        "eventId": 490190045,
+        "eventSourceData": {
+            "eventTitle": "雛菜へのプレゼント・宝石キャンディー",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 23,
+            "name": "雛菜"
+        }
+    },
+    {
+        "eventId": 490190046,
+        "eventSourceData": {
+            "eventTitle": "雛菜へのプレゼント・宝石キャンディー＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 23,
+            "name": "雛菜"
+        }
+    },
+    {
+        "eventId": 490190047,
+        "eventSourceData": {
+            "eventTitle": "にちかへのプレゼント・ハンドクリーム",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 24,
+            "name": "にちか"
+        }
+    },
+    {
+        "eventId": 490190048,
+        "eventSourceData": {
+            "eventTitle": "にちかへのプレゼント・ハンドクリーム＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 24,
+            "name": "にちか"
+        }
+    },
+    {
+        "eventId": 490190049,
+        "eventSourceData": {
+            "eventTitle": "美琴へのプレゼント・ガトーショコラ",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 25,
+            "name": "美琴"
+        }
+    },
+    {
+        "eventId": 490190050,
+        "eventSourceData": {
+            "eventTitle": "美琴へのプレゼント・ガトーショコラ＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 25,
+            "name": "美琴"
+        }
+    },
+    {
+        "eventId": 490190051,
+        "eventSourceData": {
+            "eventTitle": "ルカへのプレゼント・羊羹",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
+        "eventId": 490190052,
+        "eventSourceData": {
+            "eventTitle": "ルカへのプレゼント・羊羹＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
+        "eventId": 490190053,
+        "eventSourceData": {
+            "eventTitle": "羽那へのプレゼント・チョコクロワッサン",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
+        "eventId": 490190054,
+        "eventSourceData": {
+            "eventTitle": "羽那へのプレゼント・チョコクロワッサン＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
+        "eventId": 490190055,
+        "eventSourceData": {
+            "eventTitle": "はるきへのプレゼント・クッキーの詰め合わせ",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 490190056,
+        "eventSourceData": {
+            "eventTitle": "はるきへのプレゼント・クッキーの詰め合わせ＋♥",
+            "communicationCategory": "seasonal_present_event",
+            "eventType": "seasonal_present_event_10009",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
         "eventId": 490200101,
         "eventSourceData": {
             "eventTitle": "【櫻木 真乃】 誕生日ミニコミュ①",
@@ -23188,6 +24024,61 @@
         }
     },
     {
+        "eventId": 500200601,
+        "eventSourceData": {
+            "eventTitle": "二歩離れてお節介",
+            "communicationCategory": "unit_event",
+            "eventType": "6th_produce_area",
+            "eventName": null,
+            "idolId": 25,
+            "name": "美琴"
+        }
+    },
+    {
+        "eventId": 500200602,
+        "eventSourceData": {
+            "eventTitle": "ギブあんどthink",
+            "communicationCategory": "unit_event",
+            "eventType": "6th_produce_area",
+            "eventName": null,
+            "idolId": 25,
+            "name": "美琴"
+        }
+    },
+    {
+        "eventId": 500200603,
+        "eventSourceData": {
+            "eventTitle": "moonlit",
+            "communicationCategory": "unit_event",
+            "eventType": "6th_produce_area",
+            "eventName": null,
+            "idolId": 25,
+            "name": "美琴"
+        }
+    },
+    {
+        "eventId": 500200604,
+        "eventSourceData": {
+            "eventTitle": "一歩、まえ",
+            "communicationCategory": "unit_event",
+            "eventType": "6th_produce_area",
+            "eventName": null,
+            "idolId": 25,
+            "name": "美琴"
+        }
+    },
+    {
+        "eventId": 500200605,
+        "eventSourceData": {
+            "eventTitle": "きゅ　きゅ",
+            "communicationCategory": "unit_event",
+            "eventType": "6th_produce_area",
+            "eventName": null,
+            "idolId": 25,
+            "name": "美琴"
+        }
+    },
+    {
         "eventId": 500300201,
         "eventSourceData": {
             "eventTitle": "お疲れ様です",
@@ -23342,6 +24233,61 @@
         }
     },
     {
+        "eventId": 500300601,
+        "eventSourceData": {
+            "eventTitle": "あの時何にあったの？",
+            "communicationCategory": "unit_event",
+            "eventType": "6th_produce_area",
+            "eventName": null,
+            "idolId": 19,
+            "name": "愛依"
+        }
+    },
+    {
+        "eventId": 500300602,
+        "eventSourceData": {
+            "eventTitle": "偶然で偶然で偶然だから必然",
+            "communicationCategory": "unit_event",
+            "eventType": "6th_produce_area",
+            "eventName": null,
+            "idolId": 19,
+            "name": "愛依"
+        }
+    },
+    {
+        "eventId": 500300603,
+        "eventSourceData": {
+            "eventTitle": "アタシたち談義",
+            "communicationCategory": "unit_event",
+            "eventType": "6th_produce_area",
+            "eventName": null,
+            "idolId": 19,
+            "name": "愛依"
+        }
+    },
+    {
+        "eventId": 500300604,
+        "eventSourceData": {
+            "eventTitle": "わるい時間・番外編",
+            "communicationCategory": "unit_event",
+            "eventType": "6th_produce_area",
+            "eventName": null,
+            "idolId": 19,
+            "name": "愛依"
+        }
+    },
+    {
+        "eventId": 500300605,
+        "eventSourceData": {
+            "eventTitle": "彼女を知り私を知れば",
+            "communicationCategory": "unit_event",
+            "eventType": "6th_produce_area",
+            "eventName": null,
+            "idolId": 19,
+            "name": "愛依"
+        }
+    },
+    {
         "eventId": 500400201,
         "eventSourceData": {
             "eventTitle": "ワンス・アポン・ア・タイム",
@@ -23493,6 +24439,39 @@
             "eventName": null,
             "idolId": 16,
             "name": "千雪"
+        }
+    },
+    {
+        "eventId": 500400601,
+        "eventSourceData": {
+            "eventTitle": "１％の交点",
+            "communicationCategory": "unit_event",
+            "eventType": "6th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 500400602,
+        "eventSourceData": {
+            "eventTitle": "ふわふわとあったかい",
+            "communicationCategory": "unit_event",
+            "eventType": "6th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 500400603,
+        "eventSourceData": {
+            "eventTitle": "千雪さんと羽那ちゃん",
+            "communicationCategory": "unit_event",
+            "eventType": "6th_produce_area",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
         }
     },
     {
@@ -36465,6 +37444,28 @@
         }
     },
     {
+        "eventId": 4902006002,
+        "eventSourceData": {
+            "eventTitle": "【風野 灯織】 誕生日ミニコミュ⑥",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 2,
+            "name": "灯織"
+        }
+    },
+    {
+        "eventId": 4902006004,
+        "eventSourceData": {
+            "eventTitle": "【月岡 恋鐘】 誕生日ミニコミュ⑥",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 4,
+            "name": "恋鐘"
+        }
+    },
+    {
         "eventId": 4902006007,
         "eventSourceData": {
             "eventTitle": "【三峰 結華】 誕生日ミニコミュ⑥",
@@ -36484,6 +37485,17 @@
             "eventName": null,
             "idolId": 8,
             "name": "霧子"
+        }
+    },
+    {
+        "eventId": 4902006010,
+        "eventSourceData": {
+            "eventTitle": "【園田 智代子】 誕生日ミニコミュ⑥",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 10,
+            "name": "智代子"
         }
     },
     {
@@ -36542,6 +37554,17 @@
         }
     },
     {
+        "eventId": 4902006016,
+        "eventSourceData": {
+            "eventTitle": "【桑山 千雪】 誕生日ミニコミュ⑥",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 16,
+            "name": "千雪"
+        }
+    },
+    {
         "eventId": 4902006017,
         "eventSourceData": {
             "eventTitle": "【芹沢 あさひ】 誕生日ミニコミュ⑥",
@@ -36597,6 +37620,17 @@
         }
     },
     {
+        "eventId": 4902006023,
+        "eventSourceData": {
+            "eventTitle": "【市川 雛菜】 誕生日ミニコミュ⑤",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 23,
+            "name": "雛菜"
+        }
+    },
+    {
         "eventId": 4902006025,
         "eventSourceData": {
             "eventTitle": "【緋田 美琴】 誕生日ミニコミュ④",
@@ -36627,6 +37661,105 @@
             "eventName": null,
             "idolId": 27,
             "name": "羽那"
+        }
+    },
+    {
+        "eventId": 4902006028,
+        "eventSourceData": {
+            "eventTitle": "【郁田 はるき】 誕生日ミニコミュ➁",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 28,
+            "name": "はるき"
+        }
+    },
+    {
+        "eventId": 4902007001,
+        "eventSourceData": {
+            "eventTitle": "【櫻木 真乃】 誕生日ミニコミュ⑥",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 1,
+            "name": "真乃"
+        }
+    },
+    {
+        "eventId": 4902007003,
+        "eventSourceData": {
+            "eventTitle": "【八宮 めぐる】 誕生日ミニコミュ⑥",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 3,
+            "name": "めぐる"
+        }
+    },
+    {
+        "eventId": 4902007005,
+        "eventSourceData": {
+            "eventTitle": "【田中 摩美々】 誕生日ミニコミュ⑥",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 5,
+            "name": "摩美々"
+        }
+    },
+    {
+        "eventId": 4902007006,
+        "eventSourceData": {
+            "eventTitle": "【白瀬 咲耶】 誕生日ミニコミュ⑥",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 6,
+            "name": "咲耶"
+        }
+    },
+    {
+        "eventId": 4902007009,
+        "eventSourceData": {
+            "eventTitle": "【小宮 果穂】 誕生日ミニコミュ⑥",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 9,
+            "name": "果穂"
+        }
+    },
+    {
+        "eventId": 4902007019,
+        "eventSourceData": {
+            "eventTitle": "【和泉 愛依】 誕生日ミニコミュ⑦",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 19,
+            "name": "愛依"
+        }
+    },
+    {
+        "eventId": 4902007020,
+        "eventSourceData": {
+            "eventTitle": "【浅倉 透】 誕生日ミニコミュ⑥",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 20,
+            "name": "透"
+        }
+    },
+    {
+        "eventId": 4902007024,
+        "eventSourceData": {
+            "eventTitle": "【七草 にちか】 誕生日ミニコミュ⑤",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 24,
+            "name": "にちか"
         }
     },
     {
