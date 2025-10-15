@@ -69,10 +69,19 @@ async function init() {
         } else {
             //修改标记
             //jsonPath = prompt("input json path: ", "produce_events/202100711.json");
-            jsonPath = prompt("input json path: ", "special_communications/490210001.json"); //sandbox
+            jsonPath = prompt("input json path: ", "reaction_viewer"); //produce_events/380400103.json
 
             // eventId = jsonPath.split("/")[1].split(".")[0];
             // eventType = jsonPath.split("/")[0];
+
+            //修改标记 reacation viwer入口
+            // 例：检测特殊关键词“reaction_viewer”
+            // 请放在调用剧情加载逻辑之前
+            if (jsonPath === "reaction_viewer") {
+                ReactionViewer.init(); 
+                return; // 阻止剧情逻辑继续执行
+
+            }
 
             //修改标记 自动使用斜杠种类
             const parts = jsonPath.split(/[\/\\]/);
@@ -410,8 +419,7 @@ class AdvPlayer {
         let resizedX = global_ViewerWidth * ratio;
         // let resizedY = 640 * ratio;
         let resizedY = global_ViewerHeight * ratio;
-        
-        this._app.stage.scale.set(width/global_ViewerWidth,height/global_ViewerHeight);
+
         this._app.view.style.position = `absolute`;
         this._app.view.style.top = `50%`;
         this._app.view.style.left = `50%`;
@@ -452,7 +460,9 @@ class AdvPlayer {
         // this._app.stage.interactive = true;
         let touchToStart = this._Menu.touchToStart;
         touchToStart.anchor.set(0.5);
-        touchToStart.position.set(568, 500);
+        // 修改标记
+        // touchToStart.position.set(568, 500);
+        touchToStart.position.set(global_ViewerWidth * 0.5, global_ViewerHeight * 0.4);
         this._app.stage.addChild(touchToStart);
 
         this._interestedEvents.forEach((e) => {

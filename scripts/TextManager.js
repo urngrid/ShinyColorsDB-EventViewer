@@ -55,7 +55,7 @@ class TextManager {
             this._container.addChildAt(sc_logo, 0);
             sc_logo.anchor.set(1, 1);
             sc_logo.scale.set(1, 1);
-            sc_logo.position.set(global_XOffset + global_ViewerWidth - 40 , global_YOffset + global_YOffset_MainContents + 600);
+            sc_logo.position.set(global_XOffset + global_ViewerWidth - 70 , global_YOffset + global_YOffset_MainContents + 600);
             sc_logo.alpha = 0;
             const timeline = new TimelineMax();
 

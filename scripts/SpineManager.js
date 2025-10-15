@@ -49,33 +49,33 @@ class SpineManager {
         this._headScale_CONFIG_MAP = {
             default: { scale: 1, translate: { x: 0, y: 0 } },
 
-            mano: { scale: 0.91, translate: { x: 0, y: 0 } },
+            mano: { scale: 0.92, translate: { x: 0, y: 0 } },
             hiori: { scale: 0.92, translate: { x: 0, y: 0 } },
             meguru: { scale: 0.91, translate: { x: 0, y: 0 } },
 
-            kogane: { scale: 0.89, translate: { x: 0, y: 0 } },
-            mamimi: { scale: 0.91, translate: { x: 0, y: 0 } },
-            sakuya: { scale: 0.89, translate: { x: 0, y: 0 } },
+            kogane: { scale: 0.91, translate: { x: 0, y: 0 } },
+            mamimi: { scale: 0.92, translate: { x: 0, y: 0 } },
+            sakuya: { scale: 0.92, translate: { x: 0, y: 0 } },
             yuika: { scale: 0.89, translate: { x: 0, y: 0 } },
             kiriko: { scale: 0.91, translate: { x: 0, y: 0 } },
 
-            kaho: { scale: 0.91, translate: { x: 0, y: 0 } },
+            kaho: { scale: 0.89, translate: { x: 0, y: 0 } },
             chiyoko: { scale: 0.90, translate: { x: 0, y: 0 } },
             juri: { scale: 0.91, translate: { x: 0, y: 0 } },
-            rinze: { scale: 0.92, translate: { x: 0, y: 0 } },
+            rinze: { scale: 0.93, translate: { x: 0, y: 0 } },
             natsuha: { scale: 0.89, translate: { x: 0, y: 0 } },
 
-            amana: { scale: 0.88, translate: { x: 0, y: 0 } },
-            tenka: { scale: 0.88, translate: { x: 0, y: 0 } },
-            chiyuki: { scale: 0.88, translate: { x: 0, y: 0 } },
+            amana: { scale: 0.89, translate: { x: 0, y: 0 } },
+            tenka: { scale: 0.89, translate: { x: 0, y: 0 } },
+            chiyuki: { scale: 0.90, translate: { x: 0, y: 0 } },
 
             asahi: { scale: 0.89, translate: { x: 0, y: 0 } },
-            fuyuko: { scale: 0.9, translate: { x: 0, y: 0 } },
-            mei: { scale: 0.91, translate: { x: 0, y: 0 } },
+            fuyuko: { scale: 0.92, translate: { x: 0, y: 0 } },
+            mei: { scale: 0.93, translate: { x: 0, y: 0 } },
 
-            toru: { scale: 0.92, translate: { x: 0, y: 0 } },
+            toru: { scale: 0.93, translate: { x: 0, y: 0 } },
             madoka: { scale: 0.92, translate: { x: 0, y: 0 } },
-            koito: { scale: 0.92, translate: { x: 0, y: 0 } },
+            koito: { scale: 0.93, translate: { x: 0, y: 0 } },
             hinana: { scale: 0.91, translate: { x: 0, y: 0 } },
 
             nichika: { scale: 0.92, translate: { x: 0, y: 0 } },
@@ -99,24 +99,24 @@ class SpineManager {
             //  不同人数位置下 如果出现复数角色演出中先隐藏角色再位移缩放的话会很难捕捉正确的人数坐标，此项只是对于单人演出的最简单情况进行特例处理
             //角色淡出时会触发这个比例导致缩放闪烁，先注释掉
 
-            [1, 568, 568, 1.4, 100], //[人数, 原始x, 修正x, 缩放比例, y修正(负值向上 正值向下)]
+            [1, 568, 568, 1.67, 100], //[人数, 原始x, 修正x, 缩放比例, y修正(负值向上 正值向下)]
 
-            [1, 310, 310, 1.26, 40], //1人站2人位左
-            [1, 796, 826, 1.26, 40], //1人站2人位右
+            [1, 310, 310, 1.50, 120], //1人站2人位左
+            [1, 796, 826, 1.50, 120], //1人站2人位右
 
-            [1, 200, 200, 1.26, 40], // 1人站三人位左(另外2人暂时不在)
-            [1, 936, 936, 1.26, 40], // 1人站三人位右
+            [1, 200, 200, 1.50, 120], // 1人站三人位左(另外2人暂时不在)
+            [1, 936, 936, 1.50, 120], // 1人站三人位右
 
-            [2, 310, 310, 1.26, 40], // 二人左
-            [2, 796, 826, 1.26, 40], // 二人右修正二人对话特有的不对称 中心是568，
+            [2, 310, 310, 1.50, 200], // 二人左
+            [2, 796, 826, 1.50, 200], // 二人右修正二人对话特有的不对称 中心是568，
 
-            [2, 568, 568, 1.26, 40], // 2人站3人位 中
-            [2, 200, 200, 1.26, 40], // 左
-            [2, 936, 936, 1.26, 40], // 右
+            [2, 568, 568, 1.50, 200], // 2人站3人位 中
+            [2, 200, 200, 1.50, 200], // 左
+            [2, 936, 936, 1.50, 200], // 右
 
-            [3, 568, 568, 1.26, 40], // 3人中
-            [3, 200, 200, 1.26, 40], // 3人左
-            [3, 936, 936, 1.26, 40], // 3人右
+            [3, 568, 568, 1.20, 40], // 3人中
+            [3, 200, 200, 1.20, 40], // 3人左
+            [3, 936, 936, 1.20, 40], // 3人右
 
             [4, 150, 150, 1.2, -20], // 4人
             [4, 420, 420, 1.2, -20],
@@ -198,7 +198,7 @@ class SpineManager {
                 const neckBone = this._spineMap.get(char_uid).skeleton.findBone("neck");
                 neckBone.data.scaleX = config.scale;
                 neckBone.data.scaleY = config.scale;
-                neckBone.setToSetupPose;
+                neckBone.setToSetupPose();
             }
             ///
         }

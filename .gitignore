@@ -11,3 +11,4 @@ assets/*
 !assets/translateData_local/commu_data/CommuList_card.json
 !assets/translateData_local/commu_data/CommuList_idol.json
 !assets/translateData_local/commu_data/translated_title_data.csv
+!assets/data

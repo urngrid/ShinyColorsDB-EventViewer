@@ -58,7 +58,7 @@ class EffectManager {
                     if (effectLabel.includes("white") || effectLabel.includes("black")) {
                         thisEffect.beginFill(`0x000000`);
 
-                        thisEffect.drawRect(0, -60, effectTarget.width, global_ViewerHeight - YOffset); // -60代表 前景的人物spine有时会略微超出背景顶端(呆毛等) 需要略微向上扩展 的范围
+                        thisEffect.drawRect(0, -60, effectTarget.width, global_ViewerHeight - YOffset + 60); // -60代表 前景的人物spine有时会略微超出背景顶端(呆毛等) 需要略微向上扩展 的范围
 
                         thisEffect.endFill();
                     }
