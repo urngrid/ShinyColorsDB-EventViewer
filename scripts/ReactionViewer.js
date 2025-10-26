@@ -138,6 +138,10 @@
             });
             this.container.appendChild(panel);
             this.panel = panel;
+            // 适应移动端
+            const scale = window.innerWidth < 768 ? 0.5 : 1;
+            panel.style.transformOrigin = "top right";
+            panel.style.transform = `scale(${scale})`;
 
             // 折叠按钮
             const toggleBtn = document.createElement("button");
@@ -384,8 +388,8 @@
 
         _initPixi() {
             this.app = new PIXI.Application({
-                width: global_ViewerWidth,
-                height: global_ViewerHeight,
+                width: window.innerWidth,
+                height: window.innerHeight,
                 backgroundColor: parseInt(global_theme_color, 16),
                 antialias: false,
                 resolution: window.devicePixelRatio || 2,
@@ -484,15 +488,17 @@
         },
         _fitCurrentSpine() {
             if (!this.spine) return;
-
-            const w = this.app.renderer.width;
-            const h = this.app.renderer.height;
+            this.app.renderer.resize(window.innerWidth, window.innerHeight);
+            const w = this.app.screen.width;
+            const h = this.app.screen.height;
+            let ratio = Math.min(window.innerWidth / global_ViewerWidth, window.innerHeight / global_ViewerHeight);
+            console.log(ratio);
 
             // const bounds = this.spine.getLocalBounds();
 
             // 计算缩放，使角色整体适应容器
             // const scale = Math.min((w * 0.8) / bounds.width, (h * 0.8) / bounds.height);
-            this.spine.scale.set(1.6666); // this.spine.scale.set(scale);
+            this.spine.scale.set(1.6666 * ratio, 1.6666 * ratio); // this.spine.scale.set(scale);
 
             // 使用中心对齐
             // const centerY = bounds.y + bounds.height / 2;

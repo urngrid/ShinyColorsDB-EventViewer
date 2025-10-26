@@ -21,11 +21,11 @@ const fontTimeout = 3000; // control font loading time 放弃字体加载超时�
 
 // 修改标记 
 // 添加本地翻译文件目录
-const local_translate_CSV_path = './assets/translateData_local/csv_modified/';
+const local_translate_CSV_path = './assets/translateData_local/csv/';
 // 添加整合track注释记录
-const commuNote_CSV_path = './assets/translateData_local/CommuNote.csv';
+const commuNote_CSV_path = './assets/data/CommuNote.csv';
 //
-const commu_info_data_path = './assets/translateData_local/commu_data';
+const commu_info_data_path = './assets/data';
 
 //
 const global_XOffset = 0; //prev 142

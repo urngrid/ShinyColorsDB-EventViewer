@@ -1,14 +1,3 @@
 .gitattributes
 
-.note.txt
-
 *.md
-
-assets/*
-
-!assets/translateData_local/
-!assets/translateData_local/commu_data/CommuList_events.json
-!assets/translateData_local/commu_data/CommuList_card.json
-!assets/translateData_local/commu_data/CommuList_idol.json
-!assets/translateData_local/commu_data/translated_title_data.csv
-!assets/data

@@ -403,9 +403,9 @@ class EffectManager {
         this._container_titlePopup.addChild(title);
         this._container_titlePopup.addChild(titleTrans);
 
-        this._container_titlePopup.x = global_XOffset - 400;
-        this._container_titlePopup.y = global_YOffset - 120;
-        this._container_titlePopup.scale.set(1, 1);
+        this._container_titlePopup.x = global_XOffset - 400; //牌子位置
+        this._container_titlePopup.y = global_YOffset - 600;
+        this._container_titlePopup.scale.set(0.94, 0.94); //缩放
 
         if (!this._container.getChildAt(this._container_titlePopup)) {
             this._container.addChild(this._container_titlePopup);

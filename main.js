@@ -69,7 +69,7 @@ async function init() {
         } else {
             //修改标记
             //jsonPath = prompt("input json path: ", "produce_events/202100711.json");
-            jsonPath = prompt("input json path: ", "reaction_viewer"); //produce_events/380400103.json
+            jsonPath = prompt("input json path: ", "commu_selector") || "produce_events/380400103.json"; //produce_events/380400103.json
 
             // eventId = jsonPath.split("/")[1].split(".")[0];
             // eventType = jsonPath.split("/")[0];
@@ -78,9 +78,16 @@ async function init() {
             // 例：检测特殊关键词“reaction_viewer”
             // 请放在调用剧情加载逻辑之前
             if (jsonPath === "reaction_viewer") {
-                ReactionViewer.init(); 
+                ReactionViewer.init();
                 return; // 阻止剧情逻辑继续执行
+            }
 
+            //修改标记剧情选择页面入口
+            // 例：检测特殊关键词“visual_selector”
+            // 请放在调用剧情加载逻辑之前
+            if (jsonPath === "commu_selector") {
+                CommuSelector.init();
+                return;
             }
 
             //修改标记 自动使用斜杠种类
@@ -430,6 +437,15 @@ class AdvPlayer {
 
         this._app.renderer.resize(resizedX, resizedY);
         this._app.stage.scale.set(ratio, ratio);
+        console.log(
+            window.devicePixelRatio,
+            this._app.renderer.width,
+            this._app.renderer.height,
+            this._app.view.style.width,
+            this._app.view.style.height,
+            resizedX,
+            resizedY
+        );
     }
 
     start() {

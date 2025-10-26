@@ -174,7 +174,7 @@ class TrackManager {
                         if (this._eventData?.eventSourceData) {
                             this._effectManager.showEventTitlePopup(
                                 this._eventData.eventSourceData.eventTitle,
-                                this._eventData.eventSourceData.eventTitle_Trans || "", //|| "待翻译", //todo  eventTitle_Trans尚未处理
+                                this._eventData.eventSourceData.eventTitle_trans || "", //|| "待翻译", //todo  eventTitle_Trans尚未处理
                                 this._eventData.eventSourceData.eventType,
                                 this._eventData.eventSourceData.eventIcon,
                                 this._eventData.eventSourceData.cardNamePic,
@@ -847,9 +847,62 @@ class TrackManager {
             { name: "events", path: `${commu_info_data_path}/CommuList_events.json` },
         ];
 
+        // 加载翻译CSV数据并转换为映射表
+        const loadTranslations = async () => {
+            try {
+                const response = await fetch("assets/data/translated_title_data.csv");
+                if (!response.ok) {
+                    console.warn("翻译文件不存在或加载失败，将使用原始文本");
+                    return new Map();
+                }
+
+                const csvText = await response.text();
+                const lines = csvText
+                    .split("\n")
+                    .map((line) => line.trim())
+                    .filter((line) => line);
+                if (lines.length === 0) return new Map();
+
+                // 解析CSV表头
+                const headers = lines[0].split(",").map((h) => h.trim());
+                const idIndex = headers.indexOf("eventId");
+                const keyIndex = headers.indexOf("key");
+                const transIndex = headers.indexOf("trans");
+
+                // 验证必要列是否存在
+                if (idIndex === -1 || keyIndex === -1 || transIndex === -1) {
+                    console.error("翻译CSV格式不正确，缺少必要列");
+                    return new Map();
+                }
+
+                // 创建翻译映射: Map<eventId, Map<key, translation>>
+                const transMap = new Map();
+                for (let i = 1; i < lines.length; i++) {
+                    const parts = lines[i].split(",");
+                    const eventId = parts[idIndex]?.trim();
+                    const key = parts[keyIndex]?.trim();
+                    const trans = parts[transIndex]?.trim() || "";
+
+                    if (eventId && key) {
+                        if (!transMap.has(eventId)) {
+                            transMap.set(eventId, new Map());
+                        }
+                        transMap.get(eventId).set(key, trans);
+                    }
+                }
+                return transMap;
+            } catch (error) {
+                console.error("加载翻译数据失败:", error);
+                return new Map();
+            }
+        };
+
         // 定义一个内部异步函数来处理逻辑
         const fetchAndMatchEvent = async () => {
             try {
+                // 先加载翻译数据
+                const transMap = await loadTranslations();
+
                 const response = await fetch(`${commu_info_data_path}/CommuList_playlist.json`);
                 const playlistData = await response.json();
 
@@ -901,6 +954,27 @@ class TrackManager {
                         // 向 eventSourceData 中注入 "from" 字段
                         eventData.eventSourceData.from = name;
                         eventData.eventSourceData.eventPath = eventPath;
+
+                        // 注入翻译字段
+                        const currentEventId = eventData.eventId.toString();
+                        if (transMap.has(currentEventId)) {
+                            const keyTransMap = transMap.get(currentEventId);
+                            // 处理三个待翻译字段
+                            const fields = ["eventTitle", "cardName", "eventAlbumName"];
+                            fields.forEach((field) => {
+                                if (eventData.eventSourceData[field]) {
+                                    // 添加翻译字段（原字段名 + _trans）
+                                    eventData.eventSourceData[`${field}_trans`] = keyTransMap.get(field) || eventData.eventSourceData[field];
+                                }
+                            });
+                        } else {
+                            // 没有翻译数据时，翻译字段使用原始值
+                            ["eventTitle", "cardName", "eventAlbumName"].forEach((field) => {
+                                if (eventData.eventSourceData[field]) {
+                                    eventData.eventSourceData[`${field}_trans`] = "待翻译";
+                                }
+                            });
+                        }
 
                         if (name == "card") {
                             const iconId = eventData.eventSourceData.enzaId;
