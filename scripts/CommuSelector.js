@@ -84,21 +84,173 @@ var CommuSelector = (function () {
 
         const style = el("style");
         style.innerText = `
-.commu-root{position:fixed;inset:0;z-index:2147483646;background:linear-gradient(180deg,#0b1220,#0f1724);color:#fff;font-family:Inter,Roboto,Arial,sans-serif;display:flex;flex-direction:column;align-items:center;padding:20px;overflow-y:auto}
-.commu-title{font-size:22px;font-weight:700;margin-bottom:12px}
-.commu-main{width:100%;max-width:900px;display:flex;flex-direction:column;align-items:center;gap:16px}
-.type-select,.input-id,.fav-select{width:80%;max-width:400px;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.05);color:#fff;font-size:15px}
-.type-select option,.fav-select option{background:#0f1724;color:#fff}
-.digits-wrap{display:flex;gap:8px;align-items:flex-end;justify-content:center;overflow-x:auto;padding-bottom:12px;width:100%}
-.digit-col{width:50px;height:200px;background:rgba(255,255,255,0.05);border-radius:10px;display:flex;flex-direction:column;align-items:center;padding:8px;color:#fff}
-.digit-display{font-size:30px;font-weight:700;height:46px;line-height:46px}
-.btn-small{padding:6px 8px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:transparent;cursor:pointer;color:#fff}
-.preview-img{width:100%;height:260px;object-fit:contain;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))}
-.path-display{font-size:14px;opacity:0.9;word-break:break-all}
-.open-btn{padding:14px 18px;border-radius:14px;background:linear-gradient(90deg,#2dd4bf,#38bdf8);color:#022;cursor:pointer;border:none;font-weight:700;width:80%;max-width:400px;text-align:center}
-.small-muted{font-size:13px;opacity:0.85}
-.fetch-error{color:#ffb4b4}
-.fav-wrap{display:flex;flex-direction:column;align-items:flex-start;width:80%;max-width:400px;margin-top:8px;gap:4px}
+.commu-root {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483646;
+  background: linear-gradient(180deg,#0b1220,#0f1724);
+  color: #fff;
+  font-family: Inter,Roboto,Arial,sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.commu-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.commu-main {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.type-select {
+  width: 80%;
+  max-width: 400px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: #0b1220;
+  color: #fff;
+  font-size: 15px;
+}
+
+.input-id,.fav-select {
+  width: 80%;
+  max-width: 400px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-size: 15px;
+}
+
+/* ✅ 数字区域：自动根据屏幕宽度分配空间，无需滚动 */
+.digits-wrap {
+  display: flex;
+  justify-content: space-between; /* 每列平均分布 */
+  align-items: flex-end;
+  gap: 4px;
+  width: 100%;
+  max-width: 500px; /* 控制最大宽度，防止超展开 */
+  padding: 8px 0;
+  box-sizing: border-box;
+}
+
+/* ✅ 每个数字列：自动缩放以适应屏幕 */
+.digit-col {
+  flex: 1 1 0;
+  min-width: 0;
+  aspect-ratio: 1 / 3; /* 保持纵向比例 */
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.digit-display {
+  font-size: clamp(18px, 4vw, 26px); /* ✅ 自适应字体大小 */
+  font-weight: 700;
+  height: 1.6em;
+  line-height: 1.6em;
+}
+
+.btn-small {
+  padding: 4px 0;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: transparent;
+  cursor: pointer;
+  color: #fff;
+  font-size: clamp(12px, 2vw, 14px);
+}
+
+/* ✅ 适配超小屏幕（竖屏手机） */
+@media (max-width: 480px) {
+  .digits-wrap {
+    max-width: 100%;
+    gap: 3px;
+  }
+  .digit-col {
+    padding: 4px;
+    aspect-ratio: 1 / 2.8;
+  }
+  .digit-display {
+    font-size: clamp(16px, 5vw, 22px);
+  }
+  .btn-small {
+    font-size: clamp(10px, 2.5vw, 12px);
+  }
+}
+
+/* 其他部分保持不变 */
+.preview-img {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02));
+}
+.path-display {
+  font-size: 14px;
+  opacity: 0.9;
+  word-break: break-all;
+}
+.open-btn {
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: linear-gradient(90deg,#2dd4bf,#38bdf8);
+  color: #022;
+  cursor: pointer;
+  border: none;
+  font-weight: 700;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+}
+.small-muted {
+  font-size: 13px;
+  opacity: 0.85;
+}
+.fetch-error {
+  color: #ffb4b4;
+}
+.fav-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 80%;
+  max-width: 400px;
+  margin-top: 8px;
+  gap: 4px;
+}
+.fav-select {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.fav-select option {
+  background: #0b1220; /* 下拉展开时的选项背景 */
+  color: #fff;
+}
+
 `;
 
         document.head.appendChild(style);
@@ -141,6 +293,19 @@ var CommuSelector = (function () {
         main.appendChild(nameDisplay);
         main.appendChild(pathDisplay);
         main.appendChild(openBtn);
+
+        // === ReactionViewer 按钮 ===
+        const reactionBtn = document.createElement("button");
+        reactionBtn.className = "open-btn";
+        reactionBtn.style.background = "linear-gradient(90deg,#a78bfa,#38bdf8)";
+        reactionBtn.style.color = "#fff";
+        reactionBtn.textContent = "进入 Reaction Viewer";
+        reactionBtn.onclick = () => {
+            root.remove(); // 移除当前 CommuSelector
+            ReactionViewer.init();
+        };
+
+        main.appendChild(reactionBtn);
 
         // 添加清除 lastPath 按钮到 main 容器
         const clearBtn = document.createElement("button");
@@ -234,8 +399,6 @@ var CommuSelector = (function () {
                 col.appendChild(disp);
                 col.appendChild(down);
                 digitsWrap.appendChild(col);
-                // 绑定拖动
-                addDragControl(col, i);
             }
         }
 
@@ -346,49 +509,6 @@ var CommuSelector = (function () {
                 previewImg.src = "";
                 previewImg.style.transform = "";
             }
-        }
-
-        function addDragControl(col, index) {
-            let startY = 0;
-            let startVal = digitsState[index];
-
-            const onMouseMove = (e) => {
-                const delta = startY - e.clientY;
-                const step = Math.floor(delta / 300 / window.devicePixelRatio); // 每50px增加1
-                let newVal = (startVal + step) % 10;
-                if (newVal < 0) newVal += 10;
-                setDigit(index, newVal);
-            };
-
-            const onMouseUp = () => {
-                window.removeEventListener("mousemove", onMouseMove);
-                window.removeEventListener("mouseup", onMouseUp);
-            };
-
-            col.addEventListener("mousedown", (e) => {
-                startY = e.clientY;
-                startVal = digitsState[index];
-                window.addEventListener("mousemove", onMouseMove);
-                window.addEventListener("mouseup", onMouseUp);
-            });
-
-            // 移动端触摸支持
-            col.addEventListener("touchstart", (e) => {
-                startY = e.touches[0].clientY;
-                startVal = digitsState[index];
-            });
-
-            col.addEventListener("touchmove", (e) => {
-                const delta = startY - e.touches[0].clientY;
-                const step = Math.floor(delta / 20);
-                let newVal = (startVal + step) % 10;
-                if (newVal < 0) newVal += 10;
-                setDigit(index, newVal);
-            });
-
-            col.addEventListener("touchend", () => {
-                startY = 0;
-            });
         }
 
         openBtn.onclick = () => {

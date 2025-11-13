@@ -23716,6 +23716,303 @@
         }
     },
     {
+        "eventId": 490220022,
+        "eventSourceData": {
+            "eventTitle": "霧子（異世界）OP",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 8,
+            "name": "霧子"
+        }
+    },
+    {
+        "eventId": 490220023,
+        "eventSourceData": {
+            "eventTitle": "霧子（異世界）正解",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 8,
+            "name": "霧子"
+        }
+    },
+    {
+        "eventId": 490220024,
+        "eventSourceData": {
+            "eventTitle": "霧子（異世界）不正解",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 8,
+            "name": "霧子"
+        }
+    },
+    {
+        "eventId": 490220034,
+        "eventSourceData": {
+            "eventTitle": "凛世（異世界）OP",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 12,
+            "name": "凛世"
+        }
+    },
+    {
+        "eventId": 490220035,
+        "eventSourceData": {
+            "eventTitle": "凛世（異世界）正解",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 12,
+            "name": "凛世"
+        }
+    },
+    {
+        "eventId": 490220036,
+        "eventSourceData": {
+            "eventTitle": "凛世（異世界）不正解",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 12,
+            "name": "凛世"
+        }
+    },
+    {
+        "eventId": 490220037,
+        "eventSourceData": {
+            "eventTitle": "夏葉（異世界）OP",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 13,
+            "name": "夏葉"
+        }
+    },
+    {
+        "eventId": 490220038,
+        "eventSourceData": {
+            "eventTitle": "夏葉（異世界）正解",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 13,
+            "name": "夏葉"
+        }
+    },
+    {
+        "eventId": 490220039,
+        "eventSourceData": {
+            "eventTitle": "夏葉（異世界）不正解",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 13,
+            "name": "夏葉"
+        }
+    },
+    {
+        "eventId": 490220040,
+        "eventSourceData": {
+            "eventTitle": "甘奈（異世界）OP",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 14,
+            "name": "甘奈"
+        }
+    },
+    {
+        "eventId": 490220041,
+        "eventSourceData": {
+            "eventTitle": "甘奈（異世界）正解",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 14,
+            "name": "甘奈"
+        }
+    },
+    {
+        "eventId": 490220042,
+        "eventSourceData": {
+            "eventTitle": "甘奈（異世界）不正解",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 14,
+            "name": "甘奈"
+        }
+    },
+    {
+        "eventId": 490220061,
+        "eventSourceData": {
+            "eventTitle": "円香（異世界）OP",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 21,
+            "name": "円香"
+        }
+    },
+    {
+        "eventId": 490220062,
+        "eventSourceData": {
+            "eventTitle": "円香（異世界）正解",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 21,
+            "name": "円香"
+        }
+    },
+    {
+        "eventId": 490220063,
+        "eventSourceData": {
+            "eventTitle": "円香（異世界）不正解",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 21,
+            "name": "円香"
+        }
+    },
+    {
+        "eventId": 490220064,
+        "eventSourceData": {
+            "eventTitle": "小糸（異世界）OP",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 22,
+            "name": "小糸"
+        }
+    },
+    {
+        "eventId": 490220065,
+        "eventSourceData": {
+            "eventTitle": "小糸（異世界）正解",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 22,
+            "name": "小糸"
+        }
+    },
+    {
+        "eventId": 490220066,
+        "eventSourceData": {
+            "eventTitle": "小糸（異世界）不正解",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 22,
+            "name": "小糸"
+        }
+    },
+    {
+        "eventId": 490220073,
+        "eventSourceData": {
+            "eventTitle": "美琴（異世界）OP",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 25,
+            "name": "美琴"
+        }
+    },
+    {
+        "eventId": 490220074,
+        "eventSourceData": {
+            "eventTitle": "美琴（異世界）正解",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 25,
+            "name": "美琴"
+        }
+    },
+    {
+        "eventId": 490220075,
+        "eventSourceData": {
+            "eventTitle": "美琴（異世界）不正解",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 25,
+            "name": "美琴"
+        }
+    },
+    {
+        "eventId": 490220076,
+        "eventSourceData": {
+            "eventTitle": "ルカ（異世界）OP",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
+        "eventId": 490220077,
+        "eventSourceData": {
+            "eventTitle": "ルカ（異世界）正解",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
+        "eventId": 490220078,
+        "eventSourceData": {
+            "eventTitle": "ルカ（異世界）不正解",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 26,
+            "name": "ルカ"
+        }
+    },
+    {
+        "eventId": 490220079,
+        "eventSourceData": {
+            "eventTitle": "羽那（異世界）OP",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
+        "eventId": 490220080,
+        "eventSourceData": {
+            "eventTitle": "羽那（異世界）正解",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
+        "eventId": 490220081,
+        "eventSourceData": {
+            "eventTitle": "羽那（異世界）不正解",
+            "communicationCategory": "special_communication",
+            "eventType": "hit_and_blow_event_50058",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
+        }
+    },
+    {
         "eventId": 500100201,
         "eventSourceData": {
             "eventTitle": "始まり、もう一度",
@@ -23867,6 +24164,50 @@
             "eventName": null,
             "idolId": 3,
             "name": "めぐる"
+        }
+    },
+    {
+        "eventId": 500100601,
+        "eventSourceData": {
+            "eventTitle": "風、走走",
+            "communicationCategory": "unit_event",
+            "eventType": "6th_produce_area",
+            "eventName": null,
+            "idolId": 22,
+            "name": "小糸"
+        }
+    },
+    {
+        "eventId": 500100602,
+        "eventSourceData": {
+            "eventTitle": "deja vu",
+            "communicationCategory": "unit_event",
+            "eventType": "6th_produce_area",
+            "eventName": null,
+            "idolId": 22,
+            "name": "小糸"
+        }
+    },
+    {
+        "eventId": 500100603,
+        "eventSourceData": {
+            "eventTitle": "波音のすきま",
+            "communicationCategory": "unit_event",
+            "eventType": "6th_produce_area",
+            "eventName": null,
+            "idolId": 22,
+            "name": "小糸"
+        }
+    },
+    {
+        "eventId": 500100604,
+        "eventSourceData": {
+            "eventTitle": "そう、聞こえたから",
+            "communicationCategory": "unit_event",
+            "eventType": "6th_produce_area",
+            "eventName": null,
+            "idolId": 22,
+            "name": "小糸"
         }
     },
     {
@@ -37719,6 +38060,17 @@
         }
     },
     {
+        "eventId": 4902007008,
+        "eventSourceData": {
+            "eventTitle": "【幽谷 霧子】 誕生日ミニコミュ⑦",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 8,
+            "name": "霧子"
+        }
+    },
+    {
         "eventId": 4902007009,
         "eventSourceData": {
             "eventTitle": "【小宮 果穂】 誕生日ミニコミュ⑥",
@@ -37727,6 +38079,28 @@
             "eventName": null,
             "idolId": 9,
             "name": "果穂"
+        }
+    },
+    {
+        "eventId": 4902007012,
+        "eventSourceData": {
+            "eventTitle": "【杜野 凛世】 誕生日ミニコミュ⑦",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 12,
+            "name": "凛世"
+        }
+    },
+    {
+        "eventId": 4902007013,
+        "eventSourceData": {
+            "eventTitle": "【有栖川 夏葉】 誕生日ミニコミュ⑦",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 13,
+            "name": "夏葉"
         }
     },
     {
@@ -37752,6 +38126,28 @@
         }
     },
     {
+        "eventId": 4902007021,
+        "eventSourceData": {
+            "eventTitle": "【樋口 円香】 誕生日ミニコミュ⑥",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 21,
+            "name": "円香"
+        }
+    },
+    {
+        "eventId": 4902007022,
+        "eventSourceData": {
+            "eventTitle": "【福丸 小糸】 誕生日ミニコミュ⑥",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 22,
+            "name": "小糸"
+        }
+    },
+    {
         "eventId": 4902007024,
         "eventSourceData": {
             "eventTitle": "【七草 にちか】 誕生日ミニコミュ⑤",
@@ -37760,6 +38156,28 @@
             "eventName": null,
             "idolId": 24,
             "name": "にちか"
+        }
+    },
+    {
+        "eventId": 4902007025,
+        "eventSourceData": {
+            "eventTitle": "【緋田 美琴】 誕生日ミニコミュ⑤",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 25,
+            "name": "美琴"
+        }
+    },
+    {
+        "eventId": 4902007027,
+        "eventSourceData": {
+            "eventTitle": "【鈴木 羽那】 誕生日ミニコミュ②",
+            "communicationCategory": "birthday_event",
+            "eventType": "birthday_event",
+            "eventName": null,
+            "idolId": 27,
+            "name": "羽那"
         }
     },
     {

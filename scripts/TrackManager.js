@@ -184,13 +184,23 @@ class TrackManager {
                         } else {
                             this._effectManager.showEventTitlePopup("clear");
                         }
-
-                        this._renderTrack();
+                        //修改标记 载入自定义spine
+                        this._checkModifiedSpineAssets(() => {
+                            this._renderTrack();
+                        });
+                        //
+                        // this._renderTrack();
                     })
                     .catch((error) => {
                         console.error("Error loading event JSON title:", error);
 
-                        this._renderTrack();
+                        //修改标记 载入自定义spine
+                        this._checkModifiedSpineAssets(() => {
+                            this._renderTrack();
+                        });
+                        //
+
+                        // this._renderTrack();
                     });
                 ////
                 // this._renderTrack();
@@ -308,6 +318,7 @@ class TrackManager {
                 this._loader.add(`${charLabel}_${charId}_${thisCharCategory}`, `${assetUrl}/spine/${charType}/${thisCharCategory}/${charId}/data.json`);
             }
         }
+
         if (select && !this._loader.resources[`selectFrame${this._selectManager.neededFrame}`]) {
             this._loader.add(`selectFrame${this._selectManager.neededFrame}`, `${assetUrl}/images/event/select_frame/00${this._selectManager.neededFrame}.png`);
             if (this._translateJson) {
@@ -1129,5 +1140,52 @@ class TrackManager {
 
         // 调用内部异步函数
         return fetchAndMatchEvent();
+    }
+
+    // 检查并加载修改版 Spine，加载完成后执行 callback
+    _checkModifiedSpineAssets(callback) {
+        const promises = [];
+
+        Object.keys(this._loader.resources).forEach((key) => {
+            const res = this._loader.resources[key];
+            if (!res) return;
+
+            // 只处理 spine JSON
+            if (res.spineData) {
+                const spineKey = key;
+                const modifiedJsonUrl = res.url.replace(/.*\/spine\//, "./assets/spine_modified/");
+
+                const p = fetch(modifiedJsonUrl, { method: "HEAD" })
+                    .then((response) => {
+                        if (!response.ok) return;
+
+                        console.log(`✅ 发现修改版 Spine JSON: ${modifiedJsonUrl}`);
+
+                        // 找到所有关联 key
+                        const relatedKeys = Object.keys(this._loader.resources).filter((k) => k.includes(spineKey));
+
+                        // 直接删除资源，不手动破坏属性
+                        relatedKeys.forEach((k) => {
+                            delete this._loader.resources[k];
+                            console.log(`🗑 删除旧资源: ${k}`);
+                        });
+
+                        // 添加修改版 JSON（Pixi Loader 会自动加载 atlas/png）
+                        return new Promise((resolve) => {
+                            this._loader.add(spineKey, modifiedJsonUrl).load(() => {
+                                console.log(`🔄 修改版 Spine 完整加载完成: ${spineKey}`);
+                                resolve();
+                            });
+                        });
+                    })
+                    .catch(() => {}); // 修改版不存在则忽略
+
+                promises.push(p);
+            }
+        });
+
+        Promise.all(promises).then(() => {
+            if (callback) callback();
+        });
     }
 }

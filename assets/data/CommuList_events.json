@@ -6870,6 +6870,86 @@
         }
     },
     {
+        "eventId": 400108701,
+        "eventSourceData": {
+            "eventTitle": "ある秋の日のこと",
+            "eventIndexName": "オープニング",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "ちいさな星にスポットライトを",
+            "albumId": "158"
+        }
+    },
+    {
+        "eventId": 400108702,
+        "eventSourceData": {
+            "eventTitle": "すごい、ね",
+            "eventIndexName": "第1話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "ちいさな星にスポットライトを",
+            "albumId": "158"
+        }
+    },
+    {
+        "eventId": 400108703,
+        "eventSourceData": {
+            "eventTitle": "空に瞬く星みっつ",
+            "eventIndexName": "第2話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "ちいさな星にスポットライトを",
+            "albumId": "158"
+        }
+    },
+    {
+        "eventId": 400108704,
+        "eventSourceData": {
+            "eventTitle": "あなたの力になりたい",
+            "eventIndexName": "第3話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "ちいさな星にスポットライトを",
+            "albumId": "158"
+        }
+    },
+    {
+        "eventId": 400108705,
+        "eventSourceData": {
+            "eventTitle": "イルミネーションは想いの数だけ",
+            "eventIndexName": "第4話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "ちいさな星にスポットライトを",
+            "albumId": "158"
+        }
+    },
+    {
+        "eventId": 400108706,
+        "eventSourceData": {
+            "eventTitle": "あなたの一歩を",
+            "eventIndexName": "第5話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "ちいさな星にスポットライトを",
+            "albumId": "158"
+        }
+    },
+    {
+        "eventId": 400108707,
+        "eventSourceData": {
+            "eventTitle": "ちいさな星にスポットライトを",
+            "eventIndexName": "第6話",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "ちいさな星にスポットライトを",
+            "albumId": "158"
+        }
+    },
+    {
+        "eventId": 400108708,
+        "eventSourceData": {
+            "eventTitle": "飛び込む勇気に喝采を",
+            "eventIndexName": "エンディング",
+            "eventType": "produce_marathon",
+            "eventAlbumName": "ちいさな星にスポットライトを",
+            "albumId": "158"
+        }
+    },
+    {
         "eventId": 490100101,
         "eventSourceData": {
             "eventTitle": "恋鐘と甘奈",

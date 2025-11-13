@@ -404,7 +404,7 @@ class EffectManager {
         this._container_titlePopup.addChild(titleTrans);
 
         this._container_titlePopup.x = global_XOffset - 400; //牌子位置
-        this._container_titlePopup.y = global_YOffset - 600;
+        this._container_titlePopup.y = global_YOffset - 400;
         this._container_titlePopup.scale.set(0.94, 0.94); //缩放
 
         if (!this._container.getChildAt(this._container_titlePopup)) {
@@ -437,7 +437,7 @@ class EffectManager {
         });
 
         // 低速移动阶段（后 2.2 秒）
-        timeline.to(this._container_titlePopup, 2.2, {
+        timeline.to(this._container_titlePopup, 1.2, { //改为1.2秒避免遮挡文字 比起还原原作演出时长优先可视效果
             x: 80, // 最终目标位置
             ease: Power4.easeOut,
             onUpdate: roundXPosition, // 每帧更新时将 x 坐标取整
