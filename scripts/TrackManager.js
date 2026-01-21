@@ -587,7 +587,7 @@ class TrackManager {
         //排除非稳定态的track 更新显示人数标记 只在角色人数稳定时进行角色坐标和缩放的调整
 
         if (charAnim1) {
-            if ((textFrame === "off" && waitTime !== undefined) || textFrame !== "off" || waitTime !== undefined) {
+            if ((textFrame === "off" && (waitTime !== undefined || charEffect.time !== undefined)) || textFrame !== "off" || waitTime !== undefined) {
                 this._charaSpineCount_Stable = this._spineManager._charaSpineCount;
                 this._spineManager.adjustSpine(
                     this._charaSpineCount_Stable,

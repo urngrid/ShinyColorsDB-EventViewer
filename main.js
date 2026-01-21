@@ -83,10 +83,16 @@ async function init() {
             }
 
             //修改标记剧情选择页面入口
-            // 例：检测特殊关键词“visual_selector”
+            // 例：检测特殊关键词“commu_selector”
             // 请放在调用剧情加载逻辑之前
             if (jsonPath === "commu_selector") {
                 CommuSelector.init();
+                return;
+            }
+
+            //修改标记 剧本文本阅读器入口
+            if (jsonPath === "script_reader") {
+                ScriptReader.init();
                 return;
             }
 

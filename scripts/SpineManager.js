@@ -46,53 +46,7 @@ class SpineManager {
         // 补偿角色头部缩小后以原始比例显示时显小的 补偿全身放大系数
         this._spineScaleRatioWhenFgCovering = 1.066;
 
-        this._headScale_CONFIG_MAP = {
-            default: { scale: 1, translate: { x: 0, y: 0 } },
 
-            mano: { scale: 0.92, translate: { x: 0, y: 0 } },
-            hiori: { scale: 0.92, translate: { x: 0, y: 0 } },
-            meguru: { scale: 0.91, translate: { x: 0, y: 0 } },
-
-            kogane: { scale: 0.91, translate: { x: 0, y: 0 } },
-            mamimi: { scale: 0.92, translate: { x: 0, y: 0 } },
-            sakuya: { scale: 0.92, translate: { x: 0, y: 0 } },
-            yuika: { scale: 0.89, translate: { x: 0, y: 0 } },
-            kiriko: { scale: 0.91, translate: { x: 0, y: 0 } },
-
-            kaho: { scale: 0.89, translate: { x: 0, y: 0 } },
-            chiyoko: { scale: 0.90, translate: { x: 0, y: 0 } },
-            juri: { scale: 0.91, translate: { x: 0, y: 0 } },
-            rinze: { scale: 0.93, translate: { x: 0, y: 0 } },
-            natsuha: { scale: 0.89, translate: { x: 0, y: 0 } },
-
-            amana: { scale: 0.89, translate: { x: 0, y: 0 } },
-            tenka: { scale: 0.89, translate: { x: 0, y: 0 } },
-            chiyuki: { scale: 0.90, translate: { x: 0, y: 0 } },
-
-            asahi: { scale: 0.89, translate: { x: 0, y: 0 } },
-            fuyuko: { scale: 0.92, translate: { x: 0, y: 0 } },
-            mei: { scale: 0.93, translate: { x: 0, y: 0 } },
-
-            toru: { scale: 0.93, translate: { x: 0, y: 0 } },
-            madoka: { scale: 0.92, translate: { x: 0, y: 0 } },
-            koito: { scale: 0.93, translate: { x: 0, y: 0 } },
-            hinana: { scale: 0.91, translate: { x: 0, y: 0 } },
-
-            nichika: { scale: 0.92, translate: { x: 0, y: 0 } },
-            mikoto: { scale: 0.91, translate: { x: 0, y: 0 } },
-
-            luca: { scale: 0.92, translate: { x: 0, y: 0 } },
-            hana: { scale: 0.93, translate: { x: 0, y: 0 } },
-            haruki: { scale: 0.91, translate: { x: 0, y: 0 } },
-
-            hazuki: { scale: 0.89, translate: { x: 0, y: 0 } },
-
-            ruby: { scale: 0.93, translate: { x: 0, y: 0 } },
-            kana: { scale: 0.91, translate: { x: 0, y: 0 } },
-            mem: { scale: 0.92, translate: { x: 0, y: 0 } },
-
-            akane: { scale: 0.9, translate: { x: 0, y: 0 } },
-        };
 
         this._positionMapArray = [
             //[0, 568, 568, 1.4, 100], //捕捉角色隐藏后进行操作的脚本 很可能引入问题 需要观察具体脚本处理
@@ -194,7 +148,7 @@ class SpineManager {
             const baseCharName = charLabel.replace(/(\d+)$/, ""); //覆盖rinze2等一个commu中有不同服装的spine的场合 去除末尾的1个数字
 
             if (this._needsHeadBodyRatioModify) {
-                const config = this._headScale_CONFIG_MAP[baseCharName] || this._headScale_CONFIG_MAP.default;
+                const config = global_headScale_CONFIG_MAP[baseCharName] || global_headScale_CONFIG_MAP.default;
                 const neckBone = this._spineMap.get(char_uid).skeleton.findBone("neck");
                 neckBone.data.scaleX = config.scale;
                 neckBone.data.scaleY = config.scale;

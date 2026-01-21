@@ -6,6 +6,7 @@ CommuSelector.js - 完整版本整合
 - ID支持分位点击/拖拽及直接输入
 - game_event_communications类别时ID更新通过 /assets/data/CommuList_events.json 获取信息
 - 显示格式为 indexname:title，并显示对应标题图
+- 新增：跳转至 ScriptReader 功能
 */
 
 var CommuSelector = (function () {
@@ -299,13 +300,44 @@ var CommuSelector = (function () {
         reactionBtn.className = "open-btn";
         reactionBtn.style.background = "linear-gradient(90deg,#a78bfa,#38bdf8)";
         reactionBtn.style.color = "#fff";
+        reactionBtn.style.marginTop = "8px";
         reactionBtn.textContent = "进入 Reaction Viewer";
         reactionBtn.onclick = () => {
             root.remove(); // 移除当前 CommuSelector
-            ReactionViewer.init();
+            if (window.ReactionViewer) {
+                ReactionViewer.init();
+            } else {
+                alert("ReactionViewer 模块未加载");
+            }
         };
 
         main.appendChild(reactionBtn);
+
+        // === ScriptReader 按钮 ===
+        const scriptBtn = document.createElement("button");
+        scriptBtn.className = "open-btn";
+        scriptBtn.style.background = "linear-gradient(90deg, #34d399, #3b82f6)"; // 蓝绿色渐变
+        scriptBtn.style.color = "#fff";
+        scriptBtn.style.marginTop = "8px";
+        scriptBtn.textContent = "进入 Script Reader";
+        scriptBtn.onclick = () => {
+            // 1. 保存当前选择的路径到缓存
+            const id = padId(getEventIdFromDigits(), digits);
+            const pathType = TYPE_TO_PATH[selectedType] || selectedType;
+            localStorage.setItem(STORAGE_KEY, `${pathType}/${id}.json`);
+
+            // 2. 移除当前界面
+            root.remove();
+
+            // 3. 调用 ScriptReader
+            if (window.ScriptReader) {
+                ScriptReader.init();
+            } else {
+                alert("ScriptReader 模块未加载");
+            }
+        };
+
+        main.appendChild(scriptBtn);
 
         // 添加清除 lastPath 按钮到 main 容器
         const clearBtn = document.createElement("button");
